@@ -5,6 +5,10 @@ public class Plot {
     private int daysLeftToHarvest;
     private Products productOnPlot;
 
+    public boolean isEmpty(){return productOnPlot == null;}
+
+    public String getProductName(){return productOnPlot.getName();}
+
     public int getDaysLeftToHarvest() {
         return daysLeftToHarvest;
     }
