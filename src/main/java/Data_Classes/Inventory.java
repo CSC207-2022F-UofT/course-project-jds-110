@@ -1,10 +1,11 @@
 package Data_Classes;
-import java.util.ArrayList;
+// import java.util.ArrayList;
+import java.util.HashMap;
 
 public class Inventory {
     private int myMoney;
 
-    private ArrayList<Products> myItems;
+    private HashMap<Products, Integer> myItems;
 
     public int getMyMoney() {
         return myMoney;
@@ -21,7 +22,7 @@ public class Inventory {
         return;
     }
 
-    public ArrayList<Products> getMyItems() {
+    public HashMap<Products, Integer> getMyItems() {
         return myItems;
     }
 
