@@ -1,10 +1,13 @@
-package Data_Classes;
+package Entities;
 
 public class Plot {
 
     private int daysLeftToHarvest;
-    private Products productOnPlot;
+    private Product productOnPlot;
 
+    public boolean isEmpty(){return productOnPlot == null;}
+
+    public String getProductName(){return productOnPlot.getName();}
     public int getDaysLeftToHarvest() {
         return daysLeftToHarvest;
     }
