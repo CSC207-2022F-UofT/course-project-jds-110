@@ -1,4 +1,4 @@
-package Data_Classes;
+package Entities;
 
 public interface Yieldable {
 }
