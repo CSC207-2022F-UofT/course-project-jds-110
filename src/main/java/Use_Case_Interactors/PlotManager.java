@@ -1,7 +1,6 @@
-package Use_Cases;
+package Use_Case_Interactors;
 import Entities.Plot;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PlotManager {
@@ -20,4 +19,9 @@ public class PlotManager {
         myPlots.add(new Plot(newPlotId));
         // create a new plot instance and add it to myPLOTS
     }
+
+    public static int getPlotValue(){
+        return Plot.getValue();
+    }
+
 }

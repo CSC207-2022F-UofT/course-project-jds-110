@@ -1,4 +1,4 @@
-package Use_Cases;
+package Use_Case_Interactors;
 import Entities.Inventory;
 import Entities.Product;
 
@@ -15,11 +15,11 @@ public class InventoryManager {
         return myInventory.getMyMoney();
     }
 
-    public void removeMoney(int amount) {
+    public static void removeMoney(int amount) {
         myInventory.removeMoney(amount);
     }
 
-    public void addMoney(int amount){
+    public static void addMoney(int amount){
         myInventory.addMoney(amount);
     }
 
