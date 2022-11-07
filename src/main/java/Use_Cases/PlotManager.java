@@ -1,6 +1,7 @@
 package Use_Cases;
 import Entities.Plot;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class PlotManager {
@@ -15,6 +16,8 @@ public class PlotManager {
     }
 
     public static void createNewPlot(){
+        int newPlotId = myPlots.size() - 1;
+        myPlots.add(new Plot(newPlotId));
         // create a new plot instance and add it to myPLOTS
     }
 }

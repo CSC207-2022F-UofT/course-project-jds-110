@@ -5,6 +5,12 @@ public class Plot {
     private int daysLeftToHarvest;
     private Product productOnPlot;
 
+    private int plotId;
+
+    public Plot(int plotID){
+        plotId = plotID;
+    }
+
     public boolean isEmpty(){return productOnPlot == null;}
 
     public String getProductName(){return productOnPlot.getName();}
@@ -13,11 +19,12 @@ public class Plot {
     }
 
     public void incrementProgress() {
-        // TO DO
+        daysLeftToHarvest -= 1;
     }
 
-    public void place(){
-        // TO DO
+    public void place(Product product){
+        daysLeftToHarvest = product.getDaysToYield();
+        productOnPlot = product;
     }
 
     public String harvest() {
