@@ -28,6 +28,10 @@ public class Leaderboard {
                 LeaderboardPlace newPlace = new LeaderboardPlace(loadedMoney, loadedFarmName);
                 standings.add(i, newPlace);
             }
+            ArrayList<String> currFarmsNames = currFarm.getFarmNames();
+            if (currFarmsNames.contains(loadedFarmName)) {
+                standings.remove(i);
+            }
         }
     }
 
