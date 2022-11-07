@@ -1,4 +1,4 @@
-package Use_Cases;
+package Use_Case_Interactors;
 import Entities.Inventory;
 import Entities.Product;
 
