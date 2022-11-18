@@ -58,6 +58,6 @@ public class Shopper {
     }
 
     private static boolean check_valid_sale(Product item, Integer quantity){
-        return ((item instanceof Yieldable) & InventoryManager.removeItem(item, quantity));
+        return ((item instanceof Yieldable) & InventoryManager.checkIfAvailable(item, quantity));
     }
 }

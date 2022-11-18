@@ -23,6 +23,10 @@ public class InventoryManager {
         myInventory.addMoney(amount);
     }
 
+    public static boolean checkIfAvailable(Product item, int amount){
+        return myInventory.getMyItems().get(item) >= amount;
+    }
+
 
     public static void addItem(Product item, int amount) {
         if (myInventory.getMyItems().containsKey(item)){
