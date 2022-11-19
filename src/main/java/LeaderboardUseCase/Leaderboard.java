@@ -31,6 +31,7 @@ public class Leaderboard {
             ArrayList<String> currFarmsNames = currFarm.getFarmNames();
             if (currFarmsNames.contains(loadedFarmName)) {
                 standings.remove(i);
+                return;
             }
         }
     }
