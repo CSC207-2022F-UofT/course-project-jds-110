@@ -1,6 +1,6 @@
 package LeaderboardUseCase;
 
-import Use_Cases.InventoryManager;
+import Use_Case_Interactors.InventoryManager;
 
 import java.util.ArrayList;
 
@@ -11,7 +11,7 @@ public class Leaderboard {
 
     public static ArrayList<LeaderboardPlace> getLeaderboard(){
         int currMoney = InventoryManager.getMyInventoryMoney();
-        String name = state.getname(); // **make sure call to state is correct
+        String name = InventoryManager.getFarmname(); // **make sure call to state is correct
         updateLeaderboard(currMoney, name);
         return standings;
     }

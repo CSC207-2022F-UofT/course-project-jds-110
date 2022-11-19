@@ -8,6 +8,8 @@ public class InventoryManager {
     private static int rent = 100;
     private static Inventory myInventory = new Inventory();
 
+    private static String farmname;
+
     public static HashMap<Product, Integer> getMyInventoryItems() {
         return myInventory.getMyItems();
     }
@@ -20,14 +22,22 @@ public class InventoryManager {
         return myInventory.getMyMoney();
     }
 
-    public void removeMoney(int amount) {
+    public static void removeMoney(int amount) {
         myInventory.removeMoney(amount);
     }
 
-    public void addMoney(int amount){
+    public static void addMoney(int amount){
         myInventory.addMoney(amount);
     }
 
+    public static void setFarmname(String newname) {
+        farmname = newname;
+    }
+
+
+    public static String getFarmname() {
+        return farmname;
+    }
 
     public static void addItem(Product item, int amount) {
         if (myInventory.getMyItems().containsKey(item)){
