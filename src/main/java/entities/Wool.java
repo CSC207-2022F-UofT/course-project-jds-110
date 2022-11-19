@@ -1,6 +1,6 @@
-package Entities;
+package entities;
 
-public class Wool extends Product implements Yieldable {
+public class Wool extends Product {
     private static final String name = "Wool";
     private static final int value = 12;
 }

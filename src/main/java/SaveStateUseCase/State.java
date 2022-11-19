@@ -1,10 +1,10 @@
 package SaveStateUseCase;
 
 
-import Entities.Inventory;
-import Entities.Plot;
-import Use_Case_Interactors.InventoryManager;
-import Use_Case_Interactors.PlotManager;
+import entities.Inventory;
+import entities.Plot;
+import use_case_interactors.InventoryManager;
+import use_case_interactors.PlotManager;
 
 import java.io.*;
 import java.util.ArrayList;

@@ -1,5 +1,4 @@
-package Entities;
-import java.util.ArrayList;
+package entities;
 import java.util.HashMap;
 
 public class Inventory {
