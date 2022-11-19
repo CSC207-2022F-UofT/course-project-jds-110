@@ -1,6 +1,6 @@
 package entities;
 
-public class Potato implements Yieldable {
+public class Potato extends Crop implements Yieldable {
     private static final String name = "Potato(es)";
     private static final int value = 7;
 
