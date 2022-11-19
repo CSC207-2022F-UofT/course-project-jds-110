@@ -1,6 +1,12 @@
 package LeaderboardUseCase;
 
+import java.util.ArrayList;
+
 public class LeaderboardController {
 
-        // todo: implement
+    private static ArrayList<LeaderboardPlace> theLeaderboard;
+
+    public void gettheLeaderboard() {
+        theLeaderboard = Leaderboard.getLeaderboard();
+    }
 }

@@ -11,7 +11,7 @@ public class Leaderboard {
 
     public static ArrayList<LeaderboardPlace> getLeaderboard(){
         int currMoney = InventoryManager.getMyInventoryMoney();
-        String name = InventoryManager.getFarmname(); // **make sure call to state is correct
+        String name = InventoryManager.getFarmname();
         updateLeaderboard(currMoney, name);
         return standings;
     }
