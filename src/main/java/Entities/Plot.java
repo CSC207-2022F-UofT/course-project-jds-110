@@ -14,6 +14,8 @@ public class Plot {
     public boolean isEmpty(){return productOnPlot == null;}
 
     public String getProductName(){return productOnPlot.getName();}
+
+    public StringBuilder getProductEmoji(){return productOnPlot.getEmoji();}
     public int getDaysLeftToHarvest() {
         return daysLeftToHarvest;
     }

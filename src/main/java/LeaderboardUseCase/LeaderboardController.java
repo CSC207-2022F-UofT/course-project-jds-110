@@ -6,7 +6,7 @@ public class LeaderboardController {
 
     private static ArrayList<LeaderboardPlace> theLeaderboard;
 
-    public void gettheLeaderboard() {
+    public void whatIsTheLeaderboard() {
         theLeaderboard = Leaderboard.getLeaderboard();
     }
 }
