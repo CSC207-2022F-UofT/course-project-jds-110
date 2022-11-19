@@ -1,28 +1,8 @@
-package EndGameConditions_UseCase;
+package endgameconditions_feature;
 
-import Use_Cases.InventoryManager;
+import Use_Case_Interactors.InventoryManager;
 
 public class EndgameConditions {
-
-    //uses the checkers to return whether the game has ended.
-    public static String endGame(){
-        if (checkWinMoney() == true){
-            return "You have reached the required amount of money needed to win of 1500 with currently: "+
-                    InventoryManager.getMyInventoryMoney() +" amount";
-        }
-        else if (checkWinSpecies() == true){
-            return "You have acquired all of the different species of crops and animals required to win with " +
-                    "currently: " + InventoryManager.getMyInventoryItems().size()     + " species";
-        }
-        if (checkLose() == true){
-            return "You have lost the game by going below the required threshhold of 100, with currently: " +
-                    InventoryManager.getMyInventoryMoney() + "amount";
-            }
-        else {
-            // if this method returns "game not over", this nextDay will know that the game has not ended
-            return "game not over";
-        }
-    }
     /*checker to see if the win condition for gaining the required amount of money is reached
     return true if it has been reached
     else return false

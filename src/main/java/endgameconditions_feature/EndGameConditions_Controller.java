@@ -1,4 +1,4 @@
-package EndGameConditions_UseCase;
+package endgameconditions_feature;
 
 public class EndGameConditions_Controller {
 }
