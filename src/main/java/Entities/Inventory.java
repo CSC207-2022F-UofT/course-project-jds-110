@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Inventory {
     private int myMoney;
 
-    private HashMap<Product, Integer> myItems;
+    private HashMap<Product, Integer> myItems = new HashMap<>();
 
     public int getMyMoney() {
         return myMoney;

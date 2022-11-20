@@ -20,11 +20,11 @@ public class InventoryManager {
         return myInventory.getMyMoney();
     }
 
-    public void removeMoney(int amount) {
+    public static void removeMoney(int amount) {
         myInventory.removeMoney(amount);
     }
 
-    public void addMoney(int amount){
+    public static void addMoney(int amount){
         myInventory.addMoney(amount);
     }
 
@@ -54,5 +54,10 @@ public class InventoryManager {
     public static void increaseRent() { rent = 1000;}
 
     public static void removeRent() { myInventory.removeMoney(rent); }
+
+    public static void reset() {
+        Inventory a = new Inventory();
+        myInventory = a;
+    }
 
 }

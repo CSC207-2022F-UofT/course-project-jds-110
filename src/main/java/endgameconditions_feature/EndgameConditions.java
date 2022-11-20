@@ -20,7 +20,7 @@ public class EndgameConditions {
     else return false
      */
     public static boolean checkWinSpecies(){
-        if (InventoryManager.getMyInventoryItems().size() == 6){
+        if (InventoryManager.getMyInventoryItems().size() >= 2){
             return true;
         }
         else{

@@ -10,12 +10,15 @@ public class Leaderboard {
 //    ex. [a, b] where a and b are classes of LeaderBoardPlace
 //    a has money of 200 and name of 'MyFarm' and b has money of 100 and name of 'YourFarm'
 
+    /*
     public static ArrayList<LeaderboardPlace> getLeaderboard(){
         int currMoney = InventoryManager.getMyInventoryMoney();
         String name = State.getName(); // **make sure call to state is correct
         updateLeaderboard(currMoney, name);
         return standings;
     }
+
+     */
 
     public static void updateLeaderboard(int loadedMoney, String loadedFarmName){
         // assuming that load farm will then call this with the farm's money
