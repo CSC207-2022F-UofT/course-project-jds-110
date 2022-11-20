@@ -1,6 +1,6 @@
-package use_case_interactors;
-import entities.Inventory;
-import entities.Product;
+package Use_Case_Interactors;
+import Entities.Inventory;
+import Entities.Product;
 
 import java.util.HashMap;
 

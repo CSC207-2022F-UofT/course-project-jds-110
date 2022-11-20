@@ -1,4 +1,4 @@
-package entities;
+package Entities;
 
 public class Plot {
 
@@ -23,12 +23,14 @@ public class Plot {
     }
 
     public void place(Product product){
-        daysLeftToHarvest = ((Yieldable) product).getDaysToYield();
+        daysLeftToHarvest = product.getDaysToYield();
         productOnPlot = product;
     }
 
-    public Product harvest() {
-        return ((Yieldable) productOnPlot).getYield();
+    public String harvest() {
+        // TO DO
+        String s = "";
+        return s;
     }
 
 

@@ -1,4 +1,4 @@
-package entities;
+package Entities;
 
 public abstract class Animal extends Product {
 }
