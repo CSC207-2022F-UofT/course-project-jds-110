@@ -13,9 +13,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class State {
-    private String name;
+    private static String name;
 
-    public String getName() { return name; }
+    public static String getName() { return name; }
 
     public void initializeGame() throws IOException {
         /* ask the user to enter a name for the farm */
