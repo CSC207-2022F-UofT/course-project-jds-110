@@ -4,7 +4,7 @@ import Entities.Plot;
 import java.util.ArrayList;
 
 public class PlotManager {
-    private static ArrayList<Plot> myPlots = new ArrayList<>();
+    private static ArrayList<Plot> myPlots;
 
     public static void setMyPlots(ArrayList<Plot> arr) { myPlots = arr; }
 

@@ -6,9 +6,7 @@ import java.util.HashMap;
 
 public class InventoryManager {
 
-    private static int rent = 100;
-
-    private static Inventory myInventory = new Inventory();
+    private static Inventory myInventory;
 
     public static HashMap<Product, Integer> getMyInventoryItems() {
         return myInventory.getMyItems();
@@ -58,9 +56,11 @@ public class InventoryManager {
         }
     }
 
+    public static void increaseRent() { myInventory.increaseRent(); }
 
-    public static void increaseRent() { rent = 1000;}
+    public static void removeRent() { myInventory.removeRent(); }
 
-    public static void removeRent() { myInventory.removeMoney(rent); }
+    public static void setName(String s) { myInventory.setName(s); }
 
+    public static String getName(){return myInventory.getName(); }
 }
