@@ -1,9 +1,9 @@
-package ShareUseCase;
+package share_use_case;
 
 public class ShareController {
 
     private static StringBuilder farminEmojis;
-    private static String theRankings;
+    private static StringBuilder theRankings;
 
     public void whatistheRankings() {
         theRankings = Sharer.getRanking();

@@ -1,4 +1,4 @@
-package LeaderboardUseCase;
+package leaderboard_use_case;
 
 import java.util.ArrayList;
 
@@ -26,8 +26,10 @@ public class LeaderboardPlace {
         for (int i = 1; i < len - 1; i++) {
             allNames.append(", ").append(farmNames.get(i));
         }
-        allNames.append(", and ");
-        allNames.append(farmNames.get(len - 1));
+        if (len > 1) {
+            allNames.append(", and ");
+            allNames.append(farmNames.get(len - 1));
+        }
         return allNames.toString();
     }
 
