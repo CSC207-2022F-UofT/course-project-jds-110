@@ -1,6 +1,8 @@
 package Entities;
 
-public abstract class Product {
+import java.io.Serializable;
+
+public abstract class Product implements Serializable {
     private static String name;
     private static String yield;
     private static int value;

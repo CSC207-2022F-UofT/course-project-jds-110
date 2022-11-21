@@ -1,11 +1,15 @@
 package Entities;
 
-public class Plot {
+import java.io.Serializable;
+
+public class Plot implements Serializable {
 
     private int daysLeftToHarvest;
     private Product productOnPlot;
 
     private int plotId;
+
+    private static int value = 100;
 
     public Plot(int plotID){
         plotId = plotID;
@@ -33,5 +37,7 @@ public class Plot {
         return s;
     }
 
-
+    public static int getValue() {
+        return value;
+    }
 }
