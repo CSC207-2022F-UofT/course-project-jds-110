@@ -1,5 +1,4 @@
 package Entities;
-import java.io.Serial;
 import java.io.Serializable;
 
 public abstract class Product implements Serializable {
@@ -10,9 +9,7 @@ public abstract class Product implements Serializable {
 
     public String getName() {return name;}
 
-    public String getYield() {
-        return yield;
-    }
+    public String getYield() {return yield;}
 
     public int getDaysToYield() {
         return daysToYield;

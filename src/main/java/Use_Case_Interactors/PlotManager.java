@@ -1,4 +1,6 @@
 package Use_Case_Interactors;
+import Entities.Animal;
+import Entities.Crop;
 import Entities.Plot;
 import Entities.Product;
 
@@ -10,12 +12,8 @@ public class PlotManager {
     public static ArrayList<Plot> getMyPlots() {return myPlots;
     }
 
-    public static void addPlot(){
-        // TODO
-    }
-
     public static void createNewPlot(){
-        int newPlotId = myPlots.size() - 1;
+        int newPlotId = myPlots.size() + 1; // changed the size
         myPlots.add(new Plot(newPlotId));
         // create a new plot instance and add it to myPLOTS
     }
@@ -24,15 +22,31 @@ public class PlotManager {
         return Plot.getValue();
     }
 
-    public static void harvest(Plot plot){
-        plot.harvest();
+
+    public void startGrowing(Product product){ product.getDaysToYield();
     }
 
-    public void startGrowing(Product product){
-        product.getDaysToYield();
+    public void harvest(Plot plot) {
+        if (Plot.getProduct() instanceof Crop crop){
+            InventoryManager.addItem(crop, 1); ////addItem{Product, int}
+        plot.emptyPlot(); //empty the plot
+        System.out.println("You have saved your yields to your inventory!");}
     }
 
-    public String showProgress(Plot plot){
-        System.out.println();
+    public void extract(Plot plot){
+        if (Plot.getProduct() instanceof Animal animal){
+            InventoryManager.addItem(animal, 1);
+            System.out.println("You have saved your yields to your inventory!");}
+    }
+
+    public static boolean place(Product product, int plotId){
+        Plot plot = myPlots.get(plotId);
+        if (plot.isEmpty()){
+            return false;
+        }
+        else{
+            plot.place(product);
+            return true;
+        }
     }
 }
