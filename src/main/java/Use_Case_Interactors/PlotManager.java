@@ -12,10 +12,18 @@ public class PlotManager {
         return myPlots;
     }
 
+
+
+    public static int getPlotValue(){
+        return Plot.getValue();
+    }
+
+
     public static void createNewPlot(){
         int newPlotId = myPlots.size() - 1;
         myPlots.add(new Plot(newPlotId));
         InventoryManager.increaseRent();
         // create a new plot instance and add it to myPLOTS
     }
+
 }
