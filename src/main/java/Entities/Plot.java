@@ -1,6 +1,8 @@
 package Entities;
 
-public class Plot {
+import java.io.Serializable;
+
+public class Plot implements Serializable {
 
     private int daysLeftToHarvest;
     private Product productOnPlot;
