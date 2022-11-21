@@ -1,6 +1,6 @@
 package EndGameConditions_UseCase;
 
-import Use_Cases.InventoryManager;
+import Use_Case_Interactors.InventoryManager;
 
 public class EndgameConditions {
 
