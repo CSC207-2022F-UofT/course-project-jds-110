@@ -1,26 +1,23 @@
-package Use_Cases;
+package Use_Case_Interactors;
 import Entities.Inventory;
 import Entities.Product;
 
 import java.util.HashMap;
 
-public class InventoryManager {
+public class InventoryManager{
     private static Inventory myInventory = new Inventory();
 
     public static HashMap<Product, Integer> getMyInventoryItems() {
         return myInventory.getMyItems();
     }
 
-    public static int getMyInventoryMoney() {
-        return myInventory.getMyMoney();
+    public static int getMyInventoryMoney() {return myInventory.getMyMoney();
     }
 
-    public void removeMoney(int amount) {
-        myInventory.removeMoney(amount);
+    public void removeMoney(int amount) {myInventory.removeMoney(amount);
     }
 
-    public void addMoney(int amount){
-        myInventory.addMoney(amount);
+    public void addMoney(int amount){myInventory.addMoney(amount);
     }
 
 
