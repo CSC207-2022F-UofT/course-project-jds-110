@@ -1,5 +1,5 @@
 package Entities;
-import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Inventory implements Serializable {
@@ -8,12 +8,11 @@ public class Inventory implements Serializable {
     private String name;
     private HashMap<Product, Integer> myItems = new HashMap<>();
 
+
     public int getMyMoney() {
         return myMoney;
     }
 
-    public void setName(String s) { name = s; }
-    public String getName() { return name; }
 
     public void removeMoney(int amount) {
         myMoney -= amount;
@@ -45,8 +44,6 @@ public class Inventory implements Serializable {
         myItems.put(item, amount + present_amount);
     }
 
-    public void increaseRent() { rent += 100; }
 
-    public void removeRent() { myMoney -= rent; }
 
 }

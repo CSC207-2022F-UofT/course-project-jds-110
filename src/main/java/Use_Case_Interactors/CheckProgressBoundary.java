@@ -3,7 +3,9 @@ package Use_Case_Interactors;
 import CheckProgressUseCase.CheckProgressPresenter;
 import Entities.Plot;
 import Entities.Product;
+
 import save_state_use_case.State;
+
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -26,6 +28,4 @@ public class CheckProgressBoundary implements UseCaseInteractorBoundary {
     public static void boundaryOutput(HashMap<Product, Integer> inventory, ArrayList<Plot> plots, int money) {
         CheckProgressPresenter.transformProgress(inventory, plots, money);
     }
-
-    ;
 }

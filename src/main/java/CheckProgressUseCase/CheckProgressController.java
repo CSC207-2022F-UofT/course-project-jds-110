@@ -15,3 +15,4 @@ public class CheckProgressController {
         CheckProgressBoundary.boundaryInput();
     }
 }
+
