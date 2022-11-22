@@ -8,7 +8,7 @@ public class ShopperController {
     }
 
     public static void InputBuy_from_market(Product item, Integer quantity){
-        boolean output = Shopper.sell_to_market(item, quantity);
+        boolean output = Shopper.buy_from_market(item, quantity);
     }
 
     public static void InputBuy_plot(){

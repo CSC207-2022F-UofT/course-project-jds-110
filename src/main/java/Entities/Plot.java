@@ -17,7 +17,12 @@ public class Plot implements Serializable {
 
     public boolean isEmpty(){return productOnPlot == null;}
 
-    public String getProductName(){return productOnPlot.getName();}
+    public String getProductName(){
+        if (productOnPlot == null){
+            return ("no product");
+        }
+        return productOnPlot.getName();
+    }
     public int getDaysLeftToHarvest() {
         return daysLeftToHarvest;
     }
