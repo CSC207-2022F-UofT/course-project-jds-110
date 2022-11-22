@@ -48,7 +48,7 @@ public class Shopper {
             return false;
         }
 
-        PlotManager.addPlot();
+        PlotManager.createNewPlot();
         InventoryManager.removeMoney(comp);
         return true;
     }

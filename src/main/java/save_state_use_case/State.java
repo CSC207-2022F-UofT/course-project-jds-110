@@ -2,11 +2,14 @@ package save_state_use_case;
 
 import Entities.Inventory;
 import Entities.Plot;
+import Entities.Product;
+import Use_Case_Interactors.CheckProgressBoundary;
 import Use_Case_Interactors.InventoryManager;
 import Use_Case_Interactors.PlotManager;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class State {
     public static void initializeGame(String s){
@@ -52,4 +55,11 @@ public class State {
         System.out.println("Game Loaded");
     }
 
+    public static void gameProgress () {
+        HashMap<Product, Integer> inventory = InventoryManager.getMyInventoryItems();
+        // HashMap<Product, Integer> inventory = new HashMap<>();
+        ArrayList<Plot> plots = PlotManager.getMyPlots();
+        int money = InventoryManager.getMyInventoryMoney();
+        CheckProgressBoundary.boundaryOutput(inventory, plots, money);
+    }
 }

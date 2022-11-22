@@ -3,11 +3,17 @@ package Entities;
 import java.io.Serializable;
 
 public abstract class Product implements Serializable {
-    private static String name;
-    private static String yield;
-    private static int value;
-    private static int daysToYield;
+    private String name;
+    private String yield;
+    private int value;
+    private int daysToYield;
 
+    public Product(String name, String yield, int value, int daysToYield){
+        this.name = name;
+        this.yield = yield;
+        this.value = value;
+        this.daysToYield = daysToYield;
+    }
     public String getName() {return name;}
 
     public String getYield() {

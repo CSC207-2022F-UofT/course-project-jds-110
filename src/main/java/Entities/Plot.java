@@ -5,8 +5,7 @@ import java.io.Serializable;
 public class Plot implements Serializable {
 
     private int daysLeftToHarvest;
-    private Product productOnPlot = new Product() {
-    };
+    private Product productOnPlot;
 
     private int plotId;
 
@@ -18,7 +17,12 @@ public class Plot implements Serializable {
 
     public boolean isEmpty(){return productOnPlot == null;}
 
-    public String getProductName(){return productOnPlot.getName();}
+    public String getProductName(){
+        if (productOnPlot == null){
+            return ("no product");
+        }
+        return productOnPlot.getName();
+    }
     public int getDaysLeftToHarvest() {
         return daysLeftToHarvest;
     }

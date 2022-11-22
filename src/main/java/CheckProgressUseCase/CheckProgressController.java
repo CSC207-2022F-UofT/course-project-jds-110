@@ -10,7 +10,7 @@ public class CheckProgressController {
      * getProgress() calls accesses the UseCaseBoundary interface to get information
      * about the user's inventory, plots and money.
      */
-    public void getProgress(){
+    public static void getProgress(){
         // Find inventory and plots information
         CheckProgressBoundary.boundaryInput();
     }

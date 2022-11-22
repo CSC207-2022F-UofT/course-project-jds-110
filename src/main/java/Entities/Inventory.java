@@ -1,16 +1,19 @@
 package Entities;
-import java.util.ArrayList;
+import java.io.Serializable;
 import java.util.HashMap;
 
-public class Inventory {
-    private int myMoney;
-
-    private HashMap<Product, Integer> myItems = new HashMap<Product, Integer>();
+public class Inventory implements Serializable {
+    private int myMoney = 500;
+    private int rent;
+    private String name;
+    private HashMap<Product, Integer> myItems = new HashMap<>();
 
     public int getMyMoney() {
         return myMoney;
     }
 
+    public void setName(String s) { name = s; }
+    public String getName() { return name; }
 
     public void removeMoney(int amount) {
         myMoney -= amount;
@@ -42,6 +45,8 @@ public class Inventory {
         myItems.put(item, amount + present_amount);
     }
 
+    public void increaseRent() { rent += 100; }
 
+    public void removeRent() { myMoney -= rent; }
 
 }
