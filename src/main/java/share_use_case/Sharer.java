@@ -1,9 +1,9 @@
 package share_use_case;
 
-import Entities.Plot;
-import leaderboard_use_case.Leaderboard;
-import leaderboard_use_case.LeaderboardPlace;
-import Use_Case_Interactors.PlotManager;
+import entities.Plot;
+import leaderboard_usecase.Leaderboard;
+import leaderboard_usecase.LeaderboardPlace;
+import usecase_interactors.PlotManager;
 
 import java.util.ArrayList;
 
@@ -15,19 +15,22 @@ public class Sharer {
         StringBuilder returnString = new StringBuilder();
 
         LeaderboardPlace firstPlace = currStandings.get(0);
-        returnString.append("\uD83E\uDD47 " + firstPlace.getFarmNamesString() +
-                " with $" + firstPlace.getAmountOfMoney()); // updates the string with info about first place
+        String add1 = "\uD83E\uDD47 " + firstPlace.getFarmNamesString() +
+                " with $" + firstPlace.getAmountOfMoney();
+        returnString.append(add1); // updates the string with info about first place
 //      the leaderboard will never be empty as it will always contain at least the current game
         if (currStandings.size() > 1){
             LeaderboardPlace secondPlace = currStandings.get(1);
-            returnString.append("\n \uD83E\uDD48 " +
-                    secondPlace.getFarmNamesString() + " with $" + secondPlace.getAmountOfMoney());
+            String add2 = "\n \uD83E\uDD48 " +
+                    secondPlace.getFarmNamesString() + " with $" + secondPlace.getAmountOfMoney();
+            returnString.append(add2);
             // updates string with info about second place
         }
         if (currStandings.size() > 2){
             LeaderboardPlace thirdPlace = currStandings.get(2);
-            returnString.append("\n \uD83E\uDD49 " +
-                    thirdPlace.getFarmNamesString() + "with $" + thirdPlace.getAmountOfMoney());
+            String add3 = "\n \uD83E\uDD49 " +
+                    thirdPlace.getFarmNamesString() + " with $" + thirdPlace.getAmountOfMoney();
+            returnString.append(add3);
             // updates string with info about second place
         }
         return returnString;
