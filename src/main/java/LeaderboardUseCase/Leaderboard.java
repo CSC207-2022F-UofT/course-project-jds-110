@@ -1,6 +1,6 @@
 package leaderboard_usecase;
 
-import usecase_interactors.InventoryManager;
+import Use_Case_Interactors.InventoryManager;
 
 import java.util.ArrayList;
 
