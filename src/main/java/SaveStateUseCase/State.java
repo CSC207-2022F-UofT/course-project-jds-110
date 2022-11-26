@@ -3,16 +3,19 @@ package SaveStateUseCase;
 
 import Entities.Inventory;
 import Entities.Plot;
+import Entities.Product;
+import Use_Case_Interactors.CheckProgressBoundary;
 import Use_Case_Interactors.InventoryManager;
 import Use_Case_Interactors.PlotManager;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class State {
-    private String name;
+    private static String name;
 
-    public String getName() { return name; }
+    public static String getName() { return name; }
 
     public void initializeGame() throws IOException {
         /* ask the user to enter a name for the farm */
@@ -49,8 +52,15 @@ public class State {
         }
     }
 
-
-        public void gameProgress () {
-
-        }
+    /**
+     * gameProgress() method calls InventoryManager and PlotManager to fetch user's
+     * inventory, plot and money information.
+     * Sends information through the UseCaseInteractorBoundary output.
+     */
+    public static void gameProgress () {
+        HashMap<Product, Integer> inventory = InventoryManager.getMyInventoryItems();
+        ArrayList<Plot> plots = PlotManager.getMyPlots();
+        int money = InventoryManager.getMyInventoryMoney();
+        CheckProgressBoundary.boundaryOutput(inventory, plots, money);
+    }
 }
