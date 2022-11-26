@@ -1,8 +1,9 @@
 package leaderboard_usecase_test;
 
-import usecase_interactors.InventoryManager;
-import leaderboard_usecase.Leaderboard;
-import leaderboard_usecase.LeaderboardPlace;
+import Entities.Inventory;
+import Use_Case_Interactors.InventoryManager;
+import LeaderboardUseCase.Leaderboard;
+import LeaderboardUseCase.LeaderboardPlace;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -12,8 +13,12 @@ class LeaderboardTest {
 
     @BeforeEach
     public void setup() {
+        Leaderboard l = new Leaderboard();
         Leaderboard.resetLeaderboard();
-        InventoryManager.setFarmname("Chaching");
+        Inventory currInventory = new Inventory();
+        // from initializer, inventory currently has $500
+        InventoryManager.setMyInventory(currInventory);
+        InventoryManager.setName("Chaching");
     }
 
     @AfterEach
@@ -50,12 +55,12 @@ class LeaderboardTest {
         Leaderboard.updateLeaderboard(100, "Wow");
         Assertions.assertEquals(2, Leaderboard.standings.size()); // check number of places
 
-        LeaderboardPlace currLP = Leaderboard.standings.get(0);
+        LeaderboardPlace currLP = Leaderboard.standings.get(1);
         Assertions.assertEquals(100, currLP.getAmountOfMoney());
         Assertions.assertEquals("Wow", currLP.getFarmNamesString());
         // make sure 1st place is right
-        LeaderboardPlace otherLP = Leaderboard.standings.get(1);
-        Assertions.assertEquals(0, otherLP.getAmountOfMoney());
+        LeaderboardPlace otherLP = Leaderboard.standings.get(0);
+        Assertions.assertEquals(500, otherLP.getAmountOfMoney());
         Assertions.assertEquals("Chaching", otherLP.getFarmNamesString());
         // make sure 2nd place is right
     }
@@ -70,7 +75,7 @@ class LeaderboardTest {
 
         Assertions.assertEquals(2, Leaderboard.standings.size());
 
-        LeaderboardPlace currLP = Leaderboard.standings.get(0);
+        LeaderboardPlace currLP = Leaderboard.standings.get(1);
         Assertions.assertEquals(100, currLP.getAmountOfMoney());
         Assertions.assertEquals("Wow, and Wow2", currLP.getFarmNamesString());
     }
@@ -79,8 +84,10 @@ class LeaderboardTest {
     public void testUpdateLeaderboardSmallerAmount() {
         Leaderboard.updateLeaderboard(111, "Number1");
         Leaderboard.updateLeaderboard(0, "Number2");
-        // the call to updateLeaderboard will have money be the smaller amount
-        Assertions.assertEquals(2, Leaderboard.getLeaderboard().size());
+        Assertions.assertEquals(2, Leaderboard.standings.size());
+
+        String actualSecondPlace = Leaderboard.standings.get(1).getFarmNamesString();
+        Assertions.assertEquals("Number2", actualSecondPlace);
 
     }
 }

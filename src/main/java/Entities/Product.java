@@ -1,24 +1,20 @@
-package entities;
+package Entities;
 
-public abstract class Product {
+import java.io.Serializable;
+
+public abstract class Product implements Serializable {
     private String name;
-
-    private StringBuilder emoji;
     private String yield;
     private int value;
     private int daysToYield;
 
-    public Product(String name, StringBuilder emoji, String yield, int value, int daysToYield){
+    public Product(String name, String yield, int value, int daysToYield){
         this.name = name;
-        this.emoji = emoji;
-        this.value = value;
         this.yield = yield;
+        this.value = value;
         this.daysToYield = daysToYield;
     }
-
     public String getName() {return name;}
-
-    public StringBuilder getEmoji() {return emoji;}
 
     public String getYield() {
         return yield;

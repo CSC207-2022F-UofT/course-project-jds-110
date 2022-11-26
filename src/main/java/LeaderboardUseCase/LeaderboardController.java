@@ -1,4 +1,4 @@
-package leaderboard_usecase;
+package LeaderboardUseCase;
 
 import java.util.ArrayList;
 

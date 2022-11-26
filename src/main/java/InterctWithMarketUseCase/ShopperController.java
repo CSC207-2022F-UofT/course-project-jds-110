@@ -1,4 +1,4 @@
-package interact_with_market_usecase;
+package InterctWithMarketUseCase;
 
 import Entities.Product;
 

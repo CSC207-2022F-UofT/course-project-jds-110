@@ -1,7 +1,7 @@
-package entities;
+package Entities;
 
 public abstract class Animal extends Product {
-    public Animal(String name, StringBuilder emoji, String yield, int value, int daysToYield) {
-        super(name, emoji, yield, value, daysToYield);
+    public Animal(String name, String yield, int value, int daysToYield) {
+        super(name, yield, value, daysToYield);
     }
 }

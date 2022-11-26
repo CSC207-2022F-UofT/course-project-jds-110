@@ -1,4 +1,4 @@
-package endgame_conditions_usecase;
+package EndGameConditions_UseCase;
 
 public class EndGameConditions_Controller {
 }

@@ -1,4 +1,4 @@
-package SaveStateUseCase;
+package save_state_use_case;
 
 import java.io.*;
 

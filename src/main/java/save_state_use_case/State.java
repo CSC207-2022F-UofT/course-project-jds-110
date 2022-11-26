@@ -1,4 +1,4 @@
-package save_state_usecase;
+package save_state_use_case;
 
 
 import Entities.Inventory;

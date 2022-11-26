@@ -1,8 +1,8 @@
-package usecase_interactors;
+package Use_Case_Interactors;
 
 import CheckProgressUseCase.CheckProgressPresenter;
-import entities.Plot;
-import entities.Product;
+import Entities.Plot;
+import Entities.Product;
 import save_state_use_case.State;
 
 import java.util.ArrayList;

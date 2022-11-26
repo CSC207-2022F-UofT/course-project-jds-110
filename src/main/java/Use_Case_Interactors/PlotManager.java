@@ -1,5 +1,5 @@
-package usecase_interactors;
-import entities.Plot;
+package Use_Case_Interactors;
+import Entities.Plot;
 
 import java.util.ArrayList;
 

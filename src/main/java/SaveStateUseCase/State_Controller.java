@@ -1,4 +1,4 @@
-package save_state_usecase;
+package SaveStateUseCase;
 
 public class State_Controller {
 }
