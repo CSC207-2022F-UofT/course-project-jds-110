@@ -73,6 +73,10 @@ public class InventoryManager {
 
     public static String getName(){return myInventory.getName(); }
 
+    public static Product convertStringtoProduct(String item){
+        return productStringDictionary.get(item);
+    }
+
     public static void setupProductStringDictionary(){
         // add BakedPotato, Chicken, Corn, CornCob, COw, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
         productStringDictionary.put("BakedPotato",new BakedPotato());
