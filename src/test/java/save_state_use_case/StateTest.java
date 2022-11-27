@@ -7,6 +7,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,13 +15,27 @@ import java.util.HashMap;
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StateTest {
+    File temp;
+    String path;
+
+    /* Before each test, create a new game with name 'player'.
+    A template file is created to store the file created
+    and get path of the 'player.ser' when the game is saved.
+     */
     @BeforeEach
     public void setup() {
         State.initializeGame("player");
+        path = System.getProperty("user.dir") + "/player.ser";
+        System.out.println(path);
+        temp = new File(path);
     }
 
+    /* After each test, delete file created when calling saveGame
+    so that it will not affect the whole program.
+     */
     @AfterEach
     public void teardown() {
+        temp.deleteOnExit();
     }
 
     /* Test that new inventory is created and assigned to InventoryManager,
@@ -55,12 +70,18 @@ public class StateTest {
     /* Test that IOException is thrown in saveGame method. */
     @Test
     public void testSaveGameThrowsException() {
-        try {
-            State.saveGame();
+        try{ State.saveGame();
         } catch (IOException e) {
             fail("IOException not thrown when trying to save game.");
-
         }
+    }
+
+    /* Test that the file is created and non-empty */
+    @Test
+    public void testSaveGameFile() throws IOException {
+        State.saveGame();
+        assertTrue(temp.exists());
+        assertTrue(temp.length() > 0);
     }
 
     /* Test that IOException and ClassNotFoundException are thrown in loadGame method. */
@@ -74,5 +95,17 @@ public class StateTest {
         } catch (ClassNotFoundException e) {
             fail("ClassNotFoundException not thrown when trying to load game.");
         }
+    }
+
+    /* Test that load game load the correct file. */
+    @Test
+    public void testLoadGame() throws IOException, ClassNotFoundException {
+        State.saveGame();
+        State.initializeGame("user");
+        InventoryManager.removeRent();
+        State.loadGame("player");
+        assertEquals(InventoryManager.getMyInventoryItems(), new HashMap<>());
+        assertEquals(InventoryManager.getMyInventoryMoney(), 500);
+        assertEquals(InventoryManager.getName(), "player");
     }
 }
