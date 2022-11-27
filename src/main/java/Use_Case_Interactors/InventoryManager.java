@@ -6,7 +6,7 @@ import java.util.HashMap;
 
 public class InventoryManager {
 
-    private static Inventory myInventory;
+    private static Inventory myInventory = new Inventory();
 
     public static HashMap<Product, Integer> getMyInventoryItems() {
         return myInventory.getMyItems();
@@ -63,4 +63,10 @@ public class InventoryManager {
     public static void setName(String s) { myInventory.setName(s); }
 
     public static String getName(){return myInventory.getName(); }
+
+    //a method to reset inventory for use in EndGameConditions_UseCase_Test
+    public static void reset() {
+        Inventory a = new Inventory();
+        myInventory = a;
+    }
 }
