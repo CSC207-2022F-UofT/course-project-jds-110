@@ -1,10 +1,13 @@
 package Entities;
 
 public class Milk extends Product implements Yieldable {
-    private static final String name = "Bottle(s) of Milk";
+    private static final String name = "Milk";
     private static final int value = 3;
+    private static final String yield = "";
+    private static final int daysToYield = 0;
 
-    public Milk(String name, String yield, int value, int daysToYield) {
+    public Milk() {
+
         super(name, yield, value, daysToYield);
     }
 }
