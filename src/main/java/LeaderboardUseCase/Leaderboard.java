@@ -1,9 +1,7 @@
 package LeaderboardUseCase;
 
-
 import Use_Case_Interactors.InventoryManager;
 import save_state_use_case.State;
-
 
 import java.util.ArrayList;
 
@@ -16,7 +14,6 @@ public class Leaderboard {
         int currMoney = InventoryManager.getMyInventoryMoney();
         // String name = State.getname(); // **make sure call to state is correct
         // updateLeaderboard(currMoney, name);
-
         return standings;
     }
 
