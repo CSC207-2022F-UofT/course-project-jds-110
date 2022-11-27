@@ -24,6 +24,7 @@ public class CheckProgressTest {
     @Before
     public void addStuff(){
         InventoryManager.setMyInventory(i);
+        InventoryManager.setupProductStringDictionary();
         InventoryManager.addItem(egg, 5);
         ArrayList<Plot> p = new ArrayList<>();
         PlotManager.setMyPlots(p);
