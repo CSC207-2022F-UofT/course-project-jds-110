@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class GameUI {
+public class Z_GameUI_SAVE {
     String name;
     //window
     JFrame window;
@@ -29,7 +29,7 @@ public class GameUI {
     JLabel SaveOrLoadTextLabel;
     JButton startNewGameB;
     JButton loadGameB;
-    
+
 
     //fonts
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 96);
@@ -38,9 +38,9 @@ public class GameUI {
 
 
     public static void main(String[] args){
-        new GameUI();
+        new Z_GameUI_SAVE();
     }
-    public GameUI(){
+    public Z_GameUI_SAVE(){
         //have to put startButton here for order of layers
         startButton = new JButton("START");
 
@@ -69,7 +69,7 @@ public class GameUI {
         startButtonPanel.setBounds(300,400,200,100);
         startButtonPanel.setBackground(Color.black);
 
-        startButton.setBackground(Color.black);
+        startButton.setBackground(Color.blue);
         startButton.setForeground(Color.white);
         startButton.setFont(normalFont);
         startButton.addActionListener(tsHandler);
@@ -89,7 +89,7 @@ public class GameUI {
         //makes display "Welcome, please enter your name"
          signInTextPanel = new JPanel();
          signInTextPanel.setBounds(150,250,500,100);
-         signInTextPanel.setBackground(Color.black);
+         signInTextPanel.setBackground(Color.blue);
          signInTextLabel = new JLabel("Welcome, please enter your name");
          signInTextLabel.setForeground(Color.white);
          signInTextPanel.add( signInTextLabel);
