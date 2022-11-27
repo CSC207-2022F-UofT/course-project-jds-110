@@ -17,7 +17,9 @@ public class InventoryManager {
         return productHashmap;
         // return myInventory.getMyItems();
     }
-
+    public static HashMap<String, Integer> getMyInventoryItemsString(){
+        return myInventory.getMyItems();
+    }
 
     public static void setMyInventory(Inventory i) { myInventory = i; }
 
