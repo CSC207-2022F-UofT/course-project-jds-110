@@ -1,10 +1,13 @@
 package Use_Case_Interactors;
+import Entities.BakedPotato;
 import Entities.Inventory;
 import Entities.Product;
 
 import java.util.HashMap;
 
 public class InventoryManager {
+
+    private static HashMap<String, Product>productStringDictionary = new HashMap<>();
 
     private static Inventory myInventory;
 
@@ -63,4 +66,10 @@ public class InventoryManager {
     public static void setName(String s) { myInventory.setName(s); }
 
     public static String getName(){return myInventory.getName(); }
+
+    public static void setupProductStringDictionary(){
+        // add BakedPotato, Chicken, Corn, CornCob, COw, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
+        productStringDictionary.put("BakedPotato", (Product) new BakedPotato());
+        /// stilltodo
+    }
 }
