@@ -15,6 +15,9 @@ public class Plot implements Serializable {
         plotId = plotID;
     }
 
+    public static Object getProduct() {
+    }
+
     public boolean isEmpty(){return productOnPlot == null;}
 
     public String getProductName(){
@@ -44,5 +47,10 @@ public class Plot implements Serializable {
 
     public static int getValue() {
         return value;
+    }
+
+    public void emptyPlot(){
+        productOnPlot =  null;
+        daysLeftToHarvest = 0;
     }
 }
