@@ -7,13 +7,16 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Assertions;
 
-public class endgameConditionsTest {
+/**
+    Tests that test methods inside EndgameConditions
+ */
+public class EndgameConditionsTest {
     @AfterEach
     void resets() {
         InventoryManager.reset();
     }
 
-    /*
+    /**
     tester to see if the CheckWinMoney() checker is working properly
 
     so that if you have more than 1500 dollars than it should return true
@@ -35,7 +38,7 @@ public class endgameConditionsTest {
         Assertions.assertFalse(EndgameConditions.checkWinMoney());
     }
 
-    /*
+    /**
     tester to see if the CheckWinSpecies() checker is working properly
 
     so that if you have more than 2 species than it should return true
@@ -66,16 +69,16 @@ public class endgameConditionsTest {
         Assertions.assertFalse(EndgameConditions.checkWinSpecies());
     }
 
-    /*
+    /**
     tester to see if the CheckLose() checker is working properly
 
-    so that if you have more than 100 dollars you don't lose so the method should return false
+    so that if you have more than 0 dollars you don't lose so the method should return false
 
-    and if you have less than 100 dollars you lose so the method should return true
+    and if you have less than 0 dollars you lose so the method should return true
      */
     @Test
     public void testCheckLoseTrue(){
-        InventoryManager.removeMoney(400);
+        InventoryManager.removeMoney(500);
         Assertions.assertTrue(InventoryManager.getMyInventoryMoney() <= 100);
         Assertions.assertTrue(EndgameConditions.checkLose());
     }
@@ -86,7 +89,7 @@ public class endgameConditionsTest {
         Assertions.assertFalse(EndgameConditions.checkLose());
     }
 
-    /*
+    /**
     see if the endGame method is working properly so that if
 
     checkWinMoney() is true then the method should return string "You have reached the required amount of ..."
