@@ -33,7 +33,8 @@ public class PlotManager {
     }
 
     public void harvest(Plot plot) {
-        if (Plot.getProduct() instanceof Crop crop){
+        if (Plot.getProduct() instanceof Crop){
+            Crop crop = (Crop) Plot.getProduct();
             InventoryManager.addItem(crop, 1); ////addItem{Product, int}
             plot.emptyPlot(); //empty the plot
             System.out.println("You have saved your yields to your inventory!");}
