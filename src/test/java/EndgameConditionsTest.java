@@ -27,15 +27,15 @@ public class EndgameConditionsTest {
     public void testCheckWinMoneyTrue()
     {
         InventoryManager.addMoney(1600);
-        Assertions.assertTrue(InventoryManager.getMyInventoryMoney() > 1500);
-        Assertions.assertTrue(EndgameConditions.checkWinMoney());
+        Assertions.assertEquals(InventoryManager.getMyInventoryMoney() > 1500,
+                EndgameConditions.checkWinMoney());
     }
     @Test
     public void testCheckWinMoneyFalse()
     {
         InventoryManager.addMoney(500);
-        Assertions.assertTrue(InventoryManager.getMyInventoryMoney() < 1500);
-        Assertions.assertFalse(EndgameConditions.checkWinMoney());
+        Assertions.assertEquals(InventoryManager.getMyInventoryMoney() < 1500,
+                !EndgameConditions.checkWinMoney());
     }
 
     /**
@@ -47,26 +47,26 @@ public class EndgameConditionsTest {
      */
     @Test
     public void testCheckWinSpeciesTrue(){
-        BakedPotato a = new BakedPotato("a","potato",1,1);
-        CornCob b = new CornCob("a","potato",1,1);
+        BakedPotato a = new BakedPotato();
+        CornCob b = new CornCob();
         Egg c = new Egg();
 
         InventoryManager.addItem(a, 1);
         InventoryManager.addItem(b, 1);
         InventoryManager.addItem(c, 1);
 
-        Assertions.assertTrue(InventoryManager.getMyInventoryItems().size() > 2);
-        Assertions.assertTrue(EndgameConditions.checkWinSpecies());
+        Assertions.assertEquals(InventoryManager.getMyInventoryItems().size() > 2,
+                EndgameConditions.checkWinSpecies());
     }
 
     @Test
     public void testCheckWinSpeciesFalse(){
-        BakedPotato a = new BakedPotato("a","potato",1,1);
+        BakedPotato a = new BakedPotato();
 
         InventoryManager.addItem(a, 1);
 
-        Assertions.assertTrue(InventoryManager.getMyInventoryItems().size() < 2);
-        Assertions.assertFalse(EndgameConditions.checkWinSpecies());
+        Assertions.assertEquals(InventoryManager.getMyInventoryItems().size() < 2,
+                !EndgameConditions.checkWinSpecies());
     }
 
     /**
@@ -79,14 +79,12 @@ public class EndgameConditionsTest {
     @Test
     public void testCheckLoseTrue(){
         InventoryManager.removeMoney(500);
-        Assertions.assertTrue(InventoryManager.getMyInventoryMoney() <= 100);
-        Assertions.assertTrue(EndgameConditions.checkLose());
+        Assertions.assertEquals(InventoryManager.getMyInventoryMoney() <= 100, EndgameConditions.checkLose());
     }
     @Test
     public void testCheckLoseFalse(){
         InventoryManager.addMoney(150);
-        Assertions.assertTrue(InventoryManager.getMyInventoryMoney() > 100);
-        Assertions.assertFalse(EndgameConditions.checkLose());
+        Assertions.assertEquals(InventoryManager.getMyInventoryMoney() > 100, !EndgameConditions.checkLose());
     }
 
     /**
@@ -98,7 +96,7 @@ public class EndgameConditionsTest {
     public void testCheckEndGameWinMoneyTrue(){
         InventoryManager.addMoney(1600);
         Assertions.assertTrue(InventoryManager.getMyInventoryMoney() > 1500);
-        Assertions.assertEquals("You have reached the required amount of money needed to win. Currently you have : "+
-                InventoryManager.getMyInventoryMoney() +" amount", EndgameConditions.endGame());
+        Assertions.assertEquals("You have reached the required amount of money needed to win. Currently you " +
+                "have : "+ InventoryManager.getMyInventoryMoney() +" amount", EndgameConditions.endGame());
     }
 }
