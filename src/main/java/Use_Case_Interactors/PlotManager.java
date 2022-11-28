@@ -41,7 +41,8 @@ public class PlotManager {
     }
 
     public void extract(Plot plot){
-        if (Plot.getProduct() instanceof Animal animal){
+        if (Plot.getProduct() instanceof Animal){
+            Animal animal = (Animal) Plot.getProduct();
             InventoryManager.addItem(animal, 1);
             System.out.println("You have saved your yields to your inventory!");}
     }
