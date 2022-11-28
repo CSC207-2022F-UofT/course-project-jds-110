@@ -89,4 +89,8 @@ public class InventoryManager {
 
         /// stilltodo
     }
+
+    public static HashMap<String, Product> getProductStringDictionary() {
+        return productStringDictionary;
+    }
 }

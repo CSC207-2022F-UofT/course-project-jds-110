@@ -26,7 +26,6 @@ public class StateTest {
     public void setup() {
         State.initializeGame("player");
         path = System.getProperty("user.dir") + "/player.ser";
-        System.out.println(path);
         temp = new File(path);
     }
 
@@ -47,6 +46,7 @@ public class StateTest {
         assertEquals(InventoryManager.getMyInventoryItems(), new HashMap<>());
         assertEquals(InventoryManager.getMyInventoryMoney(), 500);
         assertEquals(InventoryManager.getName(), "player");
+        assertNotEquals(InventoryManager.getProductStringDictionary(), new HashMap<>());
     }
 
     /* Test that two empty plots was created for the player to begin. */
@@ -107,5 +107,6 @@ public class StateTest {
         assertEquals(InventoryManager.getMyInventoryItems(), new HashMap<>());
         assertEquals(InventoryManager.getMyInventoryMoney(), 500);
         assertEquals(InventoryManager.getName(), "player");
+        assertNotEquals(InventoryManager.getProductStringDictionary(), new HashMap<>());
     }
 }
