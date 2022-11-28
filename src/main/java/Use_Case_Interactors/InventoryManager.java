@@ -76,23 +76,23 @@ public class InventoryManager {
 
     //a method to reset inventory for use in EndGameConditions_UseCase_Test
     public static void reset() {
-        Inventory a = new Inventory();
-        myInventory = a;
-
-    public static void setupProductStringDictionary(){
+        myInventory = new Inventory();
+    }
+    public static void setupProductStringDictionary() {
         // add BakedPotato, Chicken, Corn, CornCob, COw, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
-        productStringDictionary.put("BakedPotato",new BakedPotato());
-        productStringDictionary.put("Chicken",new Chicken());
-        productStringDictionary.put("Corn",new Corn());
-        productStringDictionary.put("CornCob",new CornCob());
-        productStringDictionary.put("Cow",new Cow());
-        productStringDictionary.put("Egg",new Egg());
-        productStringDictionary.put("Milk",new Milk());
-        productStringDictionary.put("Potato",new Potato());
-        productStringDictionary.put("Sheep",new Sheep());
-        productStringDictionary.put("Tomato",new Tomato());
-        productStringDictionary.put("Wool",new Wool());
+        productStringDictionary.put("BakedPotato", new BakedPotato());
+        productStringDictionary.put("Chicken", new Chicken());
+        productStringDictionary.put("Corn", new Corn());
+        productStringDictionary.put("CornCob", new CornCob());
+        productStringDictionary.put("Cow", new Cow());
+        productStringDictionary.put("Egg", new Egg());
+        productStringDictionary.put("Milk", new Milk());
+        productStringDictionary.put("Potato", new Potato());
+        productStringDictionary.put("Sheep", new Sheep());
+        productStringDictionary.put("Tomato", new Tomato());
+        productStringDictionary.put("Wool", new Wool());
 
-        /// stilltodo
-    
-}
+        // stilltodo
+
+        }
+    }
