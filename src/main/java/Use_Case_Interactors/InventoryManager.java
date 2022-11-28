@@ -1,5 +1,7 @@
 package Use_Case_Interactors;
 import Entities.*;
+import Entities.Inventory;
+import Entities.Product;
 
 import java.util.HashMap;
 
@@ -86,7 +88,5 @@ public class InventoryManager {
         productStringDictionary.put("Sheep",new Sheep());
         productStringDictionary.put("Tomato",new Tomato());
         productStringDictionary.put("Wool",new Wool());
-
-        /// stilltodo
     }
 }

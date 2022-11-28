@@ -23,13 +23,13 @@ public class PlotManager {
 
 
     public static void createNewPlot(){
-        int newPlotId = myPlots.size() - 1;
+        int newPlotId = myPlots.size() + 1; // changed the size from -1 to +1
         myPlots.add(new Plot(newPlotId));
         InventoryManager.increaseRent();
         // create a new plot instance and add it to myPLOTS
     }
 
-    public void startGrowing(Product product){ product.getDaysToYield();
+    public void startGrowing(Product product){product.getDaysToYield();
     }
 
     public void harvest(Plot plot) {

@@ -13,6 +13,4 @@ public class FarmerController {
     public static void InputPlace_crops(Crop crop, Plot plot) throws IOException {
         Farmer.place_crops(crop, plot);
     }
-
-    //calling inventory manager to
 }
