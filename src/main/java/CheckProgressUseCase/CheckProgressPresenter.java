@@ -13,6 +13,9 @@ import java.util.HashMap;
 public class CheckProgressPresenter {
     /**
      * transformProgress() converts user's inventory, plot and money information to hashmaps of strings.
+     * @param inventory User's inventory
+     * @param plots User's list of plots
+     * @param money User's money
      */
     public static void transformProgress(HashMap<Product, Integer> inventory, ArrayList<Plot> plots, int money){
         // Make a new hashmap of inventory that only contains string versions of input hashmap

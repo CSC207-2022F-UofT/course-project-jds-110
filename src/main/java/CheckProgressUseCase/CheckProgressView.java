@@ -6,7 +6,10 @@ import java.util.HashMap;
  */
 public class CheckProgressView {
     /**
-     * CheckProgressView prints out the user's money, and each key-value pair of the inventory and plot hashmaps.
+     * displayProgress()  prints out the user's money, and each key-value pair of the inventory and plot hashmaps.
+     * @param inventory String version of user's inventory
+     * @param plots String version of user's plots
+     * @param money String version of user's money
      */
     public static void displayProgress(HashMap<String, String> inventory, HashMap<String, String> plots, String money){
         // Print inventory information
