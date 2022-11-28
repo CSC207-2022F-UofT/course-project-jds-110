@@ -1,10 +1,9 @@
-package UI;
+package gameUI;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 public class A_TitleScreen {
     //window
     JFrame window;
@@ -18,6 +17,10 @@ public class A_TitleScreen {
     //fonts
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 96);
     Font normalFont = new Font("Times New Roman", Font.PLAIN, 25);
+    //transition from Title Screen to Sign in Screen
+    TitleScreenHandler tsHandler = new TitleScreenHandler();
+
+
 
     public static void main(String[] args){
         new A_TitleScreen();
@@ -65,5 +68,11 @@ public class A_TitleScreen {
     }
     //from title screen to sign in screen
 
-
+    public class TitleScreenHandler implements ActionListener{
+        public void actionPerformed(ActionEvent event){
+            B_SignInScreen.createSignInScreen();
+        }
+    }
 }
+
+

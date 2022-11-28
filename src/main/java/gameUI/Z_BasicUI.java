@@ -1,4 +1,4 @@
-package UI;
+package gameUI;
 import CheckProgressUseCase.CheckProgressController;
 import Entities.Chicken;
 import Entities.Corn;

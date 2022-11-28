@@ -1,4 +1,4 @@
-package UI;
+package gameUI;
 
 public class E_ShopScreen {
 }

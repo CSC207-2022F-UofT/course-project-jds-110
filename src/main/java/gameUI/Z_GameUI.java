@@ -1,11 +1,11 @@
-package UI;
+package gameUI;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Z_GameUI_SAVE {
+public class Z_GameUI {
     String name;
     //window
     JFrame window;
@@ -40,7 +40,7 @@ public class Z_GameUI_SAVE {
     public static void main(String[] args){
         new Z_GameUI_SAVE();
     }
-    public Z_GameUI_SAVE(){
+    public Z_GameUI(){
         //have to put startButton here for order of layers
         startButton = new JButton("START");
 
@@ -54,7 +54,7 @@ public class Z_GameUI_SAVE {
         con = window.getContentPane();
 
         //make login
-         signInTextPanel = new JPanel();
+        signInTextPanel = new JPanel();
 
         //makes title
         titlePanel = new JPanel();
@@ -87,14 +87,14 @@ public class Z_GameUI_SAVE {
         startButtonPanel.setVisible(false);
 
         //makes display "Welcome, please enter your name"
-         signInTextPanel = new JPanel();
-         signInTextPanel.setBounds(150,250,500,100);
-         signInTextPanel.setBackground(Color.blue);
-         signInTextLabel = new JLabel("Welcome, please enter your name");
-         signInTextLabel.setForeground(Color.white);
-         signInTextPanel.add( signInTextLabel);
-         signInTextLabel.setFont(normalFont);
-         con.add( signInTextPanel);
+        signInTextPanel = new JPanel();
+        signInTextPanel.setBounds(150,250,500,100);
+        signInTextPanel.setBackground(Color.blue);
+        signInTextLabel = new JLabel("Welcome, please enter your name");
+        signInTextLabel.setForeground(Color.white);
+        signInTextPanel.add( signInTextLabel);
+        signInTextLabel.setFont(normalFont);
+        con.add( signInTextPanel);
 
         //creates sign in panel / text reader
         SignInPanel = new JPanel();
@@ -123,7 +123,7 @@ public class Z_GameUI_SAVE {
         SaveOrLoadTextPanel.setBounds(-50,250,800,100);
         SaveOrLoadTextPanel.setBackground(Color.black);
         SaveOrLoadTextLabel = new JLabel("<html>"  + "Welcome " + name + "! <br/>"
-                    + "Would you like to load a previous game, or start afresh:" + "<html>");
+                + "Would you like to load a previous game, or start afresh:" + "<html>");
         SaveOrLoadTextLabel.setForeground(Color.white);
         SaveOrLoadTextPanel.add( SaveOrLoadTextLabel);
         SaveOrLoadTextLabel.setFont(normalFont);
