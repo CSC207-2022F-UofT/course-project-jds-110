@@ -33,16 +33,16 @@ public class PlotManager {
     }
 
     public void harvest(Plot plot) {
-        if (Plot.getProduct() instanceof Crop){
-            Crop crop = (Crop) Plot.getProduct();
-            InventoryManager.addItem(crop, 1); ////addItem{Product, int}
+        if (plot.getProduct() instanceof Crop){
+            Crop crop = (Crop) plot.getProduct();
+            InventoryManager.addItem(crop, 1); //addItem{Product, int}
             plot.emptyPlot(); //empty the plot
             System.out.println("You have saved your yields to your inventory!");}
     }
 
     public void extract(Plot plot){
-        if (Plot.getProduct() instanceof Animal){
-            Animal animal = (Animal) Plot.getProduct();
+        if (plot.getProduct() instanceof Animal){
+            Animal animal = (Animal) plot.getProduct();
             InventoryManager.addItem(animal, 1);
             System.out.println("You have saved your yields to your inventory!");}
     }
