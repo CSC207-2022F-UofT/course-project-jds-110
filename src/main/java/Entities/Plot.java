@@ -45,5 +45,5 @@ public class Plot implements Serializable {
         daysLeftToHarvest = 0;
     }
 
-    public static Product getProduct(){return productOnPlot;}
+    public Product getProduct(){return productOnPlot;}
 }
