@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class Plot implements Serializable {
 
     private int daysLeftToHarvest;
-    private static Product productOnPlot;
+    private Product productOnPlot;
 
     private int plotId;
 
@@ -34,12 +34,6 @@ public class Plot implements Serializable {
     public void place(Product product){
         daysLeftToHarvest = product.getDaysToYield();
         productOnPlot = product;
-    }
-
-    public String harvest() {
-        // TO DO
-        String s = "";
-        return s;
     }
 
     public static int getValue() {
