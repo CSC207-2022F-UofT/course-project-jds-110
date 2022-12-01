@@ -2,6 +2,7 @@ package EndGameConditions_UseCase;
 
 import Use_Case_Interactors.InventoryManager;
 
+
 public class EndgameConditions {
 
     //uses the checkers to return whether the game has ended.

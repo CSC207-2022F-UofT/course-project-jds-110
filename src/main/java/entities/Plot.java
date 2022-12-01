@@ -23,6 +23,7 @@ public class Plot implements Serializable {
         }
         return productOnPlot.getName();
     }
+
     public int getDaysLeftToHarvest() {
         return daysLeftToHarvest;
     }
