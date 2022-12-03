@@ -1,14 +1,11 @@
 package raising_crops_and_animals_use_case;
 
 import Entities.*;
-import Use_Case_Interactors.InventoryManager;
 import Use_Case_Interactors.PlotManager;
 
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 
 public class Farmer {
     public static void place_animals(Animal animal, Plot plot) throws IOException {
