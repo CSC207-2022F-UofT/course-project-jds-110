@@ -81,7 +81,7 @@ public class InventoryManager {
         productStringDictionary.put("Corn",new Corn());
         productStringDictionary.put("CornCob",new CornCob());
         productStringDictionary.put("Cow",new Cow());
-        productStringDictionary.put("Egg",new Egg());
+        productStringDictionary.put("Egg(s)",new Egg());
         productStringDictionary.put("Milk",new Milk());
         productStringDictionary.put("Potato",new Potato());
         productStringDictionary.put("Sheep",new Sheep());
