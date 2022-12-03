@@ -1,4 +1,4 @@
-package gameUI;
+package UI;
 import CheckProgressUseCase.CheckProgressController;
 import Entities.Chicken;
 import Entities.Corn;
@@ -9,7 +9,7 @@ import save_state_use_case.StateController;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Z_BasicUI {
+public class BasicUI {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
         System.out.println("Hello and Welcome to ..... 'Farmvile but worse' ");

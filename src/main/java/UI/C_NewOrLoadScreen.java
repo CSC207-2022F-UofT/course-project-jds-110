@@ -1,4 +1,4 @@
-package gameUI;
+package UI;
 
 public class C_NewOrLoadScreen {
 }

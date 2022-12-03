@@ -1,10 +1,10 @@
-package gameUI;
+package UI;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-public class A_TitleScreen {
+public class A_TitleScreen extends A0_MainScreen {
     //window
     JFrame window;
     Container con;
@@ -29,15 +29,6 @@ public class A_TitleScreen {
         //have to put startButton here for order of layers
         startButton = new JButton("START");
 
-        //makes window
-        window = new JFrame();
-        window.setSize(800,600);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().setBackground(Color.black);
-        window.setLayout(null);
-        window.setVisible(true);
-        con = window.getContentPane();
-
         //makes title
         titlePanel = new JPanel();
         titlePanel.setBounds(100,100,600,150);
@@ -60,14 +51,8 @@ public class A_TitleScreen {
 
         con.add(titlePanel);
         con.add(startButtonPanel);
-
-
-
-
-
     }
     //from title screen to sign in screen
-
     public class TitleScreenHandler implements ActionListener{
         public void actionPerformed(ActionEvent event){
             B_SignInScreen.createSignInScreen();
