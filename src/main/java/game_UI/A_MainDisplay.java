@@ -10,13 +10,5 @@ public class A_MainDisplay {
         new A_MainDisplay();
     }
 
-    public A_MainDisplay(){
-        B_TitleScreen.createTitleScreen();
-    }
 
-    public class ChoiceHandler implements ActionListener {
-        public void actionPerformed(ActionEvent event){
-            String 
-        }
-    }
 }
