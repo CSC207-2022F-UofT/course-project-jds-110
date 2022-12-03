@@ -2,11 +2,8 @@ package UI;
 import CheckProgressUseCase.CheckProgressController;
 import Entities.Chicken;
 import Entities.Corn;
-import Entities.Egg;
 import Entities.Product;
 import InterctWithMarketUseCase.ShopperController;
-import Use_Case_Interactors.InventoryManager;
-import Use_Case_Interactors.PlotManager;
 import save_state_use_case.StateController;
 
 import java.io.IOException;

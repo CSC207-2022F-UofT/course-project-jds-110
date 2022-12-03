@@ -11,6 +11,8 @@ public class InventoryManager {
 
     private static Inventory myInventory;
 
+    private static String farmname;
+
     public static HashMap<Product, Integer> getMyInventoryItems() {
         HashMap<Product, Integer>productHashmap = new HashMap<>();
         for (String i : myInventory.getMyItems().keySet()){
@@ -43,7 +45,6 @@ public class InventoryManager {
 
         return myInventory.getMyItems().get(item.getName()) >= amount;
     }
-
 
     public static void addItem(Product item, int amount) {
         if (myInventory.getMyItems().containsKey(item.getName())){
@@ -88,5 +89,9 @@ public class InventoryManager {
         productStringDictionary.put("Sheep",new Sheep());
         productStringDictionary.put("Tomato",new Tomato());
         productStringDictionary.put("Wool",new Wool());
+    }
+
+    public static HashMap<String, Product> getProductStringDictionary() {
+        return productStringDictionary;
     }
 }
