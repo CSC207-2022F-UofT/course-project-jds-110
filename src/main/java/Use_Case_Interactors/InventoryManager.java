@@ -7,7 +7,7 @@ public class InventoryManager {
 
     private static final HashMap<String, Product>productStringDictionary = new HashMap<>();
 
-    private static Inventory myInventory;
+    private static Inventory myInventory = new Inventory();
 
     private static String farmname;
 
@@ -74,6 +74,12 @@ public class InventoryManager {
 
     public static String getName(){return myInventory.getName(); }
 
+
+    //a method to reset inventory for use in EndGameConditions_UseCase_Test
+    public static void reset() {
+        myInventory = new Inventory();
+    }
+
     public static void setupProductStringDictionary(){
         // add BakedPotato, Chicken, Corn, CornCob, COw, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
         productStringDictionary.put("BakedPotato",new BakedPotato());
@@ -90,7 +96,6 @@ public class InventoryManager {
 
         /// stilltodo
     }
-
     public static HashMap<String, Product> getProductStringDictionary() {
         return productStringDictionary;
     }
