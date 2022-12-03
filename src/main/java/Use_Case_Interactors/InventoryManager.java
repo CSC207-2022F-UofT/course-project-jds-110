@@ -9,6 +9,8 @@ public class InventoryManager {
 
     private static Inventory myInventory = new Inventory();
 
+    private static String farmname;
+
     public static HashMap<Product, Integer> getMyInventoryItems() {
         HashMap<Product, Integer>productHashmap = new HashMap<>();
         for (String i : myInventory.getMyItems().keySet()){
@@ -41,7 +43,6 @@ public class InventoryManager {
 
         return myInventory.getMyItems().get(item.getName()) >= amount;
     }
-
 
     public static void addItem(Product item, int amount) {
         if (myInventory.getMyItems().containsKey(item.getName())){
@@ -78,21 +79,9 @@ public class InventoryManager {
     public static void reset() {
         myInventory = new Inventory();
     }
-    public static void setupProductStringDictionary() {
-        // add BakedPotato, Chicken, Corn, CornCob, COw, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
-        productStringDictionary.put("BakedPotato", new BakedPotato());
-        productStringDictionary.put("Chicken", new Chicken());
-        productStringDictionary.put("Corn", new Corn());
-        productStringDictionary.put("CornCob", new CornCob());
-        productStringDictionary.put("Cow", new Cow());
-        productStringDictionary.put("Egg", new Egg());
-        productStringDictionary.put("Milk", new Milk());
-        productStringDictionary.put("Potato", new Potato());
-        productStringDictionary.put("Sheep", new Sheep());
-        productStringDictionary.put("Tomato", new Tomato());
-        productStringDictionary.put("Wool", new Wool());
 
-        // stilltodo
 
-        }
+    public static HashMap<String, Product> getProductStringDictionary() {
+        return productStringDictionary;
     }
+}

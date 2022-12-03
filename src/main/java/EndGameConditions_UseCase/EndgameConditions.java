@@ -5,6 +5,7 @@ import Use_Case_Interactors.InventoryManager;
 /**
     This class is called by nextDay, to determine whether certain win/lose conditions are met
  */
+ 
 public class EndgameConditions {
     /**
     uses the checkers to return whether the game has ended.

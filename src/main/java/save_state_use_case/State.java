@@ -1,11 +1,12 @@
 package save_state_use_case;
 
+
 import Entities.Inventory;
 import Entities.Plot;
-import Entities.Product;
-import Use_Case_Interactors.CheckProgressBoundary;
 import Use_Case_Interactors.InventoryManager;
 import Use_Case_Interactors.PlotManager;
+import Entities.Product;
+import Use_Case_Interactors.CheckProgressBoundary;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -23,6 +24,8 @@ public class State {
         PlotManager.setMyPlots(p);
         PlotManager.createNewPlot();
         PlotManager.createNewPlot();
+        /* set up ProductStringDictionary in InventoryManager */
+        InventoryManager.setupProductStringDictionary();
     }
 
     public static void saveGame() throws IOException {
@@ -52,6 +55,8 @@ public class State {
         InventoryManager.setMyInventory((Inventory) data.get(0));
         /* Assign the list of Plots to PlotManager */
         PlotManager.setMyPlots((ArrayList<Plot>) data.get(1));
+        /* set up ProductStringDictionary in InventoryManager */
+        InventoryManager.setupProductStringDictionary();
         System.out.println("Game Loaded");
     }
 
