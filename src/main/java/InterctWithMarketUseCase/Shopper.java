@@ -24,7 +24,6 @@ public class Shopper {
         if (!valid){
             return false;
         }
-
         int comp = item.getValue() * quantity;
 
         InventoryManager.addMoney(comp);
