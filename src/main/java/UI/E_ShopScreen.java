@@ -1,4 +1,6 @@
 package UI;
+import InterctWithMarketUseCase.ShopperController;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -69,7 +71,9 @@ public class E_ShopScreen extends A0_MainScreen{
           buy.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent e) {
-                    String info = "Item Bought";
+                    String a = enterItemA.getText();
+                    Integer b = Integer.parseInt(enterAmountA.getText());
+                    String info = ShopperController.inputBuyFromMarket(a, b);
                     JOptionPane.showMessageDialog(mainFrame, info);
                }
           });
@@ -114,7 +118,9 @@ public class E_ShopScreen extends A0_MainScreen{
           sell.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent e) {
-                    String info = "Item Sold";
+                    String a = enterItemB.getText();
+                    Integer b = Integer.parseInt(enterAmountB.getText());
+                    String info = ShopperController.inputBuyFromMarket(a, b);
                     JOptionPane.showMessageDialog(mainFrame, info);
                }
           });
@@ -158,7 +164,7 @@ public class E_ShopScreen extends A0_MainScreen{
           buyPlot.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent e) {
-                    String info = "Plot Bought";
+                    String info = ShopperController.inputBuyPlot();
                     JOptionPane.showMessageDialog(mainFrame, info);
                }
           });
