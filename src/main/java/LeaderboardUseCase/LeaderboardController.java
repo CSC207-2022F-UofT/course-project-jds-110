@@ -4,9 +4,8 @@ import java.util.ArrayList;
 
 public class LeaderboardController {
 
-    private static ArrayList<LeaderboardPlace> theLeaderboard = new ArrayList<LeaderboardPlace>();
+    public static ArrayList<LeaderboardPlace> whatIsTheLeaderboard() {
 
-    public static void whatIsTheLeaderboard() {
-        theLeaderboard = Leaderboard.getLeaderboard();
+        return Leaderboard.getLeaderboard();
     }
 }
