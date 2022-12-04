@@ -1,6 +1,7 @@
 package CheckProgress;
 
-import CheckProgressUseCase.CheckProgressPresenter;
+import CheckProgressUseCase.CheckProgress;
+import CheckProgressUseCase.CheckProgressController;
 import Entities.*;
 import Use_Case_Interactors.InventoryManager;
 import Use_Case_Interactors.PlotManager;
@@ -31,13 +32,12 @@ public class CheckProgressTest {
         PlotManager.createNewPlot();
     }
 
-
     /**
-     * CheckProgressPresenterNoMutationTest tests that the presenter does not mutate user's money,
+     * CheckProgressNoMutationTest tests that transformProgress() does not mutate user's money,
      * inventory and plots.
      */
-    @Test(timeout = 50)
-    public void CheckProgressPresenterNoMutationTest() {
+    @Test
+    public void CheckProgressNoMutationTest() {
         HashMap<Product, Integer> inventoryMap = InventoryManager.getMyInventoryItems();
         HashMap<Product, Integer> copyInventoryMap = InventoryManager.getMyInventoryItems();
         ArrayList<Plot> plots = PlotManager.getMyPlots();
@@ -46,35 +46,33 @@ public class CheckProgressTest {
         int copyOfMoney = InventoryManager.getMyInventoryMoney();
         boolean actual;
         boolean expected = true;
-        CheckProgressPresenter.transformProgress(inventoryMap, plots, money);
+        String info = CheckProgress.transformProgress(inventoryMap, plots, money);
         boolean actual1 = false;
         if (inventoryMap.size() == copyInventoryMap.size()) {
             actual1 = inventoryMap.equals(copyInventoryMap);
         }
         boolean actual2 = plots.equals(copyPlots);
         boolean actual3 = money == copyOfMoney;
+        System.out.println(info);
 
         actual = actual1 == actual2 == actual3;
 
         Assertions.assertEquals(expected, actual);
     }
+    /**
+     * CheckProgressStringTest tests that the string containing the user's information matches their actual information
+     * and that the format of the string is correct.
+     */
+    @Test
+    public void CheckProgressStringTest() {
+        String expected = "Inventory:" + "\n" + "-------------------" + "\n" + "Egg(s): 5" + "\n" +
+                "-------------------" + "\n" + "Plots:" + "\n" + "-------------------" + "\n" + "Plot 0: no product"
+                + "\n" + "-------------------" + "\n" + "Money: $500";
+        String actual = CheckProgressController.gameProgress();
+        Assertions.assertEquals(expected, actual);
+    }
 
     /*
-     * No test for CheckProgressPresenter for String conversion because there's no way to track the information
-     * that gets manipulated in the transformProgress() method.
+     * No test for CheckProgressController because it makes a subroutine call to the CheckProgress use case.
      */
-
-    /*
-     * No test for CheckProgressController because it makes a subroutine call to the CheckProgress use case boundary.
-     */
-
-    /*
-     * No test for CheckProgressView because it prints separate multi-line messages.
-     */
-
-    /*
-     * No test for CheckProgress because it just calls InventoryManager and PlotManager to fetch information.
-     */
-
-
 }
