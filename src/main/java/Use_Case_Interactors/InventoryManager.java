@@ -7,7 +7,9 @@ public class InventoryManager {
 
     private static final HashMap<String, Product>productStringDictionary = new HashMap<>();
 
-    private static Inventory myInventory;
+    private static Inventory myInventory = new Inventory();
+
+    private static String farmname;
 
     public static HashMap<Product, Integer> getMyInventoryItems() {
         HashMap<Product, Integer>productHashmap = new HashMap<>();
@@ -42,7 +44,6 @@ public class InventoryManager {
         return myInventory.getMyItems().get(item.getName()) >= amount;
     }
 
-
     public static void addItem(Product item, int amount) {
         if (myInventory.getMyItems().containsKey(item.getName())){
             myInventory.addAnotherItem(item.getName(), amount);
@@ -73,6 +74,12 @@ public class InventoryManager {
 
     public static String getName(){return myInventory.getName(); }
 
+
+    //a method to reset inventory for use in EndGameConditions_UseCase_Test
+    public static void reset() {
+        myInventory = new Inventory();
+    }
+
     public static Product convertStringtoProduct(String item){
         return productStringDictionary.get(item);
     }
@@ -91,7 +98,9 @@ public class InventoryManager {
         productStringDictionary.put("tomato",new Tomato());
         productStringDictionary.put("ripetomato",new RipeTomato());
         productStringDictionary.put("wool",new Wool());
+    }
+    public static HashMap<String, Product> getProductStringDictionary() {
+        return productStringDictionary;
 
-        /// stilltodo
     }
 }

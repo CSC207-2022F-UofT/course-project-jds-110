@@ -1,6 +1,7 @@
 package Entities;
 
-public class Potato extends Crop{
+public class Potato extends Crop {
+
     private static final String name = "potato";
     private static final String yield = "Baked Potato(s)";
     private static final int value = 7;

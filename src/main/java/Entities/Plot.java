@@ -23,6 +23,7 @@ public class Plot implements Serializable {
         }
         return productOnPlot.getName();
     }
+
     public int getDaysLeftToHarvest() {
         return daysLeftToHarvest;
     }
@@ -36,13 +37,14 @@ public class Plot implements Serializable {
         productOnPlot = product;
     }
 
-    public String harvest() {
-        // TO DO
-        String s = "";
-        return s;
-    }
-
     public static int getValue() {
         return value;
     }
+
+    public void emptyPlot(){
+        productOnPlot =  null;
+        daysLeftToHarvest = 0;
+    }
+
+    public Product getProduct(){return productOnPlot;}
 }
