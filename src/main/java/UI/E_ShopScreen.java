@@ -71,8 +71,8 @@ public class E_ShopScreen extends A0_MainScreen{
           buy.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent e) {
-                    String a = enterItemA.getText();
-                    Integer b = Integer.parseInt(enterAmountA.getText());
+                    String a = buyItemEntry.getText();
+                    Integer b = Integer.parseInt(buyAmountEntry.getText());
                     String info = ShopperController.inputBuyFromMarket(a, b);
                     JOptionPane.showMessageDialog(mainFrame, info);
                }
@@ -118,9 +118,9 @@ public class E_ShopScreen extends A0_MainScreen{
           sell.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent e) {
-                    String a = enterItemB.getText();
-                    Integer b = Integer.parseInt(enterAmountB.getText());
-                    String info = ShopperController.inputBuyFromMarket(a, b);
+                    String a = sellItemEntry.getText();
+                    Integer b = Integer.parseInt(sellAmountEntry.getText());
+                    String info = ShopperController.inputSellToMarket(a, b);
                     JOptionPane.showMessageDialog(mainFrame, info);
                }
           });

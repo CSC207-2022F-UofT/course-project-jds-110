@@ -41,7 +41,8 @@ public class InventoryManager {
 
     public static boolean checkIfAvailable(Product item, int amount){
 
-        return myInventory.getMyItems().get(item.getName()) >= amount;
+        // also check if this is available at all
+        return (myInventory.getMyItems().containsKey(item.getName()) & getMyInventoryItemsString().get(item.getName()) >= amount);
     }
 
     public static void addItem(Product item, int amount) {
