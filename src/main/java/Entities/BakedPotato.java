@@ -1,7 +1,7 @@
 package Entities;
 
 public class BakedPotato extends Product implements Yieldable {
-    private static final String name = "BakedPotato";
+    private static final String name = "bakedpotato";
 
     private static final int value = 10;
     private static final String yield = "";
