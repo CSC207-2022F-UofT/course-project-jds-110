@@ -34,7 +34,7 @@ public class E_CheckProgressScreen extends A0_MainScreen{
             @Override
             public void actionPerformed(ActionEvent e) {
                 String info = CheckProgressController.gameProgress();
-                JOptionPane.showMessageDialog(window, info);
+                JOptionPane.showMessageDialog(window, info, "Your Progress", JOptionPane.PLAIN_MESSAGE);
             }
         });
         window.add(btn_check_progress);
