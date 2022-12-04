@@ -18,19 +18,19 @@ public class B_SignInScreen extends A_TitleScreen{
     //transition from SignInScreen to NewOrLoadScreen
     static signInToNewLoad sHandler = new signInToNewLoad();
 
-    public B_SignInScreen(){
+    public B_SignInScreen() {
         titlePanel.setVisible(false);
         startButtonPanel.setVisible(false);
 
         //makes display "Welcome, please enter your name"
         signInTextPanel = new JPanel();
-        signInTextPanel.setBounds(150,250,500,100);
+        signInTextPanel.setBounds(150, 250, 500, 100);
         signInTextPanel.setBackground(Color.black);
         signInTextLabel = new JLabel("Welcome, please enter your name");
         signInTextLabel.setForeground(Color.white);
-        signInTextPanel.add( signInTextLabel);
+        signInTextPanel.add(signInTextLabel);
         signInTextLabel.setFont(normalFont);
-        con.add( signInTextPanel);
+        con.add(signInTextPanel);
 
         //creates sign in panel / text reader
         SignInPanel = new JPanel();
