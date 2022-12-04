@@ -5,12 +5,9 @@ import Entities.Inventory;
 import Entities.Plot;
 import Use_Case_Interactors.InventoryManager;
 import Use_Case_Interactors.PlotManager;
-import Entities.Product;
-import Use_Case_Interactors.CheckProgressBoundary;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class State {
     public static void initializeGame(String s){
