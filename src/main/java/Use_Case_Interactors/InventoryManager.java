@@ -1,7 +1,5 @@
 package Use_Case_Interactors;
 import Entities.*;
-import Entities.Inventory;
-import Entities.Product;
 
 import java.util.HashMap;
 
@@ -82,21 +80,27 @@ public class InventoryManager {
         myInventory = new Inventory();
     }
 
+    public static Product convertStringtoProduct(String item){
+        return productStringDictionary.get(item);
+    }
+
     public static void setupProductStringDictionary(){
         // add BakedPotato, Chicken, Corn, CornCob, COw, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
-        productStringDictionary.put("BakedPotato",new BakedPotato());
-        productStringDictionary.put("Chicken",new Chicken());
-        productStringDictionary.put("Corn",new Corn());
-        productStringDictionary.put("CornCob",new CornCob());
-        productStringDictionary.put("Cow",new Cow());
-        productStringDictionary.put("Egg(s)",new Egg());
-        productStringDictionary.put("Milk",new Milk());
-        productStringDictionary.put("Potato",new Potato());
-        productStringDictionary.put("Sheep",new Sheep());
-        productStringDictionary.put("Tomato",new Tomato());
-        productStringDictionary.put("Wool",new Wool());
+        productStringDictionary.put("bakedpotato",new BakedPotato());
+        productStringDictionary.put("chicken",new Chicken());
+        productStringDictionary.put("corn",new Corn());
+        productStringDictionary.put("corncob",new CornCob());
+        productStringDictionary.put("cow",new Cow());
+        productStringDictionary.put("egg",new Egg());
+        productStringDictionary.put("milk",new Milk());
+        productStringDictionary.put("potato",new Potato());
+        productStringDictionary.put("sheep",new Sheep());
+        productStringDictionary.put("tomato",new Tomato());
+        productStringDictionary.put("ripetomato",new RipeTomato());
+        productStringDictionary.put("wool",new Wool());
     }
     public static HashMap<String, Product> getProductStringDictionary() {
         return productStringDictionary;
+
     }
 }

@@ -39,17 +39,17 @@ public class Sharer {
     /**
      * @return The Crops or Animals on the player's plots (in emojis).
      * Example: if they only have 2 plots with a tomato and potato planted (respectively),
-     * the string returned would be 🥔🍅
+     * the string returned would be (potato-emoji)(tomato-emoji)
      */
 
     public static StringBuilder getFarmAppearance() {
         HashMap<String, String> emojis = new HashMap<String, String>();
-        emojis.put("Chicken(s)", "\uD83D\uDC13");
-        emojis.put("Corn", "\uD83C\uDF3D");
-        emojis.put("Cow(s)", "\uD83D\uDC04");
-        emojis.put("Potato(es)", "\uD83E\uDD54");
-        emojis.put("Sheep", "\uD83D\uDC11");
-        emojis.put("Tomato(es)", "\uD83C\uDF45");
+        emojis.put("chicken", "\uD83D\uDC13");
+        emojis.put("corn", "\uD83C\uDF3D");
+        emojis.put("cow", "\uD83D\uDC04");
+        emojis.put("potato", "\uD83E\uDD54");
+        emojis.put("sheep", "\uD83D\uDC11");
+        emojis.put("tomato", "\uD83C\uDF45");
         // The Hashmap only contains Animals and Crops since
         // those are the only Products that can be planted on the Plots.
 
