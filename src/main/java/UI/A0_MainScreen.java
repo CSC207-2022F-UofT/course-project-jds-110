@@ -26,12 +26,13 @@ public class A0_MainScreen {
         window.setLayout(null);
         window.setVisible(true);
         con = window.getContentPane();
+
     }
 
     public static void createAndShowMainMenuScreen() {
         //Create and set up the content pane.
-        //Create and set up main screen
         A0_MainScreen a = new A0_MainScreen();
+        //Create and set up main screen
         a.window.setLayout(new FlowLayout());
         // Edit form name
         a.window.setTitle("Your Farm");
@@ -40,6 +41,11 @@ public class A0_MainScreen {
         JButton btn_share = new JButton("Share your Farm");
         JButton btn_shop = new JButton("Go shopping");
         // Go to checkprogress screen
+
+
+        a.window.add(btn_check_progress);
+        a.window.add(btn_share);
+        a.window.add(btn_shop);
         btn_check_progress.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -62,23 +68,12 @@ public class A0_MainScreen {
             }
         });
 
-        a.window.add(btn_check_progress);
-        a.window.add(btn_share);
-        a.window.add(btn_shop);
-
     }
-
-
-
-
-
-
-
-public static void main(String[] args) {
+    public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
-public void run() {
-        createAndShowMainMenuScreen();
-        }
+            public void run() {
+                createAndShowMainMenuScreen();
+            }
         });
-        }
-        }
+    }
+}
