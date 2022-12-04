@@ -1,7 +1,5 @@
 package Use_Case_Interactors;
 import Entities.*;
-import Entities.Inventory;
-import Entities.Product;
 
 import java.util.HashMap;
 
@@ -33,19 +31,38 @@ public class InventoryManager {
         return myInventory.getMyMoney();
     }
 
+    /**
+     * Remove money from the user's inventory
+     * @param amount the amount of money to pay off
+     */
     public static void removeMoney(int amount) {
         myInventory.removeMoney(amount);
     }
 
+    /**
+     * Add money to the user's inventory
+     * @param amount the amount of money to get paid
+     */
     public static void addMoney(int amount){
         myInventory.addMoney(amount);
     }
 
+    /**
+     * Check if a certain number of product is available in the inventory
+     * @param item An item that the user is requested
+     * @param amount Number of products that the user requested
+     * @return True if the product with the requested amount is available and false if not
+     */
     public static boolean checkIfAvailable(Product item, int amount){
 
         return myInventory.getMyItems().get(item.getName()) >= amount;
     }
 
+    /**
+     * Add a certain number of items to the inventory
+     * @param item items that the user wants to store in their inventory
+     * @param amount number of items that the user wants to store in their inventory
+     */
     public static void addItem(Product item, int amount) {
         if (myInventory.getMyItems().containsKey(item.getName())){
             myInventory.addAnotherItem(item.getName(), amount);
@@ -55,6 +72,12 @@ public class InventoryManager {
         }
     }
 
+    /**
+     * Remove a certain amount of items from the inventory
+     * @param item items that the user wants to remove from their inventory
+     * @param amount number of items that the user wants to remove from in their inventory
+     * @return
+     */
     public static Boolean removeItem(Product item, int amount) {
         if (myInventory.getMyItems().containsKey(item.getName())){
             if (myInventory.getMyItems().get(item.getName()) > 1){
@@ -68,9 +91,17 @@ public class InventoryManager {
         }
     }
 
+    /**
+     * Increase rent in the inventory
+     */
     public static void increaseRent() { myInventory.increaseRent(); }
 
+
+    /**
+     * The user pays off rent from the inventory
+     */
     public static void removeRent() { myInventory.removeRent(); }
+
 
     public static void setName(String s) { myInventory.setName(s); }
 
@@ -82,21 +113,27 @@ public class InventoryManager {
         myInventory = new Inventory();
     }
 
+    public static Product convertStringtoProduct(String item){
+        return productStringDictionary.get(item);
+    }
+
     public static void setupProductStringDictionary(){
         // add BakedPotato, Chicken, Corn, CornCob, COw, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
-        productStringDictionary.put("BakedPotato",new BakedPotato());
-        productStringDictionary.put("Chicken",new Chicken());
-        productStringDictionary.put("Corn",new Corn());
-        productStringDictionary.put("CornCob",new CornCob());
-        productStringDictionary.put("Cow",new Cow());
-        productStringDictionary.put("Egg(s)",new Egg());
-        productStringDictionary.put("Milk",new Milk());
-        productStringDictionary.put("Potato",new Potato());
-        productStringDictionary.put("Sheep",new Sheep());
-        productStringDictionary.put("Tomato",new Tomato());
-        productStringDictionary.put("Wool",new Wool());
+        productStringDictionary.put("bakedpotato",new BakedPotato());
+        productStringDictionary.put("chicken",new Chicken());
+        productStringDictionary.put("corn",new Corn());
+        productStringDictionary.put("corncob",new CornCob());
+        productStringDictionary.put("cow",new Cow());
+        productStringDictionary.put("egg",new Egg());
+        productStringDictionary.put("milk",new Milk());
+        productStringDictionary.put("potato",new Potato());
+        productStringDictionary.put("sheep",new Sheep());
+        productStringDictionary.put("tomato",new Tomato());
+        productStringDictionary.put("ripetomato",new RipeTomato());
+        productStringDictionary.put("wool",new Wool());
     }
     public static HashMap<String, Product> getProductStringDictionary() {
         return productStringDictionary;
+
     }
 }
