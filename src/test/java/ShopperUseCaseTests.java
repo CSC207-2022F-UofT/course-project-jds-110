@@ -38,8 +38,8 @@ public class ShopperUseCaseTests {
     @Test
     public void ShopperSellProductTest(){
         Inventory testInventory = new Inventory();
-        testInventory.addItem("Egg(s)", 2);
-        testInventory.addItem("Corn", 10);
+        testInventory.addItem("egg", 2);
+        testInventory.addItem("corn", 10);
         Shopper.sell_to_market(new Egg(), 3);
         Assertions.assertEquals(testInventory.getMyItems(), InventoryManager.getMyInventoryItemsString());
     }
@@ -55,7 +55,7 @@ public class ShopperUseCaseTests {
     @Test
     public void ShopperControllerTest(){
 
-        String s = ShopperController.inputBuyFromMarket("Cow(s)", 5);
+        String s = ShopperController.inputBuyFromMarket("cow", 5);
         Assertions.assertEquals(s, "You're purchase was successful, its effects can be seen in your inventory!");
 
     }
