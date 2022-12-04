@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class E_ShopScreen{
+public class E_ShopScreen extends A0_MainScreen{
 
      JFrame mainFrame;
      JPanel mainPanel, shopperPanel, buyPanel, sellPanel, plotPanel;
@@ -18,6 +18,7 @@ public class E_ShopScreen{
 
      public E_ShopScreen(){
           // main frame creation
+
           mainFrame = new JFrame();
           mainFrame.setSize(800, 600);
           mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -38,6 +39,8 @@ public class E_ShopScreen{
                @Override
                public void actionPerformed(ActionEvent e) {
                     mainFrame.setVisible(false);
+                    A0_MainScreen.createAndShowMainMenuScreen();
+
                }
           });
           mainFrame.add(done);
@@ -55,6 +58,7 @@ public class E_ShopScreen{
           // mainFrame.add(plotPanel);
           mainFrame.add(mainPanel);
           mainFrame.setVisible(true);
+          con.add(mainFrame);
      }
      public void createBuyPanel(JPanel mainFrame){
           JPanel myBuyPanel = new JPanel();

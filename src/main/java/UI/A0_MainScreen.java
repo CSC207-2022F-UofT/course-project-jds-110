@@ -62,9 +62,11 @@ public class A0_MainScreen {
         });
         //Go to shop screen
         btn_shop.addActionListener(new ActionListener() {
+
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new E_ShopScreen();
+                a.window.setVisible(false);
             }
         });
 
