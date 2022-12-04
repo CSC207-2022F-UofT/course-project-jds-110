@@ -1,4 +1,6 @@
 package game_UI;
 
-public class C_SignInScreen {
+import javax.swing.*;
+
+public class C_SignInScreen extends JPanel {
 }
