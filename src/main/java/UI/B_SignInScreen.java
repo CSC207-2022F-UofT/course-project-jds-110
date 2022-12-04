@@ -1,7 +1,5 @@
 package UI;
 
-import game_UI.B_TitleScreen;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;

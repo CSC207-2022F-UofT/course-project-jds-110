@@ -25,7 +25,7 @@ public class A_TitleScreen extends A0_MainScreen {
         //makes title
         titlePanel = new JPanel();
         titlePanel.setBounds(100,100,600,150);
-        titlePanel.setBackground(Color.yellow);
+        titlePanel.setBackground(Color.BLACK);
         titleLabel = new JLabel("Farming Game", SwingConstants.CENTER);
         titleLabel.setForeground(Color.white);
         titleLabel.setFont(titleFont);
@@ -59,6 +59,7 @@ public class A_TitleScreen extends A0_MainScreen {
         public void actionPerformed(ActionEvent event){
             B_SignInScreen.createAndShowSignInScreen();
             quit();
+
 
         }
     }

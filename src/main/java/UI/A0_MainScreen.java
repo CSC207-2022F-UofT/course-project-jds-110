@@ -1,7 +1,5 @@
 package UI;
 
-import game_UI.A_MainDisplay;
-
 import javax.swing.*;
 import java.awt.*;
 
@@ -31,7 +29,6 @@ public class A0_MainScreen {
         //Create and set up the content pane.
         A0_MainScreen a = new A0_MainScreen();
 
-        //newContentPane.setOpaque(true);
     }
 
     public static void main(String[] args) {
