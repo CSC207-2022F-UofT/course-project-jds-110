@@ -14,10 +14,6 @@ public class E_ShopScreen extends A0_MainScreen{
      JTextField buyItemEntry, sellItemEntry, buyAmountEntry, sellAmountEntry;
      JButton buy, sell, buyPlot, done;
 
-     public static void main(String[] args){
-          new E_ShopScreen();
-     }
-
      public E_ShopScreen(){
           // main frame creation
 
@@ -41,7 +37,8 @@ public class E_ShopScreen extends A0_MainScreen{
                @Override
                public void actionPerformed(ActionEvent e) {
                     mainFrame.setVisible(false);
-                    A0_MainScreen.createAndShowMainMenuScreen();
+                    A1_MenuScreen.createAndShowMenuScreen();
+                    quit();
 
                }
           });
@@ -71,8 +68,8 @@ public class E_ShopScreen extends A0_MainScreen{
           buy.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent e) {
-                    String a = enterItemA.getText();
-                    Integer b = Integer.parseInt(enterAmountA.getText());
+                    String a = buyItemEntry.getText();
+                    Integer b = Integer.parseInt(buyAmountEntry.getText());
                     String info = ShopperController.inputBuyFromMarket(a, b);
                     JOptionPane.showMessageDialog(mainFrame, info);
                }
@@ -179,6 +176,22 @@ public class E_ShopScreen extends A0_MainScreen{
           mainFrame.add(myPlotPanel);
 
 
+     }
+
+     public static void createAndShowShopScreen() {
+          //Create and set up the content pane.
+          E_ShopScreen a = new E_ShopScreen();
+
+          //newContentPane.setOpaque(true);
+     }
+     public static void main(String[] args) {
+          //Schedule a job for the event-dispatching thread:
+          //creating and showing this application's GUI.
+          javax.swing.SwingUtilities.invokeLater(new Runnable() {
+               public void run() {
+                    createAndShowShopScreen();
+               }
+          });
      }
 
 

@@ -46,18 +46,20 @@ public class A_TitleScreen extends A0_MainScreen {
         con.add(startButtonPanel);
     }
 
-    public static void createAndShowTitleScreen() {
-        //Create and set up the content pane.
-        A_TitleScreen a = new A_TitleScreen();
 
-        //newContentPane.setOpaque(true);
-    }
 
     public class titleToSignIn implements ActionListener {
         public void actionPerformed(ActionEvent event){
             B_SignInScreen.createAndShowSignInScreen();
             quit();
         }
+    }
+
+    public static void createAndShowTitleScreen() {
+        //Create and set up the content pane.
+        A_TitleScreen a = new A_TitleScreen();
+
+        //newContentPane.setOpaque(true);
     }
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:

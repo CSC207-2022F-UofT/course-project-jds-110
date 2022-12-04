@@ -133,7 +133,8 @@ public class A1_MenuScreen extends A0_MainScreen{
     //ActionListener menu screen to shop screen
     public class menuToShop implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            E_CheckProgressScreen.createAndShowGUI();
+            new E_ShopScreen();
+            window.setVisible(false);
             quit();
         }
     }
