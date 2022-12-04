@@ -43,7 +43,8 @@ public class PlotManager {
      * @param plot the plot that the user wants to harvest crops on
      */
     public void harvest(Plot plot) {
-        if (plot.getProduct() instanceof Crop crop){
+        if (plot.getProduct() instanceof Crop){
+            Crop crop = (Crop) plot.getProduct();
             InventoryManager.addItem(crop, 1);
             plot.emptyPlot();
     }}
@@ -54,7 +55,8 @@ public class PlotManager {
      * @param plot the plot that the user wants to yield products on
      */
     public void extract(Plot plot){
-        if (plot.getProduct() instanceof Animal animal){
+        if (plot.getProduct() instanceof Animal){
+            Animal animal = (Animal) plot.getProduct();
             InventoryManager.addItem(animal, 1);
     }}
 
