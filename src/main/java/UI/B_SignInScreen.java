@@ -6,8 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class B_SignInScreen extends A_TitleScreen{
-
-    static String name;
     //loginScreen
     static JPanel signInTextPanel;
     static JPanel SignInPanel;
@@ -69,8 +67,8 @@ public class B_SignInScreen extends A_TitleScreen{
     //from sign in screen to saveOrLoad screen
     public static class signInToNewLoad implements ActionListener{
         public void actionPerformed( ActionEvent event){
-            name = jtf.getText();
-            createAndShowTitleScreen();
+            //name = jtf.getText();
+            new A_TitleScreen();
         }
     }
 }
