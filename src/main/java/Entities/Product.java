@@ -28,4 +28,6 @@ public abstract class Product implements Serializable {
         return value;
     }
 
+    public void daysToYield() {
+    }
 }

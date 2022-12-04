@@ -33,19 +33,38 @@ public class InventoryManager {
         return myInventory.getMyMoney();
     }
 
+    /**
+     * Remove money from the user's inventory
+     * @param amount the amount of money to pay off
+     */
     public static void removeMoney(int amount) {
         myInventory.removeMoney(amount);
     }
 
+    /**
+     * Add money to the user's inventory
+     * @param amount the amount of money to get paid
+     */
     public static void addMoney(int amount){
         myInventory.addMoney(amount);
     }
 
+    /**
+     * Check if a certain number of product is available in the inventory
+     * @param item An item that the user is requested
+     * @param amount Number of products that the user requested
+     * @return True if the product with the requested amount is available and false if not
+     */
     public static boolean checkIfAvailable(Product item, int amount){
 
         return myInventory.getMyItems().get(item.getName()) >= amount;
     }
 
+    /**
+     * Add a certain number of items to the inventory
+     * @param item items that the user wants to store in their inventory
+     * @param amount number of items that the user wants to store in their inventory
+     */
     public static void addItem(Product item, int amount) {
         if (myInventory.getMyItems().containsKey(item.getName())){
             myInventory.addAnotherItem(item.getName(), amount);
@@ -55,6 +74,12 @@ public class InventoryManager {
         }
     }
 
+    /**
+     * Remove a certain amount of items from the inventory
+     * @param item items that the user wants to remove from their inventory
+     * @param amount number of items that the user wants to remove from in their inventory
+     * @return
+     */
     public static Boolean removeItem(Product item, int amount) {
         if (myInventory.getMyItems().containsKey(item.getName())){
             if (myInventory.getMyItems().get(item.getName()) > 1){
@@ -68,9 +93,17 @@ public class InventoryManager {
         }
     }
 
+    /**
+     * Increase rent in the inventory
+     */
     public static void increaseRent() { myInventory.increaseRent(); }
 
+
+    /**
+     * The user pays off rent from the inventory
+     */
     public static void removeRent() { myInventory.removeRent(); }
+
 
     public static void setName(String s) { myInventory.setName(s); }
 
@@ -82,6 +115,9 @@ public class InventoryManager {
         myInventory = new Inventory();
     }
 
+    /**
+     * A dictionary that converts string to product
+     */
     public static void setupProductStringDictionary(){
         // add BakedPotato, Chicken, Corn, CornCob, COw, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
         productStringDictionary.put("BakedPotato",new BakedPotato());
