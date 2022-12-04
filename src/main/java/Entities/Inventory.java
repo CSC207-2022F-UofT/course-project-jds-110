@@ -6,7 +6,7 @@ public class Inventory implements Serializable {
     private int myMoney = 500;
     private int rent;
     private String name;
-    private HashMap<Product, Integer> myItems = new HashMap<>();
+    private HashMap<String, Integer> myItems = new HashMap<>();
 
     public int getMyMoney() {
         return myMoney;
@@ -23,11 +23,11 @@ public class Inventory implements Serializable {
         myMoney += amount;
     }
 
-    public HashMap<Product, Integer> getMyItems() {
+    public HashMap<String, Integer> getMyItems() {
         return myItems;
     }
 
-    public void addItem(Product item, int amount) {
+    public void addItem(String item, int amount) {
         myItems.put(item, amount);
     }
 
@@ -35,12 +35,12 @@ public class Inventory implements Serializable {
         myItems.remove(item);
     }
 
-    public void removeSome(Product item, int amount){
+    public void removeSome(String item, int amount){
         int present_amount = myItems.get(item);
         myItems.put(item, present_amount - amount);
     }
 
-    public void addAnotherItem(Product item, int amount){
+    public void addAnotherItem(String item, int amount){
         int present_amount = myItems.get(item);
         myItems.put(item, amount + present_amount);
     }

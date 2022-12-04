@@ -1,9 +1,9 @@
 package Use_Case_Interactors;
 
+import CheckProgressUseCase.CheckProgress;
 import CheckProgressUseCase.CheckProgressPresenter;
 import Entities.Plot;
 import Entities.Product;
-import save_state_use_case.State;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ public class CheckProgressBoundary implements UseCaseInteractorBoundary {
      * inventory, plots and money.
      */
     public static void boundaryInput() {
-        State.gameProgress();
+        CheckProgress.gameProgress();
     }
 
     ;
