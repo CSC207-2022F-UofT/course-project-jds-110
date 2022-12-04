@@ -39,7 +39,7 @@ public class Sharer {
     /**
      * @return The Crops or Animals on the player's plots (in emojis).
      * Example: if they only have 2 plots with a tomato and potato planted (respectively),
-     * the string returned would be 🥔🍅
+     * the string returned would be (potato-emoji)(tomato-emoji)
      */
 
     public static StringBuilder getFarmAppearance() {
