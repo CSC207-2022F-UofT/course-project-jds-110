@@ -32,42 +32,6 @@ class SharerTest {
     }
 
     @Test
-    public void testGetRankingEmpty() {
-        String expectedString = "\uD83E\uDD47 Player with $500";
-        Assertions.assertEquals(expectedString, Sharer.getRanking().toString());
-    }
-
-    @Test
-    public void testGetRankingPartial() {
-        Leaderboard.updateLeaderboard(1111, "Number1");
-
-        String expectedString = "\uD83E\uDD47 Number1 with $1111\n" +
-                " \uD83E\uDD48 Player with $500";
-        String actualString = Sharer.getRanking().toString();
-        Assertions.assertEquals(expectedString, actualString);
-    }
-
-    @Test
-    public void testGetRankingFull() {
-        String expectedString = "\uD83E\uDD47 Number1 with $1111\n" +
-                " \uD83E\uDD48 Number2 with $1100" +
-                "\n \uD83E\uDD49 Player with $500";
-        Leaderboard.updateLeaderboard(1111, "Number1");
-        Leaderboard.updateLeaderboard(1100, "Number2");
-        Leaderboard.getLeaderboard();
-        Assertions.assertEquals(3, Leaderboard.getLeaderboard().size()); //remove once it works
-        Assertions.assertEquals(expectedString, Sharer.getRanking().toString());
-    }
-
-    @Test
-    public void testGetRankingMultipleFarmsWithSameMoney() {
-        Leaderboard.updateLeaderboard(500, "Other");
-        String expectedString = "\uD83E\uDD47 Other, and Player with $500";
-        Leaderboard.getLeaderboard();
-        Assertions.assertEquals(expectedString, Sharer.getRanking().toString());
-    }
-
-    @Test
     public void testGetFarmAppearanceEmpty() {
         String expected = "";
         Assertions.assertEquals(expected, Sharer.getFarmAppearance().toString());
