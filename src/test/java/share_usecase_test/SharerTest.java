@@ -53,7 +53,7 @@ class SharerTest {
         currPlots.add(plot2);
         PlotManager.setMyPlots(currPlots);
 
-        String expectedString = "\uD83E\uDD54\uD83C\uDF45";
+        String expectedString = "\uD83E\uDD54\uD83C\uDF45-";
         Assertions.assertEquals(expectedString, Sharer.getFarmAppearance().toString());
     }
 }

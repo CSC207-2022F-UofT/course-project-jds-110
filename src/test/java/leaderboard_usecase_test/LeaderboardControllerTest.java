@@ -10,7 +10,6 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import share_use_case.Sharer;
 
 import java.util.ArrayList;
 
@@ -34,7 +33,7 @@ public class LeaderboardControllerTest {
 
     @Test
     public void testGetRankingEmpty() {
-        String expectedString = "\uD83E\uDD47 Player with $500";
+        String expectedString = "Player with $500";
         Assertions.assertEquals(expectedString, LeaderboardController.getRanking().toString());
     }
 
@@ -42,17 +41,17 @@ public class LeaderboardControllerTest {
     public void testGetRankingPartial() {
         Leaderboard.updateLeaderboard(1111, "Number1");
 
-        String expectedString = "\uD83E\uDD47 Number1 with $1111\n" +
-                " \uD83E\uDD48 Player with $500";
+        String expectedString = "Number1 with $1111\n" +
+                " Player with $500";
         String actualString = LeaderboardController.getRanking().toString();
         Assertions.assertEquals(expectedString, actualString);
     }
 
     @Test
     public void testGetRankingFull() {
-        String expectedString = "\uD83E\uDD47 Number1 with $1111\n" +
-                " \uD83E\uDD48 Number2 with $1100" +
-                "\n \uD83E\uDD49 Player with $500";
+        String expectedString = "Number1 with $1111\n" +
+                " Number2 with $1100" +
+                "\n Player with $500";
         Leaderboard.updateLeaderboard(1111, "Number1");
         Leaderboard.updateLeaderboard(1100, "Number2");
         Leaderboard.getLeaderboard();
@@ -63,7 +62,7 @@ public class LeaderboardControllerTest {
     @Test
     public void testGetRankingMultipleFarmsWithSameMoney() {
         Leaderboard.updateLeaderboard(500, "Other");
-        String expectedString = "\uD83E\uDD47 Other, and Player with $500";
+        String expectedString = "Other, and Player with $500";
         Leaderboard.getLeaderboard();
         Assertions.assertEquals(expectedString, LeaderboardController.getRanking().toString());
     }

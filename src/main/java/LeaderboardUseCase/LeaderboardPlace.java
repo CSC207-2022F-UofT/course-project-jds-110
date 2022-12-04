@@ -17,7 +17,7 @@ public class LeaderboardPlace {
      */
     public LeaderboardPlace(int money, String farmName) {
         this.AmountOfMoney = money;
-        this.farmNames = new ArrayList<String>();
+        this.farmNames = new ArrayList<>();
         this.farmNames.add(farmName);
     }
 
@@ -48,6 +48,7 @@ public class LeaderboardPlace {
             allNames.append(", and ");
             allNames.append(farmNames.get(len - 1));
         }
+
         return allNames.toString();
     }
 

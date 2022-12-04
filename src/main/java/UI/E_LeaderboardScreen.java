@@ -1,90 +1,65 @@
 package UI;
 
 import LeaderboardUseCase.LeaderboardController;
-import game_UI.A_MainDisplay;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 
-public class E_LeaderboardScreen extends A_MainDisplay {
-    //window
-    JFrame window;
-    Container con;
-    //title name
-    JPanel titlePanel;
-    JLabel titleLabel;
-    //startButton
-    JPanel startButtonPanel;
-    JButton startButton;
-    //fonts
-    Font titleFont = new Font("Times New Roman", Font.PLAIN, 50);
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 25);
-    //transition from Title Screen to Sign in Screen
-    //A_TitleScreen.TitleScreenHandler tsHandler = new A_TitleScreen.TitleScreenHandler();
+public class E_LeaderboardScreen extends JPanel{
 
-    public E_LeaderboardScreen(){
-        //have to put startButton here for order of layers
-        startButton = new JButton("Back");
-
-        //makes window
-        window = new JFrame();
-        window.setSize(800,600);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().setBackground(Color.black);
-        window.setLayout(null);
-        window.setVisible(true);
-        con = window.getContentPane();
-
-        //makes title
-        titlePanel = new JPanel();
-        titlePanel.setBounds(100,100,600,150);
-        titlePanel.setBackground(Color.black);
-//
-//        StringBuilder leaderboard = LeaderboardController.getRanking();
-//
-//        if (leaderboard.toString().length() == 0) {
-//            leaderboard = new StringBuilder("No Leaderboard");
-//        }
-//
-//        titleLabel = new JLabel(leaderboard.toString(), SwingConstants.CENTER);
-        titleLabel = new JLabel("\uD83E\uDD47 Number1 with $1111\n" +
-                "\uD83E\uDD48 Number2 with $1100\n" +
-                "\uD83E\uDD49 Player with $500", SwingConstants.CENTER);
-        titleLabel.setForeground(Color.white);
-        titleLabel.setFont(normalFont);
-
-        //makes startButton
-        startButtonPanel = new JPanel();
-        startButtonPanel.setBounds(300,400,200,100);
-        startButtonPanel.setBackground(Color.black);
-
-        startButton.setBackground(Color.blue);
-        startButton.setForeground(Color.black);
-        startButton.setFont(normalFont);
-
-        titlePanel.add(titleLabel);
-        startButtonPanel.add(startButton);
-
-        con.add(titlePanel);
-        con.add(startButtonPanel);
-
+    /** Returns an ImageIcon, or null if the path was invalid. */
+    protected static ImageIcon createImageIcon() {
+        java.net.URL imgURL = E_LeaderboardScreen.class.getClassLoader().getResource("medals_icon.jpg");
+        if (imgURL != null) {
+            return new ImageIcon(imgURL);
+        } else {
+            System.err.println("Couldn't find file: " + "medals_icon.jpg");
+            return null;
+        }
     }
 
     private static void createAndShowGUI() {
-        //Create and set up the content pane.
-        E_LeaderboardScreen newContentPane = new E_LeaderboardScreen();
-//        newContentPane.setOpaque(true);
-    }
+        // custom icon
+        ImageIcon icon = createImageIcon();
+        assert icon != null;
+        Image scaleImage = icon.getImage().getScaledInstance(25, 100, Image.SCALE_DEFAULT);
+        ImageIcon icon2 = new ImageIcon(scaleImage);
 
-    public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowGUI();
+        // Create and set up the window.
+    JFrame frame = new JFrame("Check Your Leaderboard!");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    // Make Buttons
+    JButton btn_show_leaderboard = new JButton("Display Leaderboard");
+        btn_show_leaderboard.addActionListener(new ActionListener() {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            // test string
+//            String info = "Number1 with $1111\n" +
+//            "Number2 with $1100\n" +
+//                    "Player with $500";
+            String info = String.valueOf(LeaderboardController.getRanking());
+            if (info.length() == 0) {
+                info = "No Leaderboard";
             }
-        });
+            JOptionPane.showMessageDialog(frame, info, "Leaderboard info", JOptionPane.INFORMATION_MESSAGE, icon2); // make it work
+        }
+    });
+        frame.add(btn_show_leaderboard);
+
+
+
+    //Display the window.
+            frame.pack();
+        frame.setVisible(true);
+        frame.setSize(800,600);
+        frame.setLayout(new FlowLayout());
+
+}
+    public static void main (String[]args){
+        createAndShowGUI();
     }
-
-
 }
