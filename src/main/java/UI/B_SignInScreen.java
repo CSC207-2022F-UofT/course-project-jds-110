@@ -1,53 +1,33 @@
 package UI;
 
+import game_UI.B_TitleScreen;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class B_SignInScreen {
+public class B_SignInScreen extends A_TitleScreen{
+
     static String name;
-    //window
-    JFrame window;
-    static Container con;
-    //fonts
-    Font titleFont = new Font("Times New Roman", Font.PLAIN, 96);
-    static Font normalFont = new Font("Times New Roman", Font.PLAIN, 25);
     //loginScreen
-    static JPanel  signInTextPanel;
+    static JPanel signInTextPanel;
     static JPanel SignInPanel;
-    static JLabel  signInTextLabel;
+    static JLabel signInTextLabel;
     static JTextField jtf;
     static JButton enterB;
 
     //transition from SignInScreen to NewOrLoadScreen
-    static signInHandler sHandler = new signInHandler();
-
-
-
-    public static void main(String[] args){
-        new B_SignInScreen();
-    }
+    static signInToNewLoad sHandler = new signInToNewLoad();
 
     public B_SignInScreen(){
-        //makes window
-        window = new JFrame();
-        window.setSize(800,600);
-        window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().setBackground(Color.black);
-        window.setLayout(null);
-        window.setVisible(true);
-        con = window.getContentPane();
+        titlePanel.setVisible(false);
+        startButtonPanel.setVisible(false);
 
-        //make login
-        signInTextPanel = new JPanel();
-    }
-
-    public static void createSignInScreen(){
         //makes display "Welcome, please enter your name"
         signInTextPanel = new JPanel();
         signInTextPanel.setBounds(150,250,500,100);
-        signInTextPanel.setBackground(Color.blue);
+        signInTextPanel.setBackground(Color.black);
         signInTextLabel = new JLabel("Welcome, please enter your name");
         signInTextLabel.setForeground(Color.white);
         signInTextPanel.add( signInTextLabel);
@@ -71,12 +51,28 @@ public class B_SignInScreen {
         con.add(SignInPanel);
     }
 
+    public static void createAndShowSignInScreen() {
+        //Create and set up the content pane.
+        B_SignInScreen a = new B_SignInScreen();
+
+        //newContentPane.setOpaque(true);
+    }
+
+    public static void main(String[] args) {
+        //Schedule a job for the event-dispatching thread:
+        //creating and showing this application's GUI.
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowSignInScreen();
+            }
+        });
+    }
 
     //from sign in screen to saveOrLoad screen
-    public static class signInHandler implements ActionListener{
+    public static class signInToNewLoad implements ActionListener{
         public void actionPerformed( ActionEvent event){
             name = jtf.getText();
-            //saveOrLoadScreen();
+            createAndShowTitleScreen();
         }
     }
 }

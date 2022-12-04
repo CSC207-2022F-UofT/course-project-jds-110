@@ -1,5 +1,7 @@
 package UI;
 
+import game_UI.A_MainDisplay;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,9 +10,12 @@ public class A0_MainScreen {
     JFrame window;
     Container con;
 
-    public static void main(String[] args){
-        new A0_MainScreen();
-    }
+    //fonts
+    Font titleFont = new Font("Times New Roman", Font.PLAIN, 96);
+    Font normalFont = new Font("Times New Roman", Font.PLAIN, 25);
+
+    //Class Instantiation
+
     public A0_MainScreen(){
         //makes window
         window = new JFrame();
@@ -20,5 +25,20 @@ public class A0_MainScreen {
         window.setLayout(null);
         window.setVisible(true);
         con = window.getContentPane();
+    }
+
+    public static void createAndShowMainMenuScreen() {
+        //Create and set up the content pane.
+        A0_MainScreen a = new A0_MainScreen();
+
+        //newContentPane.setOpaque(true);
+    }
+
+    public static void main(String[] args) {
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowMainMenuScreen();
+            }
+        });
     }
 }

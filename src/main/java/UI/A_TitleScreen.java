@@ -4,27 +4,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
 public class A_TitleScreen extends A0_MainScreen {
-    //window
-    JFrame window;
-    Container con;
     //title name
     JPanel titlePanel;
     JLabel titleLabel;
     //startButton
     JPanel startButtonPanel;
     JButton startButton;
-    //fonts
-    Font titleFont = new Font("Times New Roman", Font.PLAIN, 96);
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 25);
     //transition from Title Screen to Sign in Screen
-    TitleScreenHandler tsHandler = new TitleScreenHandler();
+    titleToSignIn tsHandler = new titleToSignIn();
 
 
+    //A_TitleScreen.TitleScreenHandler tsHandler = new A_TitleScreen.TitleScreenHandler();
 
-    public static void main(String[] args){
-        new A_TitleScreen();
-    }
     public A_TitleScreen(){
         //have to put startButton here for order of layers
         startButton = new JButton("START");
@@ -32,7 +25,7 @@ public class A_TitleScreen extends A0_MainScreen {
         //makes title
         titlePanel = new JPanel();
         titlePanel.setBounds(100,100,600,150);
-        titlePanel.setBackground(Color.black);
+        titlePanel.setBackground(Color.yellow);
         titleLabel = new JLabel("Farming Game", SwingConstants.CENTER);
         titleLabel.setForeground(Color.white);
         titleLabel.setFont(titleFont);
@@ -45,19 +38,43 @@ public class A_TitleScreen extends A0_MainScreen {
         startButton.setBackground(Color.black);
         startButton.setForeground(Color.white);
         startButton.setFont(normalFont);
+        startButton.addActionListener(tsHandler);
 
         titlePanel.add(titleLabel);
         startButtonPanel.add(startButton);
 
         con.add(titlePanel);
         con.add(startButtonPanel);
+
     }
-    //from title screen to sign in screen
-    public class TitleScreenHandler implements ActionListener{
+
+    public static void createAndShowTitleScreen() {
+        //Create and set up the content pane.
+        A_TitleScreen a = new A_TitleScreen();
+
+        //newContentPane.setOpaque(true);
+    }
+
+    public class titleToSignIn implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            B_SignInScreen.createSignInScreen();
+            B_SignInScreen.createAndShowSignInScreen();
+            quit();
+
         }
     }
+
+    public void quit(){
+        window.setVisible(false);
+        window.dispose();
+    }
+
+    public static void main(String[] args) {
+        //Schedule a job for the event-dispatching thread:
+        //creating and showing this application's GUI.
+        javax.swing.SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                createAndShowTitleScreen();
+            }
+        });
+    }
 }
-
-
