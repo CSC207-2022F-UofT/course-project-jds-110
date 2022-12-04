@@ -8,30 +8,21 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 public class Farmer {
-    public static void place_animals(Animal animal, Plot plot) throws IOException {
-        BufferedReader bfn = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Which plot do you want to place your animal?");
-        int num = Integer.parseInt(bfn.readLine());
-        boolean a = PlotManager.place(animal, num);
-        if (a){
-            System.out.println("You have placed your animal!");
-        }
-        else{
-            System.out.println("Sorry, your plot is full.");
-        }
+    /**
+     * Place an animal to a plot which is accessed by a plot id.
+     * @param animal an animal entity (Cow, Chicken, or Sheep)
+     * @param id of a plot
+     */
+    public static void place_animals(Animal animal, int id) {
+        PlotManager.place(animal, id);
     }
-
-    public static void place_crops(Crop crop, Plot plot) throws IOException {
-        BufferedReader bfn = new BufferedReader(new InputStreamReader(System.in));
-        System.out.println("Which plot do you want to place your crop?");
-        int num = Integer.parseInt(bfn.readLine());
-        boolean b = PlotManager.place(crop, num);
-        if (b){
-            System.out.println("You have placed your crop!");
-        }
-        else{
-            System.out.println("Sorry, your plot is full.");
-        }
+    /**
+     * Place a crop to a plot which is accessed by a plot id.
+     * @param crop a crop entity (Tomato, Potato, or Corn)
+     * @param id id of a plot
+     */
+    public static void place_crops(Crop crop, int id) {
+        PlotManager.place(crop, id);
     }
 
 

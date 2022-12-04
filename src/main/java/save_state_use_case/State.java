@@ -5,12 +5,9 @@ import Entities.Inventory;
 import Entities.Plot;
 import Use_Case_Interactors.InventoryManager;
 import Use_Case_Interactors.PlotManager;
-import Entities.Product;
-import Use_Case_Interactors.CheckProgressBoundary;
 
 import java.io.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class State {
     public static void initializeGame(String s){
@@ -42,7 +39,6 @@ public class State {
         /* Save the arraylist in the file */
         out.writeObject(arr);
         out.close();
-        System.out.println("Game saved in " + name + ".ser");
     }
 
     public static void loadGame(String s) throws IOException, ClassNotFoundException {
@@ -57,6 +53,5 @@ public class State {
         PlotManager.setMyPlots((ArrayList<Plot>) data.get(1));
         /* set up ProductStringDictionary in InventoryManager */
         InventoryManager.setupProductStringDictionary();
-        System.out.println("Game Loaded");
     }
 }
