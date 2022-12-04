@@ -14,9 +14,9 @@ public class A1_MenuScreen extends A0_MainScreen{
     JPanel CheckProgressButtonPanel;
     JButton CheckProgressButton;
 
-    //FarmButton
-    JPanel FarmButtonPanel;
-    JButton FarmButton;
+    //NextDay
+    JPanel NextDayPanel;
+    JButton NextDay;
 
     //LeaderboardButton
     JPanel LeaderboardButtonPanel;
@@ -39,7 +39,7 @@ public class A1_MenuScreen extends A0_MainScreen{
     menuToShop menuToShopHandler = new menuToShop();
 
     //transitions from Menu to Farm Screen
-    menuToFarm menuToFarmHandler = new menuToFarm();
+    menuToNextday menuToFarmHandler = new menuToNextday();
 
     //transitions from Menu to Shop Screen
     menuToLeaderboard menuToLeaderboardHandler = new menuToLeaderboard();
@@ -49,7 +49,7 @@ public class A1_MenuScreen extends A0_MainScreen{
 
     public A1_MenuScreen(){
         CheckProgressButton = new JButton("Check Progress");
-        FarmButton = new JButton("Check Farm");
+        NextDay = new JButton("Next Day");
         LeaderboardButton = new JButton("Check Leaderboard");
         ShareButton = new JButton("Share");
         ShopButton = new JButton("Go to shop");
@@ -64,7 +64,7 @@ public class A1_MenuScreen extends A0_MainScreen{
 
         //makes CheckProgressButton
         CheckProgressButtonPanel = new JPanel();
-        CheckProgressButtonPanel.setBounds(300,230,200,50);
+        CheckProgressButtonPanel.setBounds(300,295,200,50);
         CheckProgressButtonPanel.setBackground(Color.BLACK);
         CheckProgressButton.setBackground(Color.black);
         CheckProgressButton.setForeground(Color.white);
@@ -80,14 +80,14 @@ public class A1_MenuScreen extends A0_MainScreen{
         ShopButton.setFont(normalFont);
         ShopButton.addActionListener(menuToShopHandler);
 
-        //makes FarmButton
-        FarmButtonPanel = new JPanel();
-        FarmButtonPanel.setBounds(300,295,200,50);
-        FarmButtonPanel.setBackground(Color.black);
-        FarmButton.setBackground(Color.black);
-        FarmButton.setForeground(Color.white);
-        FarmButton.setFont(normalFont);
-        FarmButton.addActionListener(menuToFarmHandler);
+        //makes NextDay
+        NextDayPanel = new JPanel();
+        NextDayPanel.setBounds(300,230,200,50);
+        NextDayPanel.setBackground(Color.black);
+        NextDay.setBackground(Color.black);
+        NextDay.setForeground(Color.white);
+        NextDay.setFont(normalFont);
+        NextDay.addActionListener(menuToFarmHandler);
 
         //makes LeaderboardButton
         LeaderboardButtonPanel = new JPanel();
@@ -111,7 +111,7 @@ public class A1_MenuScreen extends A0_MainScreen{
         mainScreenPanel.add(mainScreenLabel);
         CheckProgressButtonPanel.add(CheckProgressButton);
         ShopButtonPanel.add(ShopButton);
-        FarmButtonPanel.add(FarmButton);
+        NextDayPanel.add(NextDay);
         LeaderboardButtonPanel.add(LeaderboardButton);
         ShareButtonPanel.add(ShareButton);
 
@@ -121,7 +121,7 @@ public class A1_MenuScreen extends A0_MainScreen{
         con.add(ShopButtonPanel);
         con.add(LeaderboardButtonPanel);
         con.add(ShareButtonPanel);
-        con.add(FarmButtonPanel);
+        con.add(NextDayPanel);
     }
     //ActionListener menu screen to progress screen
     public class menuToProgress implements ActionListener {
@@ -133,24 +133,25 @@ public class A1_MenuScreen extends A0_MainScreen{
     //ActionListener menu screen to shop screen
     public class menuToShop implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            new E_ShopScreen();
+            E_ShopScreen_NEW.createAndShowShopScreen();
             window.setVisible(false);
             quit();
         }
     }
 
-    //ActionListener menu screen to farm screen
-    public class menuToFarm implements ActionListener {
+    //ActionListener menu screen to GO TO NEXT DAY
+    public class menuToNextday implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            E_CheckProgressScreen.createAndShowGUI();
-            quit();
+            //implement your go to nextDAY
+//            E_CheckProgressScreen.createAndShowGUI();
+//            quit();
         }
     }
 
     //ActionListener menu screen to Leaderboard screen
     public class menuToLeaderboard implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            E_CheckProgressScreen.createAndShowGUI();
+            E_LeaderboardScreen_NEW.createAndShowLeaderBoardScreen();
             quit();
         }
     }
