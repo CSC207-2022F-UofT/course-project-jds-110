@@ -82,7 +82,7 @@ public class NextDayTest {
     /** Test that NextDayController return correct string when game is over. */
     @Test
     public void testNextDayControllerGameOver() {
-        InventoryManager.removeMoney(400);
+        InventoryManager.removeMoney(401);
         String exp = NextDay.nextDayEndgame();
         String act = NextDayController.goToNextDay();
         Assertions.assertEquals(exp, act);
