@@ -29,6 +29,7 @@ public class E_CheckProgressScreen extends A0_MainScreen{
         //Make Buttons
         //Display progress
         JButton btn_check_progress = new JButton("Display Progress");
+        //.setBOunds(300,360,200,50);
         btn_check_progress.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -51,7 +52,7 @@ public class E_CheckProgressScreen extends A0_MainScreen{
         btn_main_menu.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-               A0_MainScreen.createAndShowMainMenuScreen();
+               A1_MenuScreen.createAndShowMenuScreen();
                window.setVisible(false);
             }
         });

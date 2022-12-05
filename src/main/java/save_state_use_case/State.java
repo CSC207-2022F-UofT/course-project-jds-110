@@ -39,7 +39,6 @@ public class State {
         /* Save the arraylist in the file */
         out.writeObject(arr);
         out.close();
-        System.out.println("Game saved in " + name + ".ser");
     }
 
     public static void loadGame(String s) throws IOException, ClassNotFoundException {
@@ -54,6 +53,5 @@ public class State {
         PlotManager.setMyPlots((ArrayList<Plot>) data.get(1));
         /* set up ProductStringDictionary in InventoryManager */
         InventoryManager.setupProductStringDictionary();
-        System.out.println("Game Loaded");
     }
 }
