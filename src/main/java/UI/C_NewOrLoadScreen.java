@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class C_NewOrLoadScreen extends B_SignInScreen {
+public class C_NewOrLoadScreen extends A_TitleScreen {
     JPanel newLoadTextPanel;
     JLabel newLoadTextLabel;
     JPanel newButtonPanel;
@@ -17,8 +17,8 @@ public class C_NewOrLoadScreen extends B_SignInScreen {
     loadToLoadGame lHandler = new loadToLoadGame();
 
     public C_NewOrLoadScreen() {
-        signInTextPanel.setVisible(false);
-        SignInPanel.setVisible(false);
+        titlePanel.setVisible(false);
+        startButtonPanel.setVisible(false);
 
         //makes display text
         newLoadTextPanel = new JPanel();
