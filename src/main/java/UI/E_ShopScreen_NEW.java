@@ -8,16 +8,21 @@ import java.awt.event.ActionListener;
 
 public class E_ShopScreen_NEW extends A0_MainScreen{
 
-//     JFrame mainFrame;
+     //     JFrame mainFrame;
      JPanel mainPanel, shopperPanel, buyPanel, sellPanel, plotPanel;
      JLabel SHOP, BUY, SELL, PLOT, enterItemA, enterItemB, enterAmountA, enterAmountB;
      JTextField buyItemEntry, sellItemEntry, buyAmountEntry, sellAmountEntry;
      JButton buy, sell, buyPlot, done;
 
 
-    //transitions from Menu to Shop Screen
-    shopToMenu shopToMenuHandler = new shopToMenu();
+     //transitions from Menu to Shop Screen
+     shopToMenu shopToMenuHandler = new shopToMenu();
      public E_ShopScreen_NEW(){
+
+          JPanel mainPanel2 = new JPanel();
+          mainPanel2.setBounds(0,0,800,600);
+          mainPanel2.setLayout(null);
+
           mainPanel = new JPanel();
           mainPanel.setBounds(0,0,800,600);
           mainPanel.setLayout(new GridLayout(1,3));
@@ -32,7 +37,7 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
           done.setBounds(360, 500, 100, 25);
           done.addActionListener(shopToMenuHandler);
 
-         // extra panels
+          // extra panels
           createBuyPanel(mainPanel);
           createSellPanel(mainPanel);
           createPlotPanel(mainPanel);
@@ -44,12 +49,17 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
           // mainFrame.add(buyPanel);
           // mainFrame.add(sellPanel);
           // mainFrame.add(plotPanel);
-          mainPanel.setVisible(true);
+          // mainPanel.setVisible(true);
           mainPanel.setBackground(Color.WHITE);
 
-          con.add(done);
-          con.add(SHOP);
-          con.add(mainPanel);
+          //con.add(done);
+          //con.add(SHOP);
+          //con.add(mainPanel);
+          mainPanel2.add(done);
+          mainPanel2.add(SHOP);
+          mainPanel2.add(mainPanel);
+          // mainPanel2.setVisible(true);
+          con.add(mainPanel2);
 
      }
      public void createBuyPanel(JPanel mainFrame){
@@ -187,13 +197,13 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
           });
      }
 
-    //ActionListener shop to menu screen
-    public class shopToMenu implements ActionListener {
-        public void actionPerformed(ActionEvent event){
-            A1_MenuScreen.createAndShowMenuScreen();
-            window.setVisible(false);
-            quit();
-        }
-    }
+     //ActionListener shop to menu screen
+     public class shopToMenu implements ActionListener {
+          public void actionPerformed(ActionEvent event){
+               A1_MenuScreen.createAndShowMenuScreen();
+               window.setVisible(false);
+               quit();
+          }
+     }
 
 }

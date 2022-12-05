@@ -68,7 +68,8 @@ public class B_SignInScreen extends A_TitleScreen{
     public static class signInToNewLoad implements ActionListener{
         public void actionPerformed( ActionEvent event){
             //name = jtf.getText();
-            new A_TitleScreen();
+            new C_NewOrLoadScreen();
+            // new A_TitleScreen();
         }
     }
 }
