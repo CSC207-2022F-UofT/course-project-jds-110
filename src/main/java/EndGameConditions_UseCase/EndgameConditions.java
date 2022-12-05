@@ -14,16 +14,17 @@ public class EndgameConditions {
 
     public static String endGame(){
         if (checkWinMoney()){
-            return "You have reached the required amount of money needed to win. Currently you have : "+
-                    InventoryManager.getMyInventoryMoney() +" amount";
+            return "YOU WIN! \nYou have reached the required amount of money needed to win.\n" +
+                    "Currently you have : $" + InventoryManager.getMyInventoryMoney();
         }
         else if (checkWinSpecies()){
-            return "You have acquired all of the different species of crops and animals required to win." +
-                    "Currently you have : " + InventoryManager.getMyInventoryItems().size()     + " species";
+            return "YOU WIN!\n" +
+                    "You have acquired all of the different species of crops and animals required to win.\n" +
+                    "Currently you have : " + InventoryManager.getMyInventoryItems().size() + " species";
         }
         if (checkLose()){
-            return "You have lost the game by going below the required threshold of 100. Currently you have : " +
-                    InventoryManager.getMyInventoryMoney() + "amount";
+            return "YOU LOSE!\nYou do not have enough money to pay for your rent.\n" +
+                    "Currently you have : $" + InventoryManager.getMyInventoryMoney();
         }
         else {
             // if this method returns "game not over", this nextDay will know that the game has not ended
