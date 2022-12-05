@@ -14,6 +14,14 @@ public class Plot implements Serializable {
     public Plot(int plotID){plotId = plotID;
     }
 
+    /**
+     * Get id of plot
+     * @return id of plot
+     */
+    public int getPlotId(){
+        return plotId;
+    }
+
 
     /**
      * Check if the plot is empty
