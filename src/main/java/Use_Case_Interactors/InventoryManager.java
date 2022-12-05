@@ -14,7 +14,7 @@ public class InventoryManager {
     public static HashMap<Product, Integer> getMyInventoryItems() {
         HashMap<Product, Integer>productHashmap = new HashMap<>();
         for (String i : myInventory.getMyItems().keySet()){
-            productHashmap.put(productStringDictionary.get(i), myInventory.getMyItems().get(i));
+            productHashmap.put(convertStringtoProduct(i), myInventory.getMyItems().get(i));
         }
         return productHashmap;
         // return myInventory.getMyItems();

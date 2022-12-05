@@ -59,5 +59,4 @@ public class ShopperUseCaseTests {
         Assertions.assertEquals(s, "You're purchase was successful, its effects can be seen in your inventory!");
 
     }
-
 }

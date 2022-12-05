@@ -19,10 +19,6 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
      shopToMenu shopToMenuHandler = new shopToMenu();
      public E_ShopScreen_NEW(){
 
-          JPanel mainPanel2 = new JPanel();
-          mainPanel2.setBounds(0,0,800,600);
-          mainPanel2.setLayout(null);
-
           mainPanel = new JPanel();
           mainPanel.setBounds(0,0,800,600);
           mainPanel.setLayout(new GridLayout(1,3));
@@ -49,17 +45,12 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
           // mainFrame.add(buyPanel);
           // mainFrame.add(sellPanel);
           // mainFrame.add(plotPanel);
-          // mainPanel.setVisible(true);
+          mainPanel.setVisible(true);
           mainPanel.setBackground(Color.WHITE);
 
-          //con.add(done);
-          //con.add(SHOP);
-          //con.add(mainPanel);
-          mainPanel2.add(done);
-          mainPanel2.add(SHOP);
-          mainPanel2.add(mainPanel);
-          // mainPanel2.setVisible(true);
-          con.add(mainPanel2);
+          con.add(done);
+          con.add(SHOP);
+          con.add(mainPanel);
 
      }
      public void createBuyPanel(JPanel mainFrame){
@@ -118,9 +109,9 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
           sell.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent e) {
-                    String a = enterItemB.getText();
-                    Integer b = Integer.parseInt(enterAmountB.getText());
-                    String info = ShopperController.inputBuyFromMarket(a, b);
+                    String a = sellItemEntry.getText();
+                    Integer b = Integer.parseInt(sellAmountEntry.getText());
+                    String info = ShopperController.inputSellToMarket(a, b);
                     JOptionPane.showMessageDialog(mainFrame, info);
                }
           });
