@@ -59,8 +59,7 @@ public class D_LoadGameScreen extends C_NewOrLoadScreen {
                 createAndShowNewOrLoadScreen();
             } catch (ClassNotFoundException | IOException e) {
                 throw new RuntimeException(e);
-            }
-            quit();
+            } finally { quit(); }
         }
     }
 

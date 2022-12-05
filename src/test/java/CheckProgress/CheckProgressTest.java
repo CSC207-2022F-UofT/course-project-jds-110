@@ -65,7 +65,7 @@ public class CheckProgressTest {
      */
     @Test
     public void CheckProgressStringTest() {
-        String expected = "Inventory:" + "\n" + "-------------------" + "\n" + "Egg(s): 5" + "\n" +
+        String expected = "Inventory:" + "\n" + "-------------------" + "\n" + "egg: 5" + "\n" +
                 "-------------------" + "\n" + "Plots:" + "\n" + "-------------------" + "\n" + "Plot 0: no product"
                 + "\n" + "-------------------" + "\n" + "Money: $500";
         String actual = CheckProgressController.gameProgress();

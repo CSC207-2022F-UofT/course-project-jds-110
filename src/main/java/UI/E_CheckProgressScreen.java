@@ -33,14 +33,6 @@ public class E_CheckProgressScreen extends A0_MainScreen{
         btn_check_progress.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Product egg = new Egg();
-                Inventory i = new Inventory();
-                InventoryManager.setMyInventory(i);
-                InventoryManager.setupProductStringDictionary();
-                InventoryManager.addItem(egg, 5);
-                ArrayList<Plot> p = new ArrayList<>();
-                PlotManager.setMyPlots(p);
-                PlotManager.createNewPlot();
                 String info = CheckProgressController.gameProgress();
                 JOptionPane.showMessageDialog(window, info);
             }
