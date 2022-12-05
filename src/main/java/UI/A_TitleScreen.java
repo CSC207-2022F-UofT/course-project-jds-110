@@ -50,7 +50,7 @@ public class A_TitleScreen extends A0_MainScreen {
 
     public class titleToSignIn implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            B_SignInScreen.createAndShowSignInScreen();
+            C_NewOrLoadScreen.createAndShowNewOrLoadScreen();
             quit();
         }
     }
