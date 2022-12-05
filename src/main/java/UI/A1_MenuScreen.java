@@ -1,5 +1,7 @@
 package UI;
 
+import nextday_use_case.NextDay;
+import nextday_use_case.NextDayController;
 import save_state_use_case.StateController;
 
 import javax.swing.*;
@@ -179,9 +181,8 @@ public class A1_MenuScreen extends A0_MainScreen{
     //ActionListener menu screen to GO TO NEXT DAY
     public class menuToNextDay implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            //implement your go to nextDAY
-//            E_CheckProgressScreen.createAndShowGUI();
-//            quit();
+            String message = NextDayController.goToNextDay();
+            JOptionPane.showMessageDialog(window, message);
         }
     }
 

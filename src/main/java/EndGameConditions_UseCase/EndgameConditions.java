@@ -59,8 +59,7 @@ public class EndgameConditions {
      @return True or False, for whether you met the loss condition
     */
     public static boolean checkLose(){
-        return InventoryManager.getMyInventoryMoney() <= 0;
+        return InventoryManager.getMyInventoryMoney() < InventoryManager.getRent();
     }
-
 
 }

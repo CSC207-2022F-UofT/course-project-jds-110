@@ -136,4 +136,6 @@ public class InventoryManager {
         return productStringDictionary;
 
     }
+
+    public static int getRent() { return myInventory.getRent(); }
 }

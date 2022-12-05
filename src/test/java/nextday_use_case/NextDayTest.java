@@ -2,14 +2,10 @@ package nextday_use_case;
 
 import Entities.*;
 import Use_Case_Interactors.InventoryManager;
-import org.junit.*;
 import Use_Case_Interactors.PlotManager;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
-
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
 public class NextDayTest {
     /** Before each test cases,
@@ -18,18 +14,16 @@ public class NextDayTest {
      * */
     @BeforeEach
     public void setup() {
-        Inventory i = new Inventory();
-        InventoryManager.setMyInventory(i);
-        ArrayList<Plot> p = new ArrayList<>();
-        PlotManager.setMyPlots(p);
+        InventoryManager.setMyInventory(new Inventory());
+        PlotManager.setMyPlots(new ArrayList<>());
         PlotManager.createNewPlot();
     }
 
     /** Test that nextDayInventory method removes rent properly */
     @Test
-    public void testNextDayInventoryBefore() {
+    public void testNextDayInventory() {
         NextDay.nextDayInventory();
-        assertEquals(InventoryManager.getMyInventoryMoney(), 400);
+        Assertions.assertEquals(InventoryManager.getMyInventoryMoney(), 400);
     }
 
     /** Test nextRandomEvent method */
@@ -43,7 +37,7 @@ public class NextDayTest {
     public void testNextDayPlotEmpty() {
         NextDay.nextDayPlots();
         Plot p = (PlotManager.getMyPlots()).get(0);
-        assertEquals(p.getDaysLeftToHarvest(), 0);
+        Assertions.assertEquals(p.getDaysLeftToHarvest(), 0);
     }
 
     /** Test that nextDayPlot method increases progress
@@ -56,7 +50,7 @@ public class NextDayTest {
         int exp = p.getDaysLeftToHarvest()-1;
         NextDay.nextDayPlots();
         int act = p.getDaysLeftToHarvest();
-        assertEquals(exp, act);
+        Assertions.assertEquals(exp, act);
     }
 
     /** Test that nextDayPlot method reset growing time
@@ -70,7 +64,7 @@ public class NextDayTest {
         int exp = (new Chicken()).getDaysToYield();
         NextDay.nextDayPlots();
         int act = p.getDaysLeftToHarvest();
-        assertEquals(exp, act);
+        Assertions.assertEquals(exp, act);
     }
 
     /** Test that nextDayPlot method empties the crop
@@ -82,7 +76,24 @@ public class NextDayTest {
         Plot p = (PlotManager.getMyPlots()).get(0);
         p.setDaysLeftToHarvest(0);
         NextDay.nextDayPlots();
-        assertTrue(p.isEmpty());
+        Assertions.assertTrue(p.isEmpty());
+    }
+
+    /** Test that NextDayController return correct string when game is over. */
+    @Test
+    public void testNextDayControllerGameOver() {
+        InventoryManager.removeMoney(400);
+        String exp = NextDay.nextDayEndgame();
+        String act = NextDayController.goToNextDay();
+        Assertions.assertEquals(exp, act);
+    }
+
+    /** Test that NextDayController return correct string when game is not over. */
+    @Test
+    public void testNextDayControllerGameNotOver() {
+        String exp = "Now is the next day!";
+        String act = NextDayController.goToNextDay();
+        Assertions.assertEquals(exp, act);
     }
 }
 
