@@ -42,23 +42,29 @@ public class PlotManager {
      * Then it empties the plot since there are nothing left on the plot.
      * @param plot the plot that the user wants to harvest crops on
      */
-    public void harvest(Plot plot) {
+    public static String harvest(Plot plot) {
         if (plot.getProduct() instanceof Crop){
             Crop crop = (Crop) plot.getProduct();
             InventoryManager.addItem(crop, 1);
             plot.emptyPlot();
-    }}
+            return ("You have harvested crops on the plot!");
+    }
+        return ("You have nothing to harvest from your plot :/");
+    }
 
     /**
      * Extract products and yield products. For example, cows yield milk and chickens yield eggs.
      * Unlike the harvest method, it doesn't have to be emptied because animals are still there
      * @param plot the plot that the user wants to yield products on
      */
-    public void extract(Plot plot){
+    public static String extract(Plot plot){
         if (plot.getProduct() instanceof Animal){
             Animal animal = (Animal) plot.getProduct();
             InventoryManager.addItem(animal, 1);
-    }}
+            return ("You have extracted yields from your animals on the plot!");
+    }
+        return ("You have nothing to extract from your plot :/");
+    }
 
     /**
      * Place the product on the plot with the given plotId
