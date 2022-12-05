@@ -109,11 +109,6 @@ public class E_LeaderboardScreen extends A0_MainScreen {
         }
     }
 
-    public void quit(){
-        window.setVisible(false);
-        window.dispose();
-    }
-
     public static void createAndShowLeaderBoardScreen() {
         new E_LeaderboardScreen();
     }
