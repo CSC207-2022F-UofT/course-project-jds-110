@@ -12,31 +12,33 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 public class NextDayTest {
+    /** Before each test cases,
+     * set up a new Inventory and an arraylist for containing plots.
+     * Also, create a new plot to use.
+     * */
     @BeforeEach
     public void setup() {
-        /* set up a new Inventory */
         Inventory i = new Inventory();
         InventoryManager.setMyInventory(i);
-        /* set up an arraylist for containing plots and create a new plot */
         ArrayList<Plot> p = new ArrayList<>();
         PlotManager.setMyPlots(p);
         PlotManager.createNewPlot();
     }
 
-    /* Test that nextDayInventory method removes rent properly */
+    /** Test that nextDayInventory method removes rent properly */
     @Test
     public void testNextDayInventoryBefore() {
         NextDay.nextDayInventory();
         assertEquals(InventoryManager.getMyInventoryMoney(), 400);
     }
 
-    /* Test nextRandomEvent method */
+    /** Test nextRandomEvent method */
     @Test
     public void testNextDayRandomEvents() {
         //TODO
     }
 
-    /* Test that nextDayPlot method does not increase progress on empty plots */
+    /** Test that nextDayPlot method does not increase progress on empty plots */
     @Test
     public void testNextDayPlotEmpty() {
         NextDay.nextDayPlots();
@@ -44,7 +46,9 @@ public class NextDayTest {
         assertEquals(p.getDaysLeftToHarvest(), 0);
     }
 
-    /* Test that nextDayPlot method increases progress on non-empty plots with a non-ripe product */
+    /** Test that nextDayPlot method increases progress
+     * on non-empty plots with a non-ripe product
+     * */
     @Test
     public void testNextDayPlotNotRipe() {
         PlotManager.place(new Chicken(), 0);
@@ -55,7 +59,9 @@ public class NextDayTest {
         assertEquals(exp, act);
     }
 
-    /* Test that nextDayPlot method reset growing time on non-empty plots with a ripe animal */
+    /** Test that nextDayPlot method reset growing time
+     * on non-empty plots with a ripe animal
+     * */
     @Test
     public void testNextDayPlotRipeAnimal() {
         PlotManager.place(new Chicken(), 0);
@@ -67,7 +73,9 @@ public class NextDayTest {
         assertEquals(exp, act);
     }
 
-    /* Test that nextDayPlot method empties the crop on non-empty plots with a ripe crop */
+    /** Test that nextDayPlot method empties the crop
+     * on non-empty plots with a ripe crop
+     * */
     @Test
     public void testNextDayPlotRipeCrop() {
         PlotManager.place(new Corn(), 0);
