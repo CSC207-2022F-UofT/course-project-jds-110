@@ -33,8 +33,7 @@ class SharerTest {
 
     @Test
     public void testGetFarmAppearanceEmpty() {
-        String expected = "";
-        Assertions.assertEquals(expected, Sharer.getFarmAppearance().toString());
+        Assertions.assertEquals(0, Sharer.getFarmAppearance().size());
     }
 
     @Test
@@ -53,7 +52,33 @@ class SharerTest {
         currPlots.add(plot2);
         PlotManager.setMyPlots(currPlots);
 
-        String expectedString = "\uD83E\uDD54\uD83C\uDF45-";
-        Assertions.assertEquals(expectedString, Sharer.getFarmAppearance().toString());
+        ArrayList<String> expectedArrayList = new ArrayList<>();
+
+        expectedArrayList.add("potato");
+        expectedArrayList.add("tomato");
+
+        Assertions.assertEquals(expectedArrayList, Sharer.getFarmAppearance());
+    }
+
+    @Test
+    public void testDisplayFarmWithEmptyPlot() {
+        ArrayList<Plot> currPlots = new ArrayList<>();
+
+        Plot plot1 = new Plot(1);
+        Product potato = new Potato();
+        plot1.place(potato);
+
+        Plot plot2 = new Plot(2);
+
+        currPlots.add(plot1);
+        currPlots.add(plot2);
+        PlotManager.setMyPlots(currPlots);
+
+        ArrayList<String> expectedArrayList = new ArrayList<>();
+
+        expectedArrayList.add("potato");
+        expectedArrayList.add("");
+
+        Assertions.assertEquals(expectedArrayList, Sharer.getFarmAppearance());
     }
 }

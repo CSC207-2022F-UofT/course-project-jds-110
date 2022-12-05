@@ -22,7 +22,7 @@ public class E_LeaderboardScreen extends A0_MainScreen {
     Font titleFont = new Font("Times New Roman", Font.PLAIN, 96);
 
 
-    LeaderboardtoMainMenuHandler lmHandler = new LeaderboardtoMainMenuHandler();
+    leaderboardtoMainMenuHandler lmHandler = new leaderboardtoMainMenuHandler();
 
     public E_LeaderboardScreen() {
         backButton = new JButton("Back");
@@ -58,16 +58,12 @@ public class E_LeaderboardScreen extends A0_MainScreen {
         leaderboardTitleLabel.setFont(normalFont);
 
         // custom icon
-        ImageIcon icon = createImageIcon();
-        assert icon != null;
+        ImageIcon icon = new ImageIcon("medals_icon.png");
         Image scaleImage = icon.getImage().getScaledInstance(25, 100, Image.SCALE_DEFAULT);
         ImageIcon icon2 = new ImageIcon(scaleImage);
 
         // Make display leaderboard button
         JButton btn_show_leaderboard = new JButton("Display Leaderboard");
-        btn_show_leaderboard.setBackground(Color.BLACK);
-        btn_show_leaderboard.setForeground(Color.BLACK);
-
         btn_show_leaderboard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -87,22 +83,9 @@ public class E_LeaderboardScreen extends A0_MainScreen {
 
     }
 
-    /**
-     * Returns an ImageIcon, or null if the path was invalid. Adapted from Oracle Button Demo java code.
-     * Helper method for creating the icon for the display message
-     */
-    protected static ImageIcon createImageIcon() {
-        java.net.URL imgURL = E_LeaderboardScreen.class.getClassLoader().getResource("medals_icon.jpg");
-        if (imgURL != null) {
-            return new ImageIcon(imgURL);
-        } else {
-            System.err.println("Couldn't find file: " + "medals_icon.jpg");
-            return null;
-        }
-    }
 
     //from leaderboard screen back to main menu screen
-    public class LeaderboardtoMainMenuHandler implements ActionListener {
+    public class leaderboardtoMainMenuHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             A0_MainScreen.createAndShowMainMenuScreen();
             quit();

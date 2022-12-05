@@ -59,7 +59,8 @@ public class A0_MainScreen {
         btn_share.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
+                new E_ShareScreen();
+                a.window.setVisible(false);
             }
         });
         //Go to shop screen

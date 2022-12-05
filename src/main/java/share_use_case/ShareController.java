@@ -1,15 +1,10 @@
 package share_use_case;
 
-import LeaderboardUseCase.LeaderboardController;
+import java.util.ArrayList;
 
 public class ShareController {
 
-    public StringBuilder whatistheRankings() {
-
-        return LeaderboardController.getRanking();
-    }
-
-    public StringBuilder whatisthefarminEmojis() {
+    public static ArrayList<String> displayFarm() {
 
         return  Sharer.getFarmAppearance();
     }
