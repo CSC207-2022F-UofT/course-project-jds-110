@@ -53,7 +53,7 @@ public class D_LoadGameScreen extends C_NewOrLoadScreen {
         public void actionPerformed(ActionEvent event){
             try {
                 StateController.loadGame(jtf.getText());
-                createAndShowMainMenuScreen();
+                A1_MenuScreen.createAndShowMenuScreen();
             } catch (FileNotFoundException e) {
                 JOptionPane.showMessageDialog(window, "File does not exit!");
                 createAndShowNewOrLoadScreen();

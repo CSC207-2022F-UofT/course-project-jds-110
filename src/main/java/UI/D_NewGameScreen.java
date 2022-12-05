@@ -56,7 +56,7 @@ public class D_NewGameScreen extends C_NewOrLoadScreen {
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
-            createAndShowMainMenuScreen();
+            A1_MenuScreen.createAndShowMenuScreen();
             quit();
         }
     }

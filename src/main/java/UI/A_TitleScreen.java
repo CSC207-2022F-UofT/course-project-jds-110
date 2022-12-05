@@ -34,7 +34,6 @@ public class A_TitleScreen extends A0_MainScreen {
         startButtonPanel = new JPanel();
         startButtonPanel.setBounds(300,400,200,100);
         startButtonPanel.setBackground(Color.black);
-
         startButton.setBackground(Color.black);
         startButton.setForeground(Color.white);
         startButton.setFont(normalFont);
@@ -45,7 +44,15 @@ public class A_TitleScreen extends A0_MainScreen {
 
         con.add(titlePanel);
         con.add(startButtonPanel);
+    }
 
+
+
+    public class titleToSignIn implements ActionListener {
+        public void actionPerformed(ActionEvent event){
+            B_SignInScreen.createAndShowSignInScreen();
+            quit();
+        }
     }
 
     public static void createAndShowTitleScreen() {
@@ -54,21 +61,6 @@ public class A_TitleScreen extends A0_MainScreen {
 
         //newContentPane.setOpaque(true);
     }
-
-    public class titleToSignIn implements ActionListener {
-        public void actionPerformed(ActionEvent event){
-            B_SignInScreen.createAndShowSignInScreen();
-            quit();
-
-
-        }
-    }
-
-    public void quit(){
-        window.setVisible(false);
-        window.dispose();
-    }
-
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
         //creating and showing this application's GUI.
