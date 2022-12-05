@@ -34,8 +34,8 @@ public class A_TitleScreen extends A0_MainScreen {
         startButtonPanel = new JPanel();
         startButtonPanel.setBounds(300,400,200,100);
         startButtonPanel.setBackground(Color.black);
-        startButton.setBackground(Color.black);
-        startButton.setForeground(Color.white);
+        startButton.setBackground(Color.white);
+        startButton.setForeground(Color.black);
         startButton.setFont(normalFont);
         startButton.addActionListener(tsHandler);
 
@@ -50,7 +50,7 @@ public class A_TitleScreen extends A0_MainScreen {
 
     public class titleToSignIn implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            B_SignInScreen.createAndShowSignInScreen();
+            C_NewOrLoadScreen.createAndShowNewOrLoadScreen();
             quit();
         }
     }

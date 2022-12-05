@@ -9,7 +9,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class D_NewGameScreen extends C_NewOrLoadScreen {
-    String farmName;
     JPanel newGameTextPanel;
     JPanel newGamePanel;
     JLabel newGameTextLabel;
@@ -55,9 +54,10 @@ public class D_NewGameScreen extends C_NewOrLoadScreen {
                 StateController.initializeGame(jtf.getText());
             } catch (IOException e) {
                 throw new RuntimeException(e);
+            } finally {
+                A1_MenuScreen.createAndShowMenuScreen();
+                quit();
             }
-            A1_MenuScreen.createAndShowMenuScreen();
-            quit();
         }
     }
 
