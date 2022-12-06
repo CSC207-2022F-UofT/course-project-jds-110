@@ -24,7 +24,6 @@ public class Sharer {
             }
             else {
             String type = p.getProductName();
-//            String imageLocation = emojis.get(type);
                 farmNames.add(type);
             }
         }

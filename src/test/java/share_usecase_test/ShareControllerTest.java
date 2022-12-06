@@ -6,11 +6,11 @@ import Use_Case_Interactors.PlotManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import share_use_case.Sharer;
+import share_use_case.ShareController;
 
 import java.util.ArrayList;
 
-class SharerTest {
+public class ShareControllerTest {
 
     @BeforeEach
     public void setup() {
@@ -23,13 +23,14 @@ class SharerTest {
         // essentially resetting plots
     }
 
+
     /**
      * Test if the Farm Appearance will be an empty ArrayList if there are
      * no plots.
      */
     @Test
     public void testGetFarmAppearanceEmpty() {
-        Assertions.assertEquals(0, Sharer.getFarmAppearance().size());
+        Assertions.assertEquals(0, ShareController.displayFarm().size());
     }
 
     /**
@@ -57,7 +58,7 @@ class SharerTest {
         expectedArrayList.add("potato");
         expectedArrayList.add("tomato");
 
-        Assertions.assertEquals(expectedArrayList, Sharer.getFarmAppearance());
+        Assertions.assertEquals(expectedArrayList, ShareController.displayFarm());
     }
 
     /**
@@ -83,6 +84,6 @@ class SharerTest {
         expectedArrayList.add("potato");
         expectedArrayList.add("");
 
-        Assertions.assertEquals(expectedArrayList, Sharer.getFarmAppearance());
+        Assertions.assertEquals(expectedArrayList, ShareController.displayFarm());
     }
 }
