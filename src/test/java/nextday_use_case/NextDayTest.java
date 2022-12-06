@@ -26,12 +26,6 @@ public class NextDayTest {
         Assertions.assertEquals(InventoryManager.getMyInventoryMoney(), 400);
     }
 
-    /** Test nextRandomEvent method */
-    @Test
-    public void testNextDayRandomEvents() {
-        //TODO
-    }
-
     /** Test that nextDayPlot method does not increase progress on empty plots */
     @Test
     public void testNextDayPlotEmpty() {
@@ -79,25 +73,12 @@ public class NextDayTest {
         Assertions.assertTrue(p.isEmpty());
     }
 
-    /** Test that NextDayController return correct string when game is over. */
-    @Test
-    public void testNextDayControllerGameOver() {
-        InventoryManager.removeMoney(401);
-        String exp = NextDay.nextDayEndgame();
-        String act = NextDayController.goToNextDay();
-        Assertions.assertEquals(exp, act);
-    }
-
-    /** Test that NextDayController return correct string when game is not over. */
-    @Test
-    public void testNextDayControllerGameNotOver() {
-        String exp = "Now is the next day!";
-        String act = NextDayController.goToNextDay();
-        Assertions.assertEquals(exp, act);
-    }
 }
 
 /* No test for nextDayEndgame method
 since the only thing it did is to call endGame method in EndgameConditions class
 which will be tested in EndgameConditions Use Case
+
+No test for nextDayRandomEvent method
+since the random event occurs randomly which is hard to be tested
 */

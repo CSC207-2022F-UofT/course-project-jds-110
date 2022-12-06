@@ -200,7 +200,8 @@ public class A1_MenuScreen extends A0_MainScreen{
 
     public class menuToFarm implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            // to be implemented
+            E_FarmScreen.createAndShowFarmScreen();
+            quit();
         }
     }
 
