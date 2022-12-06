@@ -5,7 +5,8 @@ import java.util.ArrayList;
 public class LeaderboardController {
 
     /**
-     * This function converts the leaderboard into a nice string with emojis.
+     * This function converts the leaderboard into a nice string that can be displayed
+     * nicely in the UI.
      * @return The top 3 rankings in a human friendly way with each place in a different line.
      * Example: 1. Number1 with $1111
      *          2. Number2 with $1100

@@ -71,9 +71,6 @@ public class E_LeaderboardScreen extends A0_MainScreen {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String info = String.valueOf(LeaderboardController.getRanking());
-                if (info.length() == 0) {
-                    info = "No Leaderboard";
-                }
                 JOptionPane.showMessageDialog(con, info, "Current Leaderboard", JOptionPane.INFORMATION_MESSAGE, icon2); // make it work
             }
         });
@@ -83,7 +80,9 @@ public class E_LeaderboardScreen extends A0_MainScreen {
     }
 
 
-    //from leaderboard screen back to main menu screen
+    /**
+     * To get from Leaderboard Screen to Menu Screen
+     */
     public class leaderboardtoMainMenuHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             A1_MenuScreen.createAndShowMenuScreen();
@@ -91,6 +90,9 @@ public class E_LeaderboardScreen extends A0_MainScreen {
         }
     }
 
+    /**
+     * To create the Leaderboard Screen
+     */
     public static void createAndShowLeaderBoardScreen() {
         new E_LeaderboardScreen();
     }

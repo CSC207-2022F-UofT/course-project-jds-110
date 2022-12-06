@@ -29,9 +29,6 @@ public class Sharer {
             }
         }
 
-        if (plots.size() == 0) {
-            farmNames.add("");
-        }
         return farmNames;
     }
 

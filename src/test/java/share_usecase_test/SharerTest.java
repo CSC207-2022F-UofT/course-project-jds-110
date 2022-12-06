@@ -31,11 +31,19 @@ class SharerTest {
         Leaderboard.resetLeaderboard();
     }
 
+    /**
+     * Test if the Farm Appearance will be an empty ArrayList if there are
+     * no plots.
+     */
     @Test
     public void testGetFarmAppearanceEmpty() {
         Assertions.assertEquals(0, Sharer.getFarmAppearance().size());
     }
 
+    /**
+     * Test if Farm Appearance will properly be an ArrayList of
+     * the products on the plots
+     */
     @Test
     public void testGetFarmAppearanceNonEmpty() {
         ArrayList<Plot> currPlots = new ArrayList<>();
@@ -60,6 +68,10 @@ class SharerTest {
         Assertions.assertEquals(expectedArrayList, Sharer.getFarmAppearance());
     }
 
+    /**
+     * Test if an empty plot will be indicated with an empty string
+     * in DisplayFarm
+     */
     @Test
     public void testDisplayFarmWithEmptyPlot() {
         ArrayList<Plot> currPlots = new ArrayList<>();

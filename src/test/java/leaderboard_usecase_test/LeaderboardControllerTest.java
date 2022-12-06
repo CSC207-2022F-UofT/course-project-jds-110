@@ -31,12 +31,20 @@ public class LeaderboardControllerTest {
         Leaderboard.resetLeaderboard();
     }
 
+    /**
+     * Test if getRanking works with just the player's information.
+     * Note: rankings will always have at least one place as the
+     * current's players information will always be added to the Leaderboard
+     */
     @Test
     public void testGetRankingEmpty() {
         String expectedString = "1. Player with $500";
         Assertions.assertEquals(expectedString, LeaderboardController.getRanking().toString());
     }
 
+    /**
+     * Test if the LeaderboardController works with an incomplete Leaderboard
+     */
     @Test
     public void testGetRankingPartial() {
         Leaderboard.updateLeaderboard(1111, "Number1");
@@ -47,6 +55,9 @@ public class LeaderboardControllerTest {
         Assertions.assertEquals(expectedString, actualString);
     }
 
+    /**
+     * Test if the LeaderboardController works with a complete Leaderboard/ a leaderboard with 3 entries
+     */
     @Test
     public void testGetRankingFull() {
         String expectedString = "1. Number1 with $1111\n" +
@@ -58,6 +69,9 @@ public class LeaderboardControllerTest {
         Assertions.assertEquals(expectedString, LeaderboardController.getRanking().toString());
     }
 
+    /**
+     * Test if the LeaderboardController works with multiple farms having the same amount of money.
+     */
     @Test
     public void testGetRankingMultipleFarmsWithSameMoney() {
         Leaderboard.updateLeaderboard(500, "Other");
@@ -66,6 +80,10 @@ public class LeaderboardControllerTest {
         Assertions.assertEquals(expectedString, LeaderboardController.getRanking().toString());
     }
 
+    /**
+     * Test if the LeaderboardController only displays 3 places, even when there are more
+     * places in the Leaderboard
+     */
     //
     @Test
     public void testGetRankingExtraPlayers() {

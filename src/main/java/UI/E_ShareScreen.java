@@ -80,7 +80,9 @@ public class E_ShareScreen extends A0_MainScreen {
     }
 
 
-    //from share screen back to main menu screen
+    /**
+     * Used to get from Share Screen back to menu screen
+     */
     public class sharetoMainMenuHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
             A1_MenuScreen.createAndShowMenuScreen();
@@ -89,6 +91,9 @@ public class E_ShareScreen extends A0_MainScreen {
         }
     }
 
+    /**
+     * To get to the Share Screen
+     */
     public static void createAndShowShareScreen() {
         new E_ShareScreen();
     }
