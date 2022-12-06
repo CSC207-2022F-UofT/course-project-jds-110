@@ -6,10 +6,10 @@ public class LeaderboardController {
 
     /**
      * This function converts the leaderboard into a nice string with emojis.
-     * @return The rankings in a human friendly way with each place in a different line.
-     * Example: Number1 with $1111
-     *          Number2 with $1100
-     *          Player with $500
+     * @return The top 3 rankings in a human friendly way with each place in a different line.
+     * Example: 1. Number1 with $1111
+     *          2. Number2 with $1100
+     *          3. Player with $500
      */
     public static StringBuilder getRanking(){
         ArrayList<LeaderboardPlace> currStandings = Leaderboard.getLeaderboard();
@@ -17,7 +17,13 @@ public class LeaderboardController {
         StringBuilder returnString = new StringBuilder();
 
         for (LeaderboardPlace place : currStandings) {
-            String currString = " " + place.getFarmNamesString()
+            int currPlaceNum = currStandings.indexOf(place) + 1;
+
+            if (currPlaceNum > 3) {
+                break;
+            }
+
+            String currString = " " + currPlaceNum + ". " + place.getFarmNamesString()
                     + " with $" + place.getAmountOfMoney() + "\n";
             returnString.append(currString);
         }

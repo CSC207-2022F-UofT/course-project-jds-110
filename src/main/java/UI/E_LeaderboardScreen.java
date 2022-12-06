@@ -58,24 +58,23 @@ public class E_LeaderboardScreen extends A0_MainScreen {
         leaderboardTitleLabel.setFont(normalFont);
 
         // custom icon
-        ImageIcon icon = new ImageIcon("medals_icon.png");
+        java.net.URL imgURL = E_LeaderboardScreen.class.getClassLoader().getResource("medals_icon.jpg");
+        assert imgURL != null;
+        ImageIcon icon = new ImageIcon(imgURL);
         Image scaleImage = icon.getImage().getScaledInstance(25, 100, Image.SCALE_DEFAULT);
         ImageIcon icon2 = new ImageIcon(scaleImage);
+
 
         // Make display leaderboard button
         JButton btn_show_leaderboard = new JButton("Display Leaderboard");
         btn_show_leaderboard.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // test string
-//            String info = "Number1 with $1111\n" +
-//            "Number2 with $1100\n" +
-//                    "Player with $500";
                 String info = String.valueOf(LeaderboardController.getRanking());
                 if (info.length() == 0) {
                     info = "No Leaderboard";
                 }
-                JOptionPane.showMessageDialog(con, info, "Leaderboard info", JOptionPane.INFORMATION_MESSAGE, icon2); // make it work
+                JOptionPane.showMessageDialog(con, info, "Current Leaderboard", JOptionPane.INFORMATION_MESSAGE, icon2); // make it work
             }
         });
         leaderboardTextPanel.add(btn_show_leaderboard);
@@ -87,7 +86,7 @@ public class E_LeaderboardScreen extends A0_MainScreen {
     //from leaderboard screen back to main menu screen
     public class leaderboardtoMainMenuHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
-            A0_MainScreen.createAndShowMainMenuScreen();
+            A1_MenuScreen.createAndShowMenuScreen();
             quit();
         }
     }

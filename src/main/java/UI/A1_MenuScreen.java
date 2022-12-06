@@ -206,7 +206,7 @@ public class A1_MenuScreen extends A0_MainScreen{
     //ActionListener menu screen to Leaderboard screen
     public class menuToLeaderboard implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            E_LeaderboardScreen_NEW.createAndShowLeaderBoardScreen();
+            E_LeaderboardScreen.createAndShowLeaderBoardScreen();
             quit();
         }
     }
@@ -214,11 +214,10 @@ public class A1_MenuScreen extends A0_MainScreen{
     //ActionListener menu screen to Share screen
     public class menuToShare implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            E_CheckProgressScreen.createAndShowGUI();
+            E_ShareScreen.createAndShowShareScreen();
             quit();
         }
     }
-
 
     public static void createAndShowMenuScreen() {
         A1_MenuScreen a = new A1_MenuScreen();

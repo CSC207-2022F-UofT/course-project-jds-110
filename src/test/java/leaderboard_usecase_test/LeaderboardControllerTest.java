@@ -33,7 +33,7 @@ public class LeaderboardControllerTest {
 
     @Test
     public void testGetRankingEmpty() {
-        String expectedString = "Player with $500";
+        String expectedString = "1. Player with $500";
         Assertions.assertEquals(expectedString, LeaderboardController.getRanking().toString());
     }
 
@@ -41,28 +41,40 @@ public class LeaderboardControllerTest {
     public void testGetRankingPartial() {
         Leaderboard.updateLeaderboard(1111, "Number1");
 
-        String expectedString = "Number1 with $1111\n" +
-                " Player with $500";
+        String expectedString = "1. Number1 with $1111\n" +
+                " 2. Player with $500";
         String actualString = LeaderboardController.getRanking().toString();
         Assertions.assertEquals(expectedString, actualString);
     }
 
     @Test
     public void testGetRankingFull() {
-        String expectedString = "Number1 with $1111\n" +
-                " Number2 with $1100" +
-                "\n Player with $500";
+        String expectedString = "1. Number1 with $1111\n" +
+                " 2. Number2 with $1100" +
+                "\n 3. Player with $500";
         Leaderboard.updateLeaderboard(1111, "Number1");
         Leaderboard.updateLeaderboard(1100, "Number2");
         Leaderboard.getLeaderboard();
-        Assertions.assertEquals(3, Leaderboard.getLeaderboard().size()); //remove once it works
         Assertions.assertEquals(expectedString, LeaderboardController.getRanking().toString());
     }
 
     @Test
     public void testGetRankingMultipleFarmsWithSameMoney() {
         Leaderboard.updateLeaderboard(500, "Other");
-        String expectedString = "Other, and Player with $500";
+        String expectedString = "1. Other, and Player with $500";
+        Leaderboard.getLeaderboard();
+        Assertions.assertEquals(expectedString, LeaderboardController.getRanking().toString());
+    }
+
+    //
+    @Test
+    public void testGetRankingExtraPlayers() {
+        String expectedString = "1. Number1 with $1111\n" +
+                " 2. Number2 with $1100" +
+                "\n 3. Player with $500";
+        Leaderboard.updateLeaderboard(1111, "Number1");
+        Leaderboard.updateLeaderboard(1100, "Number2");
+        Leaderboard.updateLeaderboard(10, "Irrelevant");
         Leaderboard.getLeaderboard();
         Assertions.assertEquals(expectedString, LeaderboardController.getRanking().toString());
     }

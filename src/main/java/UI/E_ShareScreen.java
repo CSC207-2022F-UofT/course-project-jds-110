@@ -18,7 +18,6 @@ public class E_ShareScreen extends A0_MainScreen {
     JButton backButton;
 
 
-
     sharetoMainMenuHandler sHandler = new sharetoMainMenuHandler();
 
     public E_ShareScreen() {
@@ -41,14 +40,15 @@ public class E_ShareScreen extends A0_MainScreen {
         plotPanel.setLayout(layout);
 
         for (String name : plots) {
-            ImageIcon currPic;
+            java.net.URL imgURL;
             if (name.length() != 0) {
                 String path = name + ".png";
-                currPic = new ImageIcon(path);
+                imgURL = E_LeaderboardScreen.class.getClassLoader().getResource(path);
             } else {
-                currPic = new ImageIcon("empty.png");
+                imgURL = E_LeaderboardScreen.class.getClassLoader().getResource("empty.png");
             }
-
+            assert imgURL != null;
+            ImageIcon currPic = new ImageIcon(imgURL);
             Image scaleCurrPic = currPic.getImage().getScaledInstance(picSize, picSize, Image.SCALE_DEFAULT);
             ImageIcon scaledCurrPic = new ImageIcon(scaleCurrPic);
 
@@ -83,19 +83,20 @@ public class E_ShareScreen extends A0_MainScreen {
     //from share screen back to main menu screen
     public class sharetoMainMenuHandler implements ActionListener {
         public void actionPerformed(ActionEvent event) {
-            A0_MainScreen.createAndShowMainMenuScreen();
+            A1_MenuScreen.createAndShowMenuScreen();
+            con.setVisible(false);
             quit();
         }
     }
 
-    public static void createAndShowShareScreenSim() {
+    public static void createAndShowShareScreen() {
         new E_ShareScreen();
     }
 
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                createAndShowShareScreenSim();
+                createAndShowShareScreen();
             }
         });
     }

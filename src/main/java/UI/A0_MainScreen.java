@@ -68,7 +68,7 @@ public class A0_MainScreen {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                new E_ShopScreen();
+                new E_ShopScreen_NEW();
                 a.window.setVisible(false);
             }
         });
