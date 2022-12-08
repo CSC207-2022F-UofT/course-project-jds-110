@@ -19,7 +19,7 @@ public class EndgameConditions {
         }
         else if (checkWinSpecies()){
             return "YOU WIN!\n" +
-                    "You have acquired all of the different species of crops and nonyieldable required to win.\n" +
+                    "You have acquired all of the different species of crops and animals required to win.\n" +
                     "Currently you have : " + InventoryManager.getMyInventoryItems().size() + " species";
         }
         if (checkLose()){
