@@ -66,7 +66,7 @@ public class NextDayControllerTest {
         InventoryManager.addItem(w, 2);
 
         String expected = "YOU WIN!\n" +
-                "You have acquired all of the different species of crops and nonyieldable required to win.\n" +
+                "You have acquired all of the different species of crops and animals required to win.\n" +
                 "Currently you have : " + InventoryManager.getMyInventoryItems().size() + " species";
         String actual = NextDayController.goToNextDay();
         Assertions.assertEquals(expected, actual);

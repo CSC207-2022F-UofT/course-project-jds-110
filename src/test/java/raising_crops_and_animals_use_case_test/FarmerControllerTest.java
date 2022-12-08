@@ -37,7 +37,7 @@ public class FarmerControllerTest {
     @Test
     public void testFarmerControllerString(){
         String expected = "You have placed your product on your plot!";
-        String actual = FarmerController.InputPlace(new Sheep(), 0);
+        String actual = FarmerController.InputPlace(new Chicken(), 0);
         Assertions.assertEquals(expected, actual);
     }
 

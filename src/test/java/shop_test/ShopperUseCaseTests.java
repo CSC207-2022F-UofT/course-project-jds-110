@@ -58,7 +58,7 @@ public class ShopperUseCaseTests {
     public void ShopperControllerTest(){
 
         String s = ShopperController.inputBuyFromMarket("cow", 5);
-        Assertions.assertEquals(s, "You're purchase was successful, its effects can be seen in your inventory!");
+        Assertions.assertEquals(s, "Your purchase was successful, its effects can be seen in your inventory!");
 
     }
 }
