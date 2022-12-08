@@ -1,7 +1,7 @@
 package ui;
 
-import nextday_use_case.NextDayController;
-import save_state_use_case.StateController;
+import use_cases.nextday_use_case.NextDayController;
+import use_cases.save_state_use_case.StateController;
 
 import javax.swing.*;
 import java.awt.*;

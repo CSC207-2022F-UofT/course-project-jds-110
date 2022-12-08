@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class RandomEventsProbabilities {
 
     // meteor
-    // hungry college student
+    // higher-rent
     // thief
     // bugs
     private final HashMap<String, Double> probabilities = new HashMap<>();

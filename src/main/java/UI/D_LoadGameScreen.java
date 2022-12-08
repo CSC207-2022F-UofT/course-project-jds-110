@@ -1,6 +1,6 @@
 package ui;
 
-import save_state_use_case.StateController;
+import use_cases.save_state_use_case.StateController;
 
 import javax.swing.*;
 import java.awt.*;
