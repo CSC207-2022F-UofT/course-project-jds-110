@@ -6,6 +6,7 @@ Our project is a resource-management game based on a farm theme. The user can cr
 ## How to Play
 Press the "Start" button at the title screen and enter your user information in the sign-in screen so the program retrieves your data if you have an exisitng account, or create a new account and farm for you. 
 
+<img src="https://user-images.githubusercontent.com/109601140/206333964-baa10d31-accb-48b6-a5ad-1ef7ab31403b.png" width="200" height="200" />
 ![image](https://user-images.githubusercontent.com/109601140/206333964-baa10d31-accb-48b6-a5ad-1ef7ab31403b.png = 100x100)
 ![image](https://user-images.githubusercontent.com/109601140/206334050-166dfc59-69b6-43ea-87fc-7cdb40a8a398.png = 100x100)
 
