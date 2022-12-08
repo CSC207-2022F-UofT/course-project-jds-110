@@ -35,6 +35,14 @@ The user's information like their plots and inventory are in the Entities layer,
   <img src="https://user-images.githubusercontent.com/109601140/206354083-569d860c-3c55-4dde-8bf6-4c7b19cd39e0.png">
 </p>
 
+In terms of tests, our tests cover a wide variety of cases for each use case interactor and entity:
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/109601140/206363900-0c8785ee-8f02-45ff-9141-7181fa1f47e4.png">
+</p>
+
+The reason why that our program is static-heavy in the Entities layer is because each use case interactor needs to use the global use case interactors, since the global use case interactors are the gateways to the Entities layer. For example, the "Check Progress" use case needs PlotManager and InventoryManager to be static so it can call its methods that fetch the uer's inventory and plot information.
+
 ## How to Start The Game
 Run the FarmGame.java file.
 
