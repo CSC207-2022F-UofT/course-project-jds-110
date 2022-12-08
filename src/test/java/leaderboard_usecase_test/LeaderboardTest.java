@@ -26,6 +26,10 @@ class LeaderboardTest {
         Leaderboard.resetLeaderboard();
     }
 
+    /**
+     * Test if GetLeaderboard works when there's only the player's information
+     * in the Leaderboard
+     */
     @Test
     public void testGetLeaderboard() {
         Assertions.assertEquals(1, Leaderboard.getLeaderboard().size());
@@ -35,9 +39,11 @@ class LeaderboardTest {
         Assertions.assertEquals("Chaching", currFarmsPlace.getFarmNamesString());
     }
 
+    /**
+     * Test if Leaderboard isn't mutated when GetLeaderboard is called multiple times
+     */
     @Test
     public void testGetLeaderboardMultipleTimes() {
-        // test that how many times you call getLeaderboard doesn't change the results
         Leaderboard.getLeaderboard();
         Leaderboard.getLeaderboard();
 
@@ -48,6 +54,10 @@ class LeaderboardTest {
         Assertions.assertEquals("Chaching", currFarmsPlace.getFarmNamesString());
     }
 
+    /**
+     * Test if the leaderboard can be properly updated if there are
+     * multiple leaderboard places with different amounts of money.
+     */
     @Test
     public void testUpdateLeaderboardDiffAmount() {
         Leaderboard.getLeaderboard();
@@ -65,9 +75,12 @@ class LeaderboardTest {
         // make sure 2nd place is right
     }
 
+    /**
+     * Test if the leaderboard can be properly updated if there are
+     *  multiple players with the same amount of money.
+     */
     @Test
     public void testUpdateLeaderboardSameAmount() {
-        // tests that the function works even when the amount of money is already in the Leaderboard
         Leaderboard.getLeaderboard();
 
         Leaderboard.updateLeaderboard(100, "Wow");
@@ -80,6 +93,10 @@ class LeaderboardTest {
         Assertions.assertEquals("Wow, and Wow2", currLP.getFarmNamesString());
     }
 
+    /**
+     * Test if the leaderboard can be properly updated if there is another
+     * farm added with less money than the player.
+     */
     @Test
     public void testUpdateLeaderboardSmallerAmount() {
         Leaderboard.updateLeaderboard(111, "Number1");
