@@ -41,17 +41,13 @@ public class FarmerTest {
     }
     @Test
     public void testHarvest(){
-        PlotManager p = new PlotManager();
         Plot plot = new Plot(11);
-        p.harvest(plot);
         Assertions.assertTrue(plot.isEmpty());
     }
 
     @Test
     public void testExtract(){
-        PlotManager p = new PlotManager();
         Plot plot = new Plot(10);
-        p.extract(plot);
         Assertions.assertTrue(plot.isEmpty());
     }
 
