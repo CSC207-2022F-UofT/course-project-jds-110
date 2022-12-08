@@ -1,14 +1,10 @@
 package ui;
-import entities.Product;
-import use_case_interactors.PlotManager;
 import use_cases.raising_crops_and_animals_use_case.FarmerController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-import static use_case_interactors.InventoryManager.convertStringtoProduct;
 
 /**
  * the shop screen has three portions:
@@ -88,9 +84,8 @@ public class E_FarmScreen extends A0_MainScreen{
         place.setBounds(100, 400, 100, 25);
         place.addActionListener(e -> {
             String a = placeItemEntry.getText();
-            Product pro = convertStringtoProduct(a);
             int b = Integer.parseInt(placeAmountEntry.getText());
-            String info = FarmerController.InputPlace(pro, b);
+            String info = FarmerController.InputPlace(a, b);
             JOptionPane.showMessageDialog(mainFrame, info);
         });
 
@@ -135,7 +130,7 @@ public class E_FarmScreen extends A0_MainScreen{
         harvest.addActionListener(e -> {
             int b = Integer.parseInt(harvestAmountEntry.getText());
 
-            String info = PlotManager.harvest(b);
+            String info = FarmerController.harvest(b);
 
             JOptionPane.showMessageDialog(mainFrame, info);
         });
@@ -171,7 +166,7 @@ public class E_FarmScreen extends A0_MainScreen{
         extract.addActionListener(e -> {
             int b = Integer.parseInt(extractAmountEntry.getText());
 
-            String info = PlotManager.extract(b);
+            String info = FarmerController.extract(b);
 
             JOptionPane.showMessageDialog(mainFrame, info);
         });

@@ -60,6 +60,12 @@ public class InventoryManager {
         return (myInventory.getMyItems().containsKey(item.getName()) & getMyInventoryItemsString().get(item.getName()) >= amount);
     }
 
+    public static boolean checkIfAvailable(String stringItem, int amount){
+        Product item = convertStringtoProduct(stringItem);
+        // also check if this is available at all
+        return (myInventory.getMyItems().containsKey(item.getName()) & getMyInventoryItemsString().get(item.getName()) >= amount);
+    }
+
     /**
      * Add a certain number of items to the inventory
      * @param item items that the user wants to store in their inventory

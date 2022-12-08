@@ -4,7 +4,6 @@ import entities.*;
 import entities.nonyieldable.Chicken;
 import entities.nonyieldable.Cow;
 import entities.nonyieldable.Sheep;
-import entities.nonyieldable.Tomato;
 import entities.yieldable.BakedPotato;
 import use_case_interactors.InventoryManager;
 import use_case_interactors.PlotManager;
@@ -27,6 +26,7 @@ public class FarmerTest {
         InventoryManager.setName("Manager");
         InventoryManager.addItem(new Chicken(), 10);
         InventoryManager.addItem(new BakedPotato(), 2);
+        InventoryManager.setupProductStringDictionary();
         ArrayList<Plot> p = new ArrayList<>();
         PlotManager.setMyPlots(p);
         PlotManager.createNewPlot();
@@ -56,7 +56,7 @@ public class FarmerTest {
 
     @Test
     public void testInputPlace_animals(){
-        Farmer.place(new Sheep(), 0);
+        Farmer.place("sheep", 0);
         PlotManager.place(new Sheep(), 0);
         String actual = PlotManager.getMyPlots().get(0).getProductName();
         Assertions.assertEquals("sheep", actual);
@@ -67,7 +67,7 @@ public class FarmerTest {
         ArrayList<Plot> p = new ArrayList<>();
         PlotManager.setMyPlots(p);
         PlotManager.createNewPlot();
-        Farmer.place(new Tomato(), 0);
+        Farmer.place("tomato", 0);
         String actual = PlotManager.getMyPlots().get(0).getProductName();
         Assertions.assertEquals("tomato", actual);
     }

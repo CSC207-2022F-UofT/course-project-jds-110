@@ -13,12 +13,13 @@ public class Shopper {
 
     /**
      * Main function used for item selling feature
-     * @param item :product that the user want's to sell
+     * @param stringItem :product that the user wants to sell
      * @param quantity :quantity of product that the user wants to sell
      * @return returns whether the sale was successful or not
      */
-    public static boolean sell_to_market(Product item, Integer quantity){
+    public static boolean sell_to_market(String stringItem, Integer quantity){
 
+       Product item = InventoryManager.convertStringtoProduct(stringItem);
         boolean valid = check_valid_sale(item, quantity);
 
         if (!valid){
@@ -35,11 +36,14 @@ public class Shopper {
 
     /**
      * Main function used for item buying feature
-     * @param item :product that the user want's to buy
+     * @param stringItem :product that the user wants to buy
      * @param quantity :quantity of product that the user wants to buy
      * @return returns whether the purchase was successful or not
      */
-    public static boolean buy_from_market(Product item, Integer quantity){
+    public static boolean buy_from_market(String stringItem, Integer quantity){
+
+        Product item = InventoryManager.convertStringtoProduct(stringItem);
+
         boolean valid = check_valid_purchase(item, quantity);
 
         if (!valid){

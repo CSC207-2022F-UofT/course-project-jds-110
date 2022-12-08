@@ -38,13 +38,13 @@ public class FarmerControllerTest {
     @Test
     public void testFarmerControllerString(){
         String expected = "You have placed your product on your plot!";
-        String actual = FarmerController.InputPlace(new Cow(), 0);
+        String actual = FarmerController.InputPlace("cow", 0);
         Assertions.assertEquals(expected, actual);
     }
 
     @Test
     public void testFarmerControllerPlaced(){
-        FarmerController.InputPlace(new Chicken(), 0);
+        FarmerController.InputPlace("chicken", 0);
         String actual = PlotManager.getMyPlots().get(0).getProductName();
         Assertions.assertEquals("chicken", actual);
     }
@@ -53,8 +53,8 @@ public class FarmerControllerTest {
     // the original product gets replaced
     @Test
     public void testFarmerControllerNotPlaced(){
-        FarmerController.InputPlace(new Chicken(), 0);
-        FarmerController.InputPlace(new Cow(), 0);
+        FarmerController.InputPlace("chicken", 0);
+        FarmerController.InputPlace("cow", 0);
         String actual = PlotManager.getMyPlots().get(0).getProductName();
         Assertions.assertEquals("cow", actual);
     }

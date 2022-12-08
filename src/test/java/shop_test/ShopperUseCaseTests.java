@@ -2,7 +2,6 @@ package shop_test;
 
 import entities.*;
 import entities.nonyieldable.Corn;
-import entities.nonyieldable.Cow;
 import entities.yieldable.Egg;
 import use_cases.interact_with_market_use_case.Shopper;
 import use_cases.interact_with_market_use_case.ShopperController;
@@ -32,7 +31,7 @@ public class ShopperUseCaseTests {
 
     @Test
     public void ShopperBuyProductTest(){
-        Shopper.buy_from_market(new Cow(), 5);
+        Shopper.buy_from_market("cow", 5);
         Assertions.assertEquals(InventoryManager.getMyInventoryMoney(), 350);
         Assertions.assertEquals(InventoryManager.getMyInventoryItems().size(), 3);
     }
@@ -42,7 +41,7 @@ public class ShopperUseCaseTests {
         Inventory testInventory = new Inventory();
         testInventory.addItem("egg", 2);
         testInventory.addItem("corn", 10);
-        Shopper.sell_to_market(new Egg(), 3);
+        Shopper.sell_to_market("egg", 3);
         Assertions.assertEquals(testInventory.getMyItems(), InventoryManager.getMyInventoryItemsString());
     }
 
