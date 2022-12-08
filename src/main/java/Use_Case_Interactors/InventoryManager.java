@@ -9,8 +9,6 @@ public class InventoryManager {
 
     private static Inventory myInventory = new Inventory();
 
-    private static String farmname;
-
     public static HashMap<Product, Integer> getMyInventoryItems() {
         HashMap<Product, Integer>productHashmap = new HashMap<>();
         for (String i : myInventory.getMyItems().keySet()){
@@ -77,7 +75,7 @@ public class InventoryManager {
      * Remove a certain amount of items from the inventory
      * @param item items that the user wants to remove from their inventory
      * @param amount number of items that the user wants to remove from in their inventory
-     * @return
+     * @return remove amount of item
      */
     public static Boolean removeItem(Product item, int amount) {
         if (myInventory.getMyItems().containsKey(item.getName())){
