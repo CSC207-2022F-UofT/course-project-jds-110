@@ -68,7 +68,7 @@ public class E_FarmScreen extends A0_MainScreen{
             public void actionPerformed(ActionEvent e) {
                 String a = placeItemEntry.getText();
                 Product pro = convertStringtoProduct(a);
-                Integer b = Integer.parseInt(placeItemEntry.getText());
+                Integer b = Integer.parseInt(placeAmountEntry.getText());
                 String info = FarmerController.InputPlace(pro, b);
                 JOptionPane.showMessageDialog(mainFrame, info);
             }
@@ -114,9 +114,8 @@ public class E_FarmScreen extends A0_MainScreen{
         harvest.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Integer b = Integer.parseInt(enterAmountB.getText());
-                Plot p = new Plot(b);
-                String info = PlotManager.harvest(p);
+                Integer b = Integer.parseInt(harvestAmountEntry.getText());
+                String info = PlotManager.harvest(b);
                 JOptionPane.showMessageDialog(mainFrame, info);
             }
         });
@@ -158,9 +157,8 @@ public class E_FarmScreen extends A0_MainScreen{
         extract.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Integer b = Integer.parseInt(enterAmountB.getText());
-                Plot p = new Plot(b);
-                String info = PlotManager.extract(p);
+                Integer b = Integer.parseInt(extractAmountEntry.getText());
+                String info = PlotManager.extract(b);
                 JOptionPane.showMessageDialog(mainFrame, info);
             }
         });

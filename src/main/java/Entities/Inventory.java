@@ -50,7 +50,7 @@ public class Inventory implements Serializable {
      * Remove items from the user's inventory
      * @param item String of items that the user wants to get rid off from their inventory
      */
-    public void removeItem(Product item) {
+    public void removeItem(String item) {
         myItems.remove(item);
     }
 

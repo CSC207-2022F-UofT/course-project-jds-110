@@ -9,8 +9,6 @@ public class InventoryManager {
 
     private static Inventory myInventory = new Inventory();
 
-    private static String farmname;
-
     public static HashMap<Product, Integer> getMyInventoryItems() {
         HashMap<Product, Integer>productHashmap = new HashMap<>();
         for (String i : myInventory.getMyItems().keySet()){
@@ -77,14 +75,14 @@ public class InventoryManager {
      * Remove a certain amount of items from the inventory
      * @param item items that the user wants to remove from their inventory
      * @param amount number of items that the user wants to remove from in their inventory
-     * @return
+     * @return remove amount of item
      */
     public static Boolean removeItem(Product item, int amount) {
         if (myInventory.getMyItems().containsKey(item.getName())){
             if (myInventory.getMyItems().get(item.getName()) > 1){
                 myInventory.removeSome(item.getName(), amount);
             } else {
-                myInventory.removeItem(item);
+                myInventory.removeItem(item.getName());
             }
             return true;
         } else {
@@ -119,7 +117,7 @@ public class InventoryManager {
     }
 
     public static void setupProductStringDictionary(){
-        // add BakedPotato, Chicken, Corn, CornCob, COw, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
+        // add BakedPotato, Chicken, Corn, CornCob, Cow, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
         productStringDictionary.put("bakedpotato",new BakedPotato());
         productStringDictionary.put("chicken",new Chicken());
         productStringDictionary.put("corn",new Corn());
