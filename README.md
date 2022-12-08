@@ -23,5 +23,21 @@ The main screen is where you can carry out your responsibilities as a farmer and
 
 Once you've finished your chores for the day, you can progress to the next day by pressing "Next Day".
 
+## About the Design
+The program is divided into 9 use cases:
+1. Checking progress of farm
+2. Sharing your farm
+3. Winning/losing condition
+4. Random events
+5. Raising animals and growing crops
+6. Interacting with the market
+7. Save state
+8. Leaderboard
+9. Go to next day
+
+Most of the use cases have their own UI screens to separate their functionalities. Each UI screen calls upon their corresponding controller. Each use case has a controller in the Interface Adapters layer and a use case interactor in the Use Case layer. For the controllers, the "winning/losing condition" use case and "random events" use case are called under the "go to next day" use case, which is why they don't need controllers. Each controller interprets the user input collected from the UI and calls upon their corresponding use case interactor. There are 'global use case interactors' that are in the "use_case_interactors" package called PlotManager and InventoryManager that each of the use case interactors use to fetch information from the Entities layer.  
+
+## About the Scope
+
 ## How to Start The Game
 Run the FarmGame.java file.
