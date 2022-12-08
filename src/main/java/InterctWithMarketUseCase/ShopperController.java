@@ -38,4 +38,12 @@ public class ShopperController {
     public static Product convertStringInputtoProduct(String input){
         return InventoryManager.convertStringtoProduct(input);
     }
+
+    /**
+     * Helper method for returning the price list
+     * @return returns the string which is the shows the string value corresponding to the price
+     */
+    public static String returnPrices(){
+        return Shopper.showPriceList();
+    }
 }

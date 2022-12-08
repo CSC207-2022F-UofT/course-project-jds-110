@@ -58,7 +58,7 @@ public class FarmerTest {
     @Test
     public void testInputPlace_animals(){
         PlotManager.startGrowing(new Sheep());
-        Farmer.place_animals(new Sheep(), 0);
+        Farmer.place(new Sheep(), 0);
         Assertions.assertTrue(PlotManager.place(new Sheep(), 0));
     }
 
@@ -67,7 +67,7 @@ public class FarmerTest {
         ArrayList<Plot> p = new ArrayList<>();
         PlotManager.setMyPlots(p);
         PlotManager.createNewPlot();
-        Farmer.place_crops(new Tomato(), 0);
+        Farmer.place(new Tomato(), 0);
         PlotManager.startGrowing(new Tomato());
         Assertions.assertTrue(PlotManager.place(new Tomato(), 0));
     }
