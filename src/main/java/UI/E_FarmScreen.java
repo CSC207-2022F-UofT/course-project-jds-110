@@ -1,5 +1,4 @@
 package UI;
-import Entities.Plot;
 import Entities.Product;
 import Use_Case_Interactors.PlotManager;
 import raising_crops_and_animals_use_case.FarmerController;
@@ -14,9 +13,9 @@ import static Use_Case_Interactors.InventoryManager.convertStringtoProduct;
 public class E_FarmScreen extends A0_MainScreen{
 
     //     JFrame mainFrame;
-    JPanel mainPanel, farmerPanel, placePanel, harvestPanel, extractPanel;
-    JLabel FARM, PLACE, HARVEST, EXTRACT, enterItemA, enterItemB, enterItemC, enterAmountA, enterAmountB, enterAmountC;
-    JTextField placeItemEntry, harvestItemEntry, extractItemEntry, placeAmountEntry, harvestAmountEntry, extractAmountEntry;
+    JPanel mainPanel;
+    JLabel FARM, PLACE, HARVEST, EXTRACT, enterItemA, enterAmountA, enterAmountB, enterAmountC;
+    JTextField placeItemEntry, placeAmountEntry, harvestAmountEntry, extractAmountEntry;
     JButton place, harvest, extract, done;
 
 
@@ -42,13 +41,6 @@ public class E_FarmScreen extends A0_MainScreen{
         createHarvestPanel(mainPanel);
         createExtractPanel(mainPanel);
 
-//          con.add(buyPanel);
-//          con.add(sellPanel);
-//          con.add(plotPanel);
-        // activation
-        // mainFrame.add(buyPanel);
-        // mainFrame.add(sellPanel);
-        // mainFrame.add(plotPanel);
         mainPanel.setVisible(true);
         mainPanel.setBackground(Color.WHITE);
 
@@ -69,6 +61,8 @@ public class E_FarmScreen extends A0_MainScreen{
                 String a = placeItemEntry.getText();
                 Product pro = convertStringtoProduct(a);
                 Integer b = Integer.parseInt(placeAmountEntry.getText());
+
+
                 String info = FarmerController.InputPlace(pro, b);
                 JOptionPane.showMessageDialog(mainFrame, info);
             }
@@ -90,9 +84,6 @@ public class E_FarmScreen extends A0_MainScreen{
 
         placeAmountEntry = new JTextField(20);
         placeAmountEntry.setBounds(125, 315, 100, 25);
-
-        // BUY, buyItemEntry, buyAmountEntry
-        // En
 
         myPlacePanel.add(place);
         myPlacePanel.add(PLACE);
@@ -125,16 +116,8 @@ public class E_FarmScreen extends A0_MainScreen{
         HARVEST = new JLabel("HARVEST");
         HARVEST.setBounds(125, 100, 70, 50);
 
-
-//        enterItemB = new JLabel("Enter Plot ID:");
-//        enterItemB.setBounds(25, 175, 100, 50);
-
-
         enterAmountB = new JLabel("Enter Plot ID:");
         enterAmountB.setBounds(25, 300, 100, 50);
-
-//        harvestItemEntry = new JTextField(20);
-//        harvestItemEntry.setBounds(125, 190, 100, 25);
 
         harvestAmountEntry = new JTextField(20);
         harvestAmountEntry.setBounds(125, 315, 100, 25);
@@ -142,9 +125,7 @@ public class E_FarmScreen extends A0_MainScreen{
 
         myHarvestPanel.add(harvest);
         myHarvestPanel.add(HARVEST);
-//        myHarvestPanel.add(enterItemB);
         myHarvestPanel.add(enterAmountB);
-//        myHarvestPanel.add(harvestItemEntry);
         myHarvestPanel.add(harvestAmountEntry);
         myHarvestPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         mainFrame.add(myHarvestPanel);
@@ -170,16 +151,8 @@ public class E_FarmScreen extends A0_MainScreen{
         EXTRACT = new JLabel("EXTRACT");
         EXTRACT.setBounds(125, 100, 70, 50);
 
-//
-//        enterItemC = new JLabel("Enter Product:");
-//        enterItemC.setBounds(25, 175, 100, 50);
-
-
         enterAmountC = new JLabel("Enter Plot ID: ");
         enterAmountC.setBounds(25, 300, 100, 50);
-
-//        extractItemEntry = new JTextField(20);
-//        extractItemEntry.setBounds(125, 190, 100, 25);
 
         extractAmountEntry = new JTextField(20);
         extractAmountEntry.setBounds(125, 315, 100, 25);
@@ -187,23 +160,16 @@ public class E_FarmScreen extends A0_MainScreen{
 
         myExtractPanel.add(extract);
         myExtractPanel.add(EXTRACT);
-//        myExtractPanel.add(enterItemC);
         myExtractPanel.add(enterAmountC);
-//        myExtractPanel.add(extractItemEntry);
         myExtractPanel.add(extractAmountEntry);
         myExtractPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         mainFrame.add(myExtractPanel);
     }
 
     public static void createAndShowFarmScreen() {
-        //Create and set up the content pane.
         E_FarmScreen a = new E_FarmScreen();
-
-        //newContentPane.setOpaque(true);
     }
     public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowFarmScreen();
