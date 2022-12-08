@@ -1,19 +1,12 @@
 package UI;
 
 import CheckProgressUseCase.CheckProgressController;
-import Entities.Egg;
-import Entities.Inventory;
-import Entities.Plot;
-import Entities.Product;
-import Use_Case_Interactors.InventoryManager;
-import Use_Case_Interactors.PlotManager;
 
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 
 public class E_CheckProgressScreen extends A0_MainScreen{

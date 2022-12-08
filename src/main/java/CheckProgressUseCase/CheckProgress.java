@@ -37,10 +37,8 @@ public class CheckProgress {
         // Make a new hashmap of plots, with key = plot # in plot and value = product in plot
         HashMap<String, String> plotMap = new HashMap<>();
         // plotCounter keeps track of which plot is being mapped
-        int plotCounter = 0;
         for (Plot p : plots){
-            plotMap.put("Plot " + plotCounter, p.getProductName());
-            plotCounter++;
+            plotMap.put("Plot " + p.getPlotId() , p.getProductName() + " | " + p.getDaysLeftToHarvest() + " day(s) left.");
         }
         // Convert money integer to string
         String moneyString;

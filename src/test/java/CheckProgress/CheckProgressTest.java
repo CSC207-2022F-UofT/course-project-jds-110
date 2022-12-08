@@ -30,6 +30,7 @@ public class CheckProgressTest {
         ArrayList<Plot> p = new ArrayList<>();
         PlotManager.setMyPlots(p);
         PlotManager.createNewPlot();
+        PlotManager.place(egg, 0);
     }
 
     /**
@@ -66,7 +67,7 @@ public class CheckProgressTest {
     @Test
     public void CheckProgressStringTest() {
         String expected = "Inventory:" + "\n" + "-------------------" + "\n" + "egg: 5" + "\n" +
-                "-------------------" + "\n" + "Plots:" + "\n" + "-------------------" + "\n" + "Plot 0: no product"
+                "-------------------" + "\n" + "Plots:" + "\n" + "-------------------" + "\n" + "Plot 1: egg | 0 day(s) left."
                 + "\n" + "-------------------" + "\n" + "Money: $500";
         String actual = CheckProgressController.gameProgress();
         Assertions.assertEquals(expected, actual);
