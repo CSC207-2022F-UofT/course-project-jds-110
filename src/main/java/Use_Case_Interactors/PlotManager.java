@@ -61,6 +61,7 @@ public class PlotManager {
         Plot plot = myPlots.get(num);
         if (plot.getProduct() instanceof Animal){
             InventoryManager.addItem(convertStringtoProduct(plot.getProduct().getYield()), 1);
+            plot.setDaysLeftToHarvest(plot.getProduct().getDaysToYield());
             return ("You have extracted yields from your animals on the plot!");
         }
         return ("You have nothing to extract from your plot :/");
