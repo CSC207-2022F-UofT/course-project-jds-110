@@ -4,6 +4,7 @@ import Entities.Animal;
 import Entities.Crop;
 import Entities.Plot;
 import Entities.Product;
+import Use_Case_Interactors.InventoryManager;
 
 import java.io.IOException;
 
@@ -14,8 +15,14 @@ public class FarmerController {
      * @param num plot id
      */
     public static String InputPlace(Product product, int num) {
-        Farmer.place(product, num);
-        return ("You have placed your product on your plot!");}
+        if (InventoryManager.getMyInventoryItems().containsKey(product)){
+            Farmer.place(product, num);
+            return ("You have placed your product on your plot!");
+        } else {
+            return ("You do not have this item in your inventory :(");
+        }
+
+        }
 
 //    /**
 //     * Farmer Controller that places a crop to a plot
