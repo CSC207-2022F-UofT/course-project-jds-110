@@ -12,7 +12,7 @@ public class FarmerController {
      * @param num plot id
      */
     public static String InputPlace(Product product, int num) {
-        if (InventoryManager.getMyInventoryItems().containsKey(product)){
+        if (InventoryManager.checkIfAvailable(product, 1)){
             Farmer.place(product, num);
             return ("You have placed your product on your plot!");
         } else {
