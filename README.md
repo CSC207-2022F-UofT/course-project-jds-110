@@ -44,15 +44,15 @@ Most of the use cases have their own UI screens to separate their functionalitie
 Each use case has a controller in the Interface Adapters layer and a use case interactor in the Use Case layer. For the controllers, the "winning/losing condition" use case and "random events" use case are called under the "go to next day" use case, which is why they don't need controllers for those use cases. Each controller interprets the user input collected from the UI and calls upon their corresponding use case interactor to carry out the functions of the use case using various methods. There are 'global use case interactors' that are in the "use_case_interactors" package called PlotManager and InventoryManager that each of the use case interactors use to fetch information from the Entities layer to use in their functions. 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/109601140/206353649-aeabea17-5106-4a99-b67c-46aa59c52d59.png" width="350" height="300" />
-  <img src="https://user-images.githubusercontent.com/109601140/206353681-bcb40d7b-165e-429c-9adb-15d87af3c533.png" width="350" height="300" />
-  <img src="https://user-images.githubusercontent.com/109601140/206353714-7b37f388-6a9f-4865-aad0-e51d4b530418.png" width="350" height="300" />
+  <img src="https://user-images.githubusercontent.com/109601140/206353649-aeabea17-5106-4a99-b67c-46aa59c52d59.png" width="400" height="300" />
+  <img src="https://user-images.githubusercontent.com/109601140/206353681-bcb40d7b-165e-429c-9adb-15d87af3c533.png" width="350" height="350" />
+  <img src="https://user-images.githubusercontent.com/109601140/206353714-7b37f388-6a9f-4865-aad0-e51d4b530418.png" width="450" height="300" />
 </p>
 
 The user's information like their plots and inventory are in the Entities layer, along with the information/data bundles of the different items that you can buy from the shop. The items that you can buy from the shop are all Products. Some products implement the "Yieldable" interface. These special products are products that can be obtained by being harvested/extracted from other products. For example, milk is a yieldable product from a cow, but the cow is not a yieldable product, it is just a product. With these definitions, only yieldable products can be sold. 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/109601140/206354083-569d860c-3c55-4dde-8bf6-4c7b19cd39e0.png" width="350" height="300" />
+  <img src="https://user-images.githubusercontent.com/109601140/206354083-569d860c-3c55-4dde-8bf6-4c7b19cd39e0.png" width="350" height="400" />
 </p>
 
 ## About the Scope
