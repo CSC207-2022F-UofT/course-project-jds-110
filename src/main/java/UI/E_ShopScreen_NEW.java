@@ -26,6 +26,7 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
      //transitions from Menu to Shop Screen
      shopToMenu shopToMenuHandler = new shopToMenu();
      public E_ShopScreen_NEW(){
+
           mainPanel = new JPanel();
           mainPanel.setBounds(0,0,800,600);
           mainPanel.setLayout(new GridLayout(1,3));
@@ -132,7 +133,7 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
                public void actionPerformed(ActionEvent e) {
                     String a = sellItemEntry.getText();
                     Integer b = Integer.parseInt(sellAmountEntry.getText());
-                    String info = ShopperController.inputBuyFromMarket(a, b);
+                    String info = ShopperController.inputSellToMarket(a, b);
                     JOptionPane.showMessageDialog(mainFrame, info);
                }
           });

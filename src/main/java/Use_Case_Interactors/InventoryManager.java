@@ -14,7 +14,7 @@ public class InventoryManager {
     public static HashMap<Product, Integer> getMyInventoryItems() {
         HashMap<Product, Integer>productHashmap = new HashMap<>();
         for (String i : myInventory.getMyItems().keySet()){
-            productHashmap.put(productStringDictionary.get(i), myInventory.getMyItems().get(i));
+            productHashmap.put(convertStringtoProduct(i), myInventory.getMyItems().get(i));
         }
         return productHashmap;
         // return myInventory.getMyItems();
@@ -55,7 +55,8 @@ public class InventoryManager {
      */
     public static boolean checkIfAvailable(Product item, int amount){
 
-        return myInventory.getMyItems().get(item.getName()) >= amount;
+        // also check if this is available at all
+        return (myInventory.getMyItems().containsKey(item.getName()) & getMyInventoryItemsString().get(item.getName()) >= amount);
     }
 
     /**
