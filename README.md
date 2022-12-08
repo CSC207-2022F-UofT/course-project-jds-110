@@ -3,7 +3,42 @@
 ## About the Game
 Our project is a resource-management game based on a farm theme. The user can create an account that saves their farm information so they can come back to their farm whenever they want. The user carries the responsibility of a farmer, as they can buy and sell goods that they yield from their crops and animals. When the user chooses to progress to the next day, there's a chance of a random event happening that can either benefit or cause drawbacks for the user. Once the user reaches certain milestones for their farm, they win the game!
 
-## How to Play
+## About the Design/Scope
+The program is divided into 9 use cases:
+1. Checking progress of farm
+2. Sharing your farm
+3. Winning/losing condition
+4. Random events
+5. Raising animals and growing crops
+6. Interacting with the market
+7. Save state
+8. Leaderboard
+9. Go to next day
+
+Most of the use cases have their own UI screens to separate their functionalities. Each UI screen calls upon their corresponding controller to execute their functionality. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/109601140/206353961-03d16f38-31b8-4a82-9fc3-8c281433a730.png">
+</p>
+
+Each use case has a controller in the Interface Adapters layer and a use case interactor in the Use Case layer. For the controllers, the "winning/losing condition" use case and "random events" use case are called under the "go to next day" use case, which is why they don't need controllers for those use cases. Each controller interprets the user input collected from the UI and calls upon their corresponding use case interactor to carry out the functions of the use case using various methods. There are 'global use case interactors' that are in the "use_case_interactors" package called PlotManager and InventoryManager that each of the use case interactors use to fetch information from the Entities layer to use in their functions. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/109601140/206353649-aeabea17-5106-4a99-b67c-46aa59c52d59.png">
+  <img src="https://user-images.githubusercontent.com/109601140/206353681-bcb40d7b-165e-429c-9adb-15d87af3c533.png">
+  <img src="https://user-images.githubusercontent.com/109601140/206353714-7b37f388-6a9f-4865-aad0-e51d4b530418.png">
+</p>
+
+The user's information like their plots and inventory are in the Entities layer, along with the information/data bundles of the different items that you can buy from the shop. The items that you can buy from the shop are all Products, as they all extend from the Products class. Each product has their own attributes with their own unique values. Some products implement the "Yieldable" interface. These special products are products that can be obtained by being harvested/extracted from other products. For example, milk is a yieldable product from a cow, but the cow is not a yieldable product, it is just a product. With these definitions, only yieldable products can be sold. 
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/109601140/206354083-569d860c-3c55-4dde-8bf6-4c7b19cd39e0.png">
+</p>
+
+## How to Start The Game
+Run the FarmGame.java file.
+
+## How to Play/Functionality
 Press the "Start" button at the title screen and enter your user information in the sign-in screen so the program retrieves your data if you have an exisitng account, or create a new account and farm for you. 
 
 <p align="center">
@@ -53,44 +88,3 @@ To share you farm, the share screen will display pictures for all the products i
 </p>
 
 Once you've finished your chores for the day, you can progress to the next day by pressing "Next Day". When you go to the next day, there will be a chance that a random event will occur!
-
-## About the Design
-The program is divided into 9 use cases:
-1. Checking progress of farm
-2. Sharing your farm
-3. Winning/losing condition
-4. Random events
-5. Raising animals and growing crops
-6. Interacting with the market
-7. Save state
-8. Leaderboard
-9. Go to next day
-
-Most of the use cases have their own UI screens to separate their functionalities. Each UI screen calls upon their corresponding controller to execute their functionality. 
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/109601140/206353961-03d16f38-31b8-4a82-9fc3-8c281433a730.png">
-</p>
-
-Each use case has a controller in the Interface Adapters layer and a use case interactor in the Use Case layer. For the controllers, the "winning/losing condition" use case and "random events" use case are called under the "go to next day" use case, which is why they don't need controllers for those use cases. Each controller interprets the user input collected from the UI and calls upon their corresponding use case interactor to carry out the functions of the use case using various methods. There are 'global use case interactors' that are in the "use_case_interactors" package called PlotManager and InventoryManager that each of the use case interactors use to fetch information from the Entities layer to use in their functions. 
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/109601140/206353649-aeabea17-5106-4a99-b67c-46aa59c52d59.png">
-  <img src="https://user-images.githubusercontent.com/109601140/206353681-bcb40d7b-165e-429c-9adb-15d87af3c533.png">
-  <img src="https://user-images.githubusercontent.com/109601140/206353714-7b37f388-6a9f-4865-aad0-e51d4b530418.png">
-</p>
-
-The user's information like their plots and inventory are in the Entities layer, along with the information/data bundles of the different items that you can buy from the shop. The items that you can buy from the shop are all Products. Some products implement the "Yieldable" interface. These special products are products that can be obtained by being harvested/extracted from other products. For example, milk is a yieldable product from a cow, but the cow is not a yieldable product, it is just a product. With these definitions, only yieldable products can be sold. 
-
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/109601140/206354083-569d860c-3c55-4dde-8bf6-4c7b19cd39e0.png">
-</p>
-
-
-
-
-
-## About the Scope
-
-## How to Start The Game
-Run the FarmGame.java file.
