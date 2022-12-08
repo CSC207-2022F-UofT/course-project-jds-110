@@ -5,17 +5,41 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * This is the screen which will allow the play to choose from creating a new game or loading a pre-existing game
+ */
 public class C_NewOrLoadScreen extends A_TitleScreen {
+
+    /**
+     * initializes Title Components
+     */
     JPanel newLoadTextPanel;
     JLabel newLoadTextLabel;
+
+
+    /**
+     * initializes new game button Components
+     */
     JPanel newButtonPanel;
     JButton newGameButton;
+
+    /**
+     * initializes load game button Components
+     */
     JPanel loadButtonPanel;
     JButton loadGameButton;
-    //fonts
+
+    /**
+     * ActionListeners which transitions the new/load screen to new game or load game screen
+     */
     newToNewGame nHandler = new newToNewGame();
     loadToLoadGame lHandler = new loadToLoadGame();
 
+    /**
+     * Setting the parameters for the title, and new game button and load game button
+     *
+     * adding all the panels to the container con, which was initialized in A0_MainScreen
+     */
     public C_NewOrLoadScreen() {
         titlePanel.setVisible(false);
         startButtonPanel.setVisible(false);
@@ -58,6 +82,9 @@ public class C_NewOrLoadScreen extends A_TitleScreen {
         con.add(loadButtonPanel);
     }
 
+    /**
+     * ActionListener new/load screen to new game screen
+     */
     public class newToNewGame implements ActionListener {
         public void actionPerformed(ActionEvent event){
             D_NewGameScreen.createAndShowNewGameScreen();
@@ -65,6 +92,9 @@ public class C_NewOrLoadScreen extends A_TitleScreen {
         }
     }
 
+    /**
+     * ActionListener new/load screen to load game screen
+     */
     public class loadToLoadGame implements ActionListener {
         public void actionPerformed(ActionEvent event){
             D_LoadGameScreen.createAndShowLoadGameScreen();
@@ -72,14 +102,18 @@ public class C_NewOrLoadScreen extends A_TitleScreen {
         }
     }
 
+    /**
+     * initializes the new/load screen to be called by main
+     */
     public static void createAndShowNewOrLoadScreen() {
         //Create and set up the content pane.
         C_NewOrLoadScreen newContentPane = new C_NewOrLoadScreen();
     }
 
+    /**
+     * when this screen is called, the screen is displayed
+     */
     public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowNewOrLoadScreen();

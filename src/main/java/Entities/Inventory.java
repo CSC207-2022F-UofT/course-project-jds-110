@@ -3,7 +3,7 @@ import java.io.Serializable;
 import java.util.HashMap;
 
 public class Inventory implements Serializable {
-    private int myMoney = 500;
+    private int myMoney = 1000;
     private int rent;
     private String name;
     private HashMap<String, Integer> myItems = new HashMap<>();

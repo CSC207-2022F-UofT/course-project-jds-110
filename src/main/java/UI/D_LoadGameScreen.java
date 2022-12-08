@@ -9,14 +9,41 @@ import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 
+/**
+ * if the player choose to load a pre-existing game, they will be prompted to enter the name of the farm that they would
+ * like to load
+ *
+ * if the name of the farm that they entered is not valid (the farm with that name does not exist), a pop-up message
+ * will tell the player that such a save file does not exist
+ *
+ * if the name of farm that they entered is valid, that farm will loaded from the save file, and the player will be
+ * taken to the main menu
+ */
 public class D_LoadGameScreen extends C_NewOrLoadScreen {
+
+    /**
+     * initializes text Components, prompting the player to enter the name of the farm
+     */
     JPanel loadGameTextPanel;
-    JPanel loadGamePanel;
     JLabel loadGameTextLabel;
+
+    /**
+     * initializes the text input JTextField which takes in the name of the farm
+     */
+    JPanel loadGamePanel;
     JTextField jtf;
     JButton enterB;
+
+    /**
+     * ActionListeners which transitions the load screen to main screen
+     */
     loadGameToMain mHandler = new loadGameToMain();
 
+    /**
+     * Setting the parameters for the title, and text input for the farm name
+     *
+     * adding all the panels to the container con, which was initialized in A0_MainScreen
+     */
     public D_LoadGameScreen() {
         newLoadTextPanel.setVisible(false);
         newButtonPanel.setVisible(false);
@@ -49,22 +76,29 @@ public class D_LoadGameScreen extends C_NewOrLoadScreen {
         con.add(loadGamePanel);
     }
 
+    /**
+     * ActionListener load screen to menu
+     *
+     * if the name of the farm that they entered is not valid (the farm with that name does not exist), a pop-up message
+     * will tell the player that such a save file does not exist
+     */
     public class loadGameToMain implements ActionListener {
         public void actionPerformed(ActionEvent event){
             try {
                 StateController.loadGame(jtf.getText());
                 A1_MenuScreen.createAndShowMenuScreen();
             } catch (FileNotFoundException e) {
-                JOptionPane.showMessageDialog(window, "File does not exit!");
+                JOptionPane.showMessageDialog(window, "File does not exist!");
                 createAndShowNewOrLoadScreen();
             } catch (ClassNotFoundException | IOException e) {
                 throw new RuntimeException(e);
             } finally { quit(); }
         }
     }
-
+    /**
+     * initializes the load screen to be called by C_NewOrLoadScreen
+     */
     public static void createAndShowLoadGameScreen() {
-        //Create and set up the content pane.
         D_LoadGameScreen d = new D_LoadGameScreen();
     }
 }
