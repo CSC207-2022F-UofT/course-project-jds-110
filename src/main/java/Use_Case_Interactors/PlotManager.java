@@ -71,9 +71,26 @@ public class PlotManager {
         InventoryManager.removeItem(product, 1);
     }
 
+    /**
+     * @param plotId remove the item on the given plotID
+     */
     public static void remove(int plotId) {
         Plot plot = myPlots.get(plotId);
         plot.remove();
+    }
+
+    public static ArrayList<String> getStringNames(){
+        ArrayList<String> farmNames = new ArrayList<>();
+        for (Plot p : myPlots) {
+            if (p.isEmpty()){
+                farmNames.add("");
+            }
+            else {
+                String type = p.getProductName();
+                farmNames.add(type);
+            }
+        }
+        return farmNames;
     }
 
 }
