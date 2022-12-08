@@ -79,7 +79,8 @@ public class EndgameConditionsTest {
     @Test
     public void testCheckLoseTrue(){
         InventoryManager.removeMoney(500);
-        Assertions.assertEquals(InventoryManager.getMyInventoryMoney() <= 100, EndgameConditions.checkLose());
+        Assertions.assertEquals(InventoryManager.getMyInventoryMoney() < InventoryManager.getRent(),
+                EndgameConditions.checkLose());
     }
     @Test
     public void testCheckLoseFalse(){
@@ -96,7 +97,7 @@ public class EndgameConditionsTest {
     public void testCheckEndGameWinMoneyTrue(){
         InventoryManager.addMoney(1600);
         Assertions.assertTrue(InventoryManager.getMyInventoryMoney() > 1500);
-        Assertions.assertEquals("You have reached the required amount of money needed to win. Currently you " +
-                "have : "+ InventoryManager.getMyInventoryMoney() +" amount", EndgameConditions.endGame());
+        Assertions.assertEquals("YOU WIN! \nYou have reached the required amount of money needed to win.\n" +
+                "Currently you have : $" + InventoryManager.getMyInventoryMoney(), EndgameConditions.endGame());
     }
 }

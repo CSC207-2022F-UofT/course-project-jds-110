@@ -69,4 +69,7 @@ public class Plot implements Serializable {
     }
 
     public Product getProduct(){return productOnPlot;}
+
+    public void setDaysLeftToHarvest(int i) { daysLeftToHarvest = i;
+    }
 }

@@ -85,4 +85,5 @@ public class Inventory implements Serializable {
      */
     public void removeRent() { myMoney -= rent; }
 
+    public int getRent() { return rent; }
 }
