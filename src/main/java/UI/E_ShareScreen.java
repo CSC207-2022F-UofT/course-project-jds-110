@@ -9,24 +9,41 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.ImageIcon;
 
+/**
+ * the share screen displays all the plots of your farm with pictures that represents whats on your plot
+ *
+ * it will 1 button which takes you back to the menu
+ */
 public class E_ShareScreen extends A0_MainScreen {
 
+    /**
+     * initializes the display plots Components
+     */
     JPanel plotPanel;
 
-    //backButton
+    /**
+     * initializes back button Components
+     */
     JPanel backButtonPanel;
     JButton backButton;
 
-
+    /**
+     * ActionListeners which transitions the share screen to menu
+     */
     sharetoMainMenuHandler sHandler = new sharetoMainMenuHandler();
 
+    /**
+     * Setting the parameters for the back button, and plot display
+     *
+     * adding all the panels to the container con, which was initialized in A0_MainScreen
+     */
     public E_ShareScreen() {
         backButton = new JButton("Back");
 
         //where the plots are displayed
         plotPanel = new JPanel();
         plotPanel.setBounds(100, 30, 600, 400);
-        plotPanel.setBackground(Color.gray);
+        plotPanel.setBackground(Color.black);
 
 
         ArrayList<String> plots = ShareController.displayFarm();
@@ -53,6 +70,7 @@ public class E_ShareScreen extends A0_MainScreen {
             ImageIcon scaledCurrPic = new ImageIcon(scaleCurrPic);
 
             JPanel currPanel = new JPanel();
+            currPanel.setBackground(Color.black);
             JLabel currLabel = new JLabel(scaledCurrPic);
             currPanel.add(currLabel);
             plotPanel.add(currPanel);
@@ -64,9 +82,9 @@ public class E_ShareScreen extends A0_MainScreen {
 
         //makes backButton
         backButtonPanel = new JPanel();
-        backButtonPanel.setBounds(300, 400, 200, 100);
+        backButtonPanel.setBounds(300, 500, 140, 100);
         backButtonPanel.setBackground(Color.black);
-        backButton.setBackground(Color.black);
+        backButton.setBackground(Color.white);
         backButton.setForeground(Color.black);
         backButton.setFont(normalFont);
         backButton.addActionListener(sHandler);
@@ -92,12 +110,15 @@ public class E_ShareScreen extends A0_MainScreen {
     }
 
     /**
-     * To get to the Share Screen
+     * initializes the share screen to be called by main
      */
     public static void createAndShowShareScreen() {
         new E_ShareScreen();
     }
 
+    /**
+     * when this screen is called, the screen is displayed
+     */
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {

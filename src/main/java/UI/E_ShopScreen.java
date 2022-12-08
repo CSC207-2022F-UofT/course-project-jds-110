@@ -1,4 +1,3 @@
-/*
 package UI;
 import InterctWithMarketUseCase.ShopperController;
 
@@ -7,66 +6,76 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * the shop screen has three portions
+ *
+ * The buy potion, which lets the player enter what item to buy, amount to buy, and a display price button which
+ * shows the player the names of the valid things to buy as well as their prices
+ *
+ * The sell portion, which lets the player enter what item to sell, amount to sell
+ *
+ * The plot portion which lets the player buy plots
+ *
+ * There is also a done button which takes the player back to the menu
+ */
 public class E_ShopScreen extends A0_MainScreen{
 
-     JFrame mainFrame;
-     JPanel mainPanel, shopperPanel, buyPanel, sellPanel, plotPanel;
+     /**
+      * initializes the back button, buy, sell, plots components
+      */
+     JPanel mainPanel;
      JLabel SHOP, BUY, SELL, PLOT, enterItemA, enterItemB, enterAmountA, enterAmountB;
      JTextField buyItemEntry, sellItemEntry, buyAmountEntry, sellAmountEntry;
      JButton buy, sell, buyPlot, done;
 
-     public static void main(String[] args){
-          new E_ShopScreen();
-     }
 
+     /**
+      * ActionListeners which transitions the Shop screen to menu
+      */
+     shopToMenu shopToMenuHandler = new shopToMenu();
+
+     /**
+      * Setting the parameters for the back button, buy, sell, plots components
+      *
+      * adding all the panels to the container con, which was initialized in A0_MainScreen
+      */
      public E_ShopScreen(){
-          // main frame creation
-
-          mainFrame = new JFrame();
-          mainFrame.setSize(800, 600);
-          mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
           mainPanel = new JPanel();
+          mainPanel.setBounds(0,0,800,600);
           mainPanel.setLayout(new GridLayout(1,3));
-
 
           // top and bottom
           SHOP = new JLabel("SHOP");
-          SHOP.setBounds(375, 25, 50, 50);
-          mainFrame.add(SHOP);
-
+          SHOP.setFont(normalFont);
+          SHOP.setForeground(Color.BLACK);
+          SHOP.setBounds(360, 25, 200, 50);
 
           done = new JButton("DONE");
-          done.setBounds(350, 500, 100, 25);
-          done.addActionListener(new ActionListener() {
-               @Override
-               public void actionPerformed(ActionEvent e) {
-                    mainFrame.setVisible(false);
-                    A0_MainScreen.createAndShowMainMenuScreen();
+          done.setBounds(360, 500, 100, 25);
+          done.addActionListener(shopToMenuHandler);
 
-               }
-          });
-          mainFrame.add(done);
-
-
-         // extra panels
+          // Buy/sell/plot portion of the shop
           createBuyPanel(mainPanel);
           createSellPanel(mainPanel);
           createPlotPanel(mainPanel);
 
+          mainPanel.setVisible(true);
+          mainPanel.setBackground(Color.WHITE);
 
-          // activation
-          // mainFrame.add(buyPanel);
-          // mainFrame.add(sellPanel);
-          // mainFrame.add(plotPanel);
-          mainFrame.add(mainPanel);
-          mainFrame.setVisible(true);
-          con.add(mainFrame);
+          con.add(done);
+          con.add(SHOP);
+          con.add(mainPanel);
+
      }
+
+     /**
+      * Setting the parameters for the buy components
+      */
      public void createBuyPanel(JPanel mainFrame){
+
           JPanel myBuyPanel = new JPanel();
           myBuyPanel.setLayout(null);
-
           buy = new JButton("buy");
           buy.setBounds(100, 400, 100, 25);
           buy.addActionListener(new ActionListener() {
@@ -78,6 +87,18 @@ public class E_ShopScreen extends A0_MainScreen{
                     JOptionPane.showMessageDialog(mainFrame, info);
                }
           });
+
+          //Display progress
+          JButton btn_display_price = new JButton("Display Price");
+          btn_display_price.setBounds(72, 450, 150, 25);
+
+          btn_display_price.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(window, ShopperController.returnPrices());
+               }
+          });
+          myBuyPanel.add(btn_display_price);
 
           BUY = new JLabel("BUY");
           BUY.setBounds(125, 100, 50, 50);
@@ -96,9 +117,6 @@ public class E_ShopScreen extends A0_MainScreen{
           buyAmountEntry = new JTextField(20);
           buyAmountEntry.setBounds(125, 315, 100, 25);
 
-          // BUY, buyItemEntry, buyAmountEntry
-          // En
-
           myBuyPanel.add(buy);
           myBuyPanel.add(BUY);
           myBuyPanel.add(enterItemA);
@@ -109,8 +127,11 @@ public class E_ShopScreen extends A0_MainScreen{
           mainFrame.add(myBuyPanel);
 
      }
-
+     /**
+      * Setting the parameters for the sell components
+      */
      public void createSellPanel(JPanel mainFrame){
+
           JPanel mySellPanel = new JPanel();
           mySellPanel.setLayout(null);
 
@@ -156,7 +177,11 @@ public class E_ShopScreen extends A0_MainScreen{
           mainFrame.add(mySellPanel);
      }
 
+     /**
+      * Setting the parameters for the plot components
+      */
      public void createPlotPanel(JPanel mainFrame){
+
           JPanel myPlotPanel = new JPanel();
           myPlotPanel.setLayout(null);
 
@@ -182,5 +207,33 @@ public class E_ShopScreen extends A0_MainScreen{
 
      }
 
+     /**
+      * initializes the shop screen to be called by main
+      */
+     public static void createAndShowShopScreen() {
+          E_ShopScreen a = new E_ShopScreen();
+     }
 
-}*/
+     /**
+      * when this screen is called, the screen is displayed
+      */
+     public static void main(String[] args) {
+          javax.swing.SwingUtilities.invokeLater(new Runnable() {
+               public void run() {
+                    createAndShowShopScreen();
+               }
+          });
+     }
+
+     /**
+      * ActionListeners which transitions the shop screen to menu
+      */
+     public class shopToMenu implements ActionListener {
+          public void actionPerformed(ActionEvent event){
+               A1_MenuScreen.createAndShowMenuScreen();
+               window.setVisible(false);
+               quit();
+          }
+     }
+
+}

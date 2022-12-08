@@ -115,7 +115,9 @@ public class E_FarmScreen extends A0_MainScreen{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer b = Integer.parseInt(harvestAmountEntry.getText());
+
                 String info = PlotManager.harvest(b);
+
                 JOptionPane.showMessageDialog(mainFrame, info);
             }
         });
@@ -158,7 +160,9 @@ public class E_FarmScreen extends A0_MainScreen{
             @Override
             public void actionPerformed(ActionEvent e) {
                 Integer b = Integer.parseInt(extractAmountEntry.getText());
+
                 String info = PlotManager.extract(b);
+
                 JOptionPane.showMessageDialog(mainFrame, info);
             }
         });

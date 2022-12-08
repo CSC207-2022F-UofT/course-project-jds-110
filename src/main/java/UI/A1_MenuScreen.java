@@ -1,6 +1,5 @@
 package UI;
 
-import nextday_use_case.NextDay;
 import nextday_use_case.NextDayController;
 import save_state_use_case.StateController;
 
@@ -10,58 +9,106 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
+/**
+ * This is the main menu screen of our game which will allow the user to :
+ * 1. Go to Next day
+ * 2. Go to Farm
+ * 3. Go to Shop
+ * 4. Check Progress
+ * 5. Check Leaderboard
+ * 6. Share
+ * 7. Save Game
+ */
 public class A1_MenuScreen extends A0_MainScreen{
-    //title name
+    /**
+     * initializes mainScreen Components
+     */
+
     JPanel mainScreenPanel;
     JLabel mainScreenLabel;
 
-    //CheckProgressButton
+    /**
+     * initializes checkProgress Components
+     */
     JPanel CheckProgressButtonPanel;
     JButton CheckProgressButton;
 
-    //NextDayButton
+    /**
+     * initializes nextDay Components
+     */
     JPanel NextDayPanel;
     JButton NextDayButton;
-    //SaveButton
+
+    /**
+     * initializes Save Components
+     */
     JPanel SavePanel;
     JButton SaveButton;
-    //LeaderboardButton
+
+    /**
+     * initializes Leaderboard Components
+     */
     JPanel LeaderboardButtonPanel;
     JButton LeaderboardButton;
 
-    //ShareButton
+    /**
+     * initializes Share Components
+     */
     JPanel ShareButtonPanel;
     JButton ShareButton;
 
-    //ShopButton
+    /**
+     * initializes Shop Components
+     */
     JPanel ShopButtonPanel;
     JButton ShopButton;
 
-    //FarmButton
+    /**
+     * initializes Farm Components
+     */
     JPanel FarmPanel;
     JButton FarmButton;
 
-    static String name;
-
-    //transitions from Menu to Check Progress Screen
+    /**
+     * ActionListeners which transitions the Menu to Check Progress Screen
+     */
     menuToProgress menuToCheckProgressHandler = new menuToProgress();
 
-    //transitions from Menu to Shop Screen
+    /**
+     * ActionListener which transitions the Menu to Shop Screen
+     */
     menuToShop menuToShopHandler = new menuToShop();
 
-    //transitions from Menu to Next Day
+    /**
+     * ActionListener which moves the game into next day
+     */
     menuToNextDay menuToNextDayHandler = new menuToNextDay();
 
-    //transitions from Menu to Leaderboard Screen
+    /**
+     * ActionListener which transitions the Menu to Leaderboard Screen
+     */
     menuToLeaderboard menuToLeaderboardHandler = new menuToLeaderboard();
 
-    //transitions from Menu to Share Screen
+    /**
+     * ActionListener which transitions the Menu to Share Screen
+     */
     menuToShare menuToShareHandler = new menuToShare();
-    //transitions from Menu to Save Game
+
+    /**
+     * ActionListener which transitions the Menu to Save Screen
+     */
     menuToSave menuToSaveHandler = new menuToSave();
-    //transitions from Menu to Farm Screen
+
+    /**
+     * ActionListener which transitions the Menu to Farm Screen
+     */
     menuToFarm menuToFarmHandler = new menuToFarm();
 
+    /**
+     * Setting the parameters for all the other buttons/panels/labels
+     *
+     * adding all the panels to the container con, which was initialized in A0_MainScreen
+     */
     public A1_MenuScreen(){
         CheckProgressButton = new JButton("Check Progress");
         NextDayButton = new JButton("Next Day");
@@ -162,31 +209,44 @@ public class A1_MenuScreen extends A0_MainScreen{
         con.add(SavePanel);
         con.add(FarmPanel);
     }
-    //ActionListener menu screen to progress screen
+
+    /**
+     * ActionListener menu screen to check progress screen
+     */
     public class menuToProgress implements ActionListener {
         public void actionPerformed(ActionEvent event){
             E_CheckProgressScreen.createAndShowGUI();
             quit();
         }
     }
-    //ActionListener menu screen to shop screen
+
+    /**
+     * ActionListener menu screen to Shop screen
+     */
     public class menuToShop implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            E_ShopScreen_NEW.createAndShowShopScreen();
+            E_ShopScreen.createAndShowShopScreen();
             window.setVisible(false);
             quit();
         }
     }
 
-    //ActionListener menu screen to GO TO NEXT DAY
+    /**
+     * ActionListener takes game to nextDay, if lose condition is fulfilled, message pops up and the game is closed
+     */
     public class menuToNextDay implements ActionListener {
         public void actionPerformed(ActionEvent event){
             String message = NextDayController.goToNextDay();
             JOptionPane.showMessageDialog(window, message);
+            if (message.contains("YOU LOSE")){
+                System.exit(0);
+            }
         }
     }
 
-    //ActionListener menu screen to Save Game
+    /**
+     * ActionListener menu screen to Save screen
+     */
     public class menuToSave implements ActionListener {
         public void actionPerformed(ActionEvent event){
             try {
@@ -197,7 +257,9 @@ public class A1_MenuScreen extends A0_MainScreen{
             }
         }
     }
-
+    /**
+     * ActionListener menu screen to Farm screen
+     */
     public class menuToFarm implements ActionListener {
         public void actionPerformed(ActionEvent event){
             E_FarmScreen.createAndShowFarmScreen();
@@ -205,7 +267,9 @@ public class A1_MenuScreen extends A0_MainScreen{
         }
     }
 
-    //ActionListener menu screen to Leaderboard screen
+    /**
+     * ActionListener menu screen to Leaderboard screen
+     */
     public class menuToLeaderboard implements ActionListener {
         public void actionPerformed(ActionEvent event){
             E_LeaderboardScreen.createAndShowLeaderBoardScreen();
@@ -213,7 +277,9 @@ public class A1_MenuScreen extends A0_MainScreen{
         }
     }
 
-    //ActionListener menu screen to Share screen
+    /**
+     * ActionListener menu screen to Share screen
+     */
     public class menuToShare implements ActionListener {
         public void actionPerformed(ActionEvent event){
             E_ShareScreen.createAndShowShareScreen();
@@ -221,13 +287,17 @@ public class A1_MenuScreen extends A0_MainScreen{
         }
     }
 
+    /**
+     * initializes the main menu screen to be called by main
+     */
     public static void createAndShowMenuScreen() {
         A1_MenuScreen a = new A1_MenuScreen();
     }
 
+    /**
+     * when this screen is called, the screen is displayed
+     */
     public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
                 createAndShowMenuScreen();
