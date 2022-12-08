@@ -6,15 +6,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.ImageIcon;
 
 /**
  * This is the leaderboard screen, which will have two buttons
- *
+ * <p>
  * one button which takes the player back to main menu
- *
+ * <p>
  * one button which displays the leaderboard
- *
+ * <p>
  * the leaderboard is determined by which player has the most amount of money
  * only the top 3 players are displayed
  */
@@ -23,28 +22,28 @@ public class E_LeaderboardScreen extends A0_MainScreen {
     /**
      * initializes leaderBoard title
      */
-    JPanel leaderboardTitlePanel;
-    JLabel leaderboardTitleLabel;
+    final JPanel leaderboardTitlePanel;
+    final JLabel leaderboardTitleLabel;
 
     /**
      * initializes back button which takes player back to menu
      */
-    JPanel backButtonPanel;
-    JButton backButton;
+    final JPanel backButtonPanel;
+    final JButton backButton;
 
     /**
      * initializes the window that shows the leaderboard
      */
-    JPanel leaderboardTextPanel;
+    final JPanel leaderboardTextPanel;
 
     /**
      * ActionListener which transitions the leaderboard screen to menu screen
      */
-    leaderboardtoMainMenuHandler lmHandler = new leaderboardtoMainMenuHandler();
+    final leaderboardtoMainMenuHandler lmHandler = new leaderboardtoMainMenuHandler();
 
     /**
      * Setting the parameters for the title, back button and leaderboard
-     *
+     * <p>
      * adding all the panels to the container con, which was initialized in A0_MainScreen
      */
     public E_LeaderboardScreen() {
@@ -88,12 +87,9 @@ public class E_LeaderboardScreen extends A0_MainScreen {
 
         // Make display leaderboard button
         JButton btn_show_leaderboard = new JButton("Display Leaderboard");
-        btn_show_leaderboard.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String info = String.valueOf(LeaderboardController.getRanking());
-                JOptionPane.showMessageDialog(con, info, "Current Leaderboard", JOptionPane.INFORMATION_MESSAGE, icon2); // make it work
-            }
+        btn_show_leaderboard.addActionListener(e -> {
+            String info = String.valueOf(LeaderboardController.getRanking());
+            JOptionPane.showMessageDialog(con, info, "Current Leaderboard", JOptionPane.INFORMATION_MESSAGE, icon2); // make it work
         });
 
         leaderboardTextPanel.add(btn_show_leaderboard);
@@ -123,10 +119,6 @@ public class E_LeaderboardScreen extends A0_MainScreen {
      * when this screen is called, the screen is displayed
      */
     public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowLeaderBoardScreen();
-            }
-        });
+        javax.swing.SwingUtilities.invokeLater(E_LeaderboardScreen::createAndShowLeaderBoardScreen);
     }
 }

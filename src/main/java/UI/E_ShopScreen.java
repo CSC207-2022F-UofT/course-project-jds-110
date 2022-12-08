@@ -8,14 +8,14 @@ import java.awt.event.ActionListener;
 
 /**
  * the shop screen has three portions
- *
+ * <p>
  * The buy potion, which lets the player enter what item to buy, amount to buy, and a display price button which
  * shows the player the names of the valid things to buy as well as their prices
- *
+ * <p>
  * The sell portion, which lets the player enter what item to sell, amount to sell
- *
+ * <p>
  * The plot portion which lets the player buy plots
- *
+ * <p>
  * There is also a done button which takes the player back to the menu
  */
 public class E_ShopScreen extends A0_MainScreen{
@@ -23,20 +23,30 @@ public class E_ShopScreen extends A0_MainScreen{
      /**
       * initializes the back button, buy, sell, plots components
       */
-     JPanel mainPanel;
-     JLabel SHOP, BUY, SELL, PLOT, enterItemA, enterItemB, enterAmountA, enterAmountB;
+     final JPanel mainPanel;
+     final JLabel SHOP;
+     JLabel BUY;
+     JLabel SELL;
+     JLabel PLOT;
+     JLabel enterItemA;
+     JLabel enterItemB;
+     JLabel enterAmountA;
+     JLabel enterAmountB;
      JTextField buyItemEntry, sellItemEntry, buyAmountEntry, sellAmountEntry;
-     JButton buy, sell, buyPlot, done;
+     JButton buy;
+     JButton sell;
+     JButton buyPlot;
+     final JButton done;
 
 
      /**
       * ActionListeners which transitions the Shop screen to menu
       */
-     shopToMenu shopToMenuHandler = new shopToMenu();
+     final shopToMenu shopToMenuHandler = new shopToMenu();
 
      /**
       * Setting the parameters for the back button, buy, sell, plots components
-      *
+      * <p>
       * adding all the panels to the container con, which was initialized in A0_MainScreen
       */
      public E_ShopScreen(){
@@ -78,26 +88,18 @@ public class E_ShopScreen extends A0_MainScreen{
           myBuyPanel.setLayout(null);
           buy = new JButton("buy");
           buy.setBounds(100, 400, 100, 25);
-          buy.addActionListener(new ActionListener() {
-               @Override
-               public void actionPerformed(ActionEvent e) {
-                    String a = buyItemEntry.getText();
-                    Integer b = Integer.parseInt(buyAmountEntry.getText());
-                    String info = ShopperController.inputBuyFromMarket(a, b);
-                    JOptionPane.showMessageDialog(mainFrame, info);
-               }
+          buy.addActionListener(e -> {
+               String a = buyItemEntry.getText();
+               Integer b = Integer.parseInt(buyAmountEntry.getText());
+               String info = ShopperController.inputBuyFromMarket(a, b);
+               JOptionPane.showMessageDialog(mainFrame, info);
           });
 
           //Display progress
           JButton btn_display_price = new JButton("Display Price");
           btn_display_price.setBounds(72, 450, 150, 25);
 
-          btn_display_price.addActionListener(new ActionListener() {
-               @Override
-               public void actionPerformed(ActionEvent e) {
-                    JOptionPane.showMessageDialog(window, ShopperController.returnPrices());
-               }
-          });
+          btn_display_price.addActionListener(e -> JOptionPane.showMessageDialog(window, ShopperController.returnPrices()));
           myBuyPanel.add(btn_display_price);
 
           BUY = new JLabel("BUY");
@@ -137,14 +139,11 @@ public class E_ShopScreen extends A0_MainScreen{
 
           sell = new JButton("sell");
           sell.setBounds(100, 400, 100, 25);
-          sell.addActionListener(new ActionListener() {
-               @Override
-               public void actionPerformed(ActionEvent e) {
-                    String a = sellItemEntry.getText();
-                    Integer b = Integer.parseInt(sellAmountEntry.getText());
-                    String info = ShopperController.inputSellToMarket(a, b);
-                    JOptionPane.showMessageDialog(mainFrame, info);
-               }
+          sell.addActionListener(e -> {
+               String a = sellItemEntry.getText();
+               Integer b = Integer.parseInt(sellAmountEntry.getText());
+               String info = ShopperController.inputSellToMarket(a, b);
+               JOptionPane.showMessageDialog(mainFrame, info);
           });
 
           SELL = new JLabel("SELL");
@@ -187,12 +186,9 @@ public class E_ShopScreen extends A0_MainScreen{
 
           buyPlot = new JButton("buy PLOT");
           buyPlot.setBounds(50, 400, 150, 25);
-          buyPlot.addActionListener(new ActionListener() {
-               @Override
-               public void actionPerformed(ActionEvent e) {
-                    String info = ShopperController.inputBuyPlot();
-                    JOptionPane.showMessageDialog(mainFrame, info);
-               }
+          buyPlot.addActionListener(e -> {
+               String info = ShopperController.inputBuyPlot();
+               JOptionPane.showMessageDialog(mainFrame, info);
           });
 
           PLOT = new JLabel("PLOT");
@@ -211,18 +207,14 @@ public class E_ShopScreen extends A0_MainScreen{
       * initializes the shop screen to be called by main
       */
      public static void createAndShowShopScreen() {
-          E_ShopScreen a = new E_ShopScreen();
+          new E_ShopScreen();
      }
 
      /**
       * when this screen is called, the screen is displayed
       */
      public static void main(String[] args) {
-          javax.swing.SwingUtilities.invokeLater(new Runnable() {
-               public void run() {
-                    createAndShowShopScreen();
-               }
-          });
+          javax.swing.SwingUtilities.invokeLater(E_ShopScreen::createAndShowShopScreen);
      }
 
      /**

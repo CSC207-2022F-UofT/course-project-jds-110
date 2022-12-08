@@ -3,11 +3,6 @@ package raising_crops_and_animals_use_case;
 import Entities.*;
 import Use_Case_Interactors.InventoryManager;
 import Use_Case_Interactors.PlotManager;
-import save_state_use_case.State;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
 
 public class Farmer {
     /**

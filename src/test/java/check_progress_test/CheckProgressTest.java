@@ -1,28 +1,28 @@
-package CheckProgress;
+package check_progress_test;
 
 import CheckProgressUseCase.CheckProgress;
 import CheckProgressUseCase.CheckProgressController;
 import Entities.*;
 import Use_Case_Interactors.InventoryManager;
 import Use_Case_Interactors.PlotManager;
-import org.junit.Before;
-import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * CheckProgressTest tests various parts of the CheckProgress use case.
+ * CheckProgressTest tests various parts of the check_progress_test use case.
  */
 public class CheckProgressTest {
-    Product egg = new Egg();
-    Inventory i = new Inventory();
+    final Product egg = new Egg();
+    final Inventory i = new Inventory();
 
     /**
      * Initialize inventory and plots with contents.
      */
-    @Before
+    @BeforeEach
     public void addStuff(){
         InventoryManager.setMyInventory(i);
         InventoryManager.setupProductStringDictionary();
@@ -37,6 +37,16 @@ public class CheckProgressTest {
      * CheckProgressNoMutationTest tests that transformProgress() does not mutate user's money,
      * inventory and plots.
      */
+    @Test
+    public void CheckProgressNoMutationInventory() {
+        HashMap<Product, Integer> initial = InventoryManager.getMyInventoryItems();
+        HashMap<Product, Integer> actual = InventoryManager.getMyInventoryItems();
+        ArrayList<Plot> plots = PlotManager.getMyPlots();
+        int money = InventoryManager.getMyInventoryMoney();
+        CheckProgress.transformProgress(initial, plots, money);
+        Assertions.assertEquals(initial, actual);
+    }
+
     @Test
     public void CheckProgressNoMutationTest() {
         HashMap<Product, Integer> inventoryMap = InventoryManager.getMyInventoryItems();
@@ -60,20 +70,21 @@ public class CheckProgressTest {
 
         Assertions.assertEquals(expected, actual);
     }
+
     /**
      * CheckProgressStringTest tests that the string containing the user's information matches their actual information
      * and that the format of the string is correct.
      */
     @Test
     public void CheckProgressStringTest() {
-        String expected = "Inventory:" + "\n" + "-------------------" + "\n" + "egg: 5" + "\n" +
-                "-------------------" + "\n" + "Plots:" + "\n" + "-------------------" + "\n" + "Plot 1: egg | 0 day(s) left."
+        String expected = "Inventory:" + "\n" + "-------------------" + "\n" + "egg: 4" + "\n" +
+                "-------------------" + "\n" + "Plots:" + "\n" + "-------------------" + "\n" + "Plot 0: egg | 0 day(s) left."
                 + "\n" + "-------------------" + "\n" + "Money: $500";
         String actual = CheckProgressController.gameProgress();
         Assertions.assertEquals(expected, actual);
     }
 
     /*
-     * No test for CheckProgressController because it makes a subroutine call to the CheckProgress use case.
+     * No test for CheckProgressController because it makes a subroutine call to the check_progress_test use case.
      */
 }

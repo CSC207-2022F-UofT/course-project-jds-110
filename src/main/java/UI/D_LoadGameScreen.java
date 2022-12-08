@@ -12,10 +12,10 @@ import java.io.IOException;
 /**
  * if the player choose to load a pre-existing game, they will be prompted to enter the name of the farm that they would
  * like to load
- *
+ * <p>
  * if the name of the farm that they entered is not valid (the farm with that name does not exist), a pop-up message
  * will tell the player that such a save file does not exist
- *
+ * <p>
  * if the name of farm that they entered is valid, that farm will loaded from the save file, and the player will be
  * taken to the main menu
  */
@@ -24,24 +24,24 @@ public class D_LoadGameScreen extends C_NewOrLoadScreen {
     /**
      * initializes text Components, prompting the player to enter the name of the farm
      */
-    JPanel loadGameTextPanel;
-    JLabel loadGameTextLabel;
+    final JPanel loadGameTextPanel;
+    final JLabel loadGameTextLabel;
 
     /**
      * initializes the text input JTextField which takes in the name of the farm
      */
-    JPanel loadGamePanel;
-    JTextField jtf;
-    JButton enterB;
+    final JPanel loadGamePanel;
+    final JTextField jtf;
+    final JButton enterB;
 
     /**
      * ActionListeners which transitions the load screen to main screen
      */
-    loadGameToMain mHandler = new loadGameToMain();
+    final loadGameToMain mHandler = new loadGameToMain();
 
     /**
      * Setting the parameters for the title, and text input for the farm name
-     *
+     * <p>
      * adding all the panels to the container con, which was initialized in A0_MainScreen
      */
     public D_LoadGameScreen() {
@@ -78,7 +78,7 @@ public class D_LoadGameScreen extends C_NewOrLoadScreen {
 
     /**
      * ActionListener load screen to menu
-     *
+     * <p>
      * if the name of the farm that they entered is not valid (the farm with that name does not exist), a pop-up message
      * will tell the player that such a save file does not exist
      */
@@ -99,6 +99,6 @@ public class D_LoadGameScreen extends C_NewOrLoadScreen {
      * initializes the load screen to be called by C_NewOrLoadScreen
      */
     public static void createAndShowLoadGameScreen() {
-        D_LoadGameScreen d = new D_LoadGameScreen();
+        new D_LoadGameScreen();
     }
 }

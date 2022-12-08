@@ -6,7 +6,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 /**
  * if the player chooses to create a new game, they will be able to enter the name of the farm,
@@ -16,24 +15,24 @@ public class D_NewGameScreen extends C_NewOrLoadScreen {
     /**
      * initializes text Components, which will prompt the player to enter a name for the farm that they are creating
      */
-    JPanel newGameTextPanel;
-    JLabel newGameTextLabel;
+    final JPanel newGameTextPanel;
+    final JLabel newGameTextLabel;
 
     /**
      * initializes text Input Components, which will allow the player to enter the name of their farm
      */
-    JPanel newGamePanel;
-    JTextField jtf;
-    JButton enterB;
+    final JPanel newGamePanel;
+    final JTextField jtf;
+    final JButton enterB;
 
     /**
      * ActionListeners which transitions the new game to menu screen
      */
-    newGameToMain mHandler = new newGameToMain();
+    final newGameToMain mHandler = new newGameToMain();
 
     /**
      * Setting the parameters for the text, and text input for the setting the farm name
-     *
+     * <p>
      * adding all the panels to the container con, which was initialized in A0_MainScreen
      */
     public D_NewGameScreen() {
@@ -70,21 +69,16 @@ public class D_NewGameScreen extends C_NewOrLoadScreen {
 
     /**
      * ActionListener new game screen to menu
-     *
+     * <p>
      *the player will be able to enter the name of the farm,
      *which will be saved so that player can choose to load the game later
      *the player will be sent to the main menu
      */
     public class newGameToMain implements ActionListener {
         public void actionPerformed(ActionEvent event){
-            try {
-                StateController.initializeGame(jtf.getText());
-            } catch (IOException e) {
-                throw new RuntimeException(e);
-            } finally {
-                A1_MenuScreen.createAndShowMenuScreen();
-                quit();
-            }
+            StateController.initializeGame(jtf.getText());
+            A1_MenuScreen.createAndShowMenuScreen();
+            quit();
         }
     }
 
@@ -92,6 +86,6 @@ public class D_NewGameScreen extends C_NewOrLoadScreen {
      * initializes the new screen to be called by C_NewOrLoadScreen
      */
     public static void createAndShowNewGameScreen() {
-        D_NewGameScreen d = new D_NewGameScreen();
+        new D_NewGameScreen();
     }
 }

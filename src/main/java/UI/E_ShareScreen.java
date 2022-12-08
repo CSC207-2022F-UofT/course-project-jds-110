@@ -7,11 +7,10 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-import javax.swing.ImageIcon;
 
 /**
  * the share screen displays all the plots of your farm with pictures that represents whats on your plot
- *
+ * <p>
  * it will 1 button which takes you back to the menu
  */
 public class E_ShareScreen extends A0_MainScreen {
@@ -19,22 +18,22 @@ public class E_ShareScreen extends A0_MainScreen {
     /**
      * initializes the display plots Components
      */
-    JPanel plotPanel;
+    final JPanel plotPanel;
 
     /**
      * initializes back button Components
      */
     JPanel backButtonPanel;
-    JButton backButton;
+    final JButton backButton;
 
     /**
      * ActionListeners which transitions the share screen to menu
      */
-    sharetoMainMenuHandler sHandler = new sharetoMainMenuHandler();
+    final sharetoMainMenuHandler sHandler = new sharetoMainMenuHandler();
 
     /**
      * Setting the parameters for the back button, and plot display
-     *
+     * <p>
      * adding all the panels to the container con, which was initialized in A0_MainScreen
      */
     public E_ShareScreen() {
@@ -120,10 +119,6 @@ public class E_ShareScreen extends A0_MainScreen {
      * when this screen is called, the screen is displayed
      */
     public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowShareScreen();
-            }
-        });
+        javax.swing.SwingUtilities.invokeLater(E_ShareScreen::createAndShowShareScreen);
     }
 }

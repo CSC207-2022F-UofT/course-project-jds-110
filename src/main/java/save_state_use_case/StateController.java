@@ -3,7 +3,7 @@ package save_state_use_case;
 import java.io.*;
 
 public class StateController {
-    public static void initializeGame(String s) throws IOException {
+    public static void initializeGame(String s) {
         State.initializeGame(s);
     }
 

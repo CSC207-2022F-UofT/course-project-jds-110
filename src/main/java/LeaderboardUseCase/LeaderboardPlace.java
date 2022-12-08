@@ -8,7 +8,7 @@ import java.util.ArrayList;
  */
 public class LeaderboardPlace {
     private final int AmountOfMoney;
-    private ArrayList<String> farmNames;
+    private final ArrayList<String> farmNames;
 
     /**
      * This is the intializer for LeaderboardPlace.

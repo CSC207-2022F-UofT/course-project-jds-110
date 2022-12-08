@@ -1,12 +1,9 @@
 package raising_crops_and_animals_use_case;
 
-import Entities.Animal;
-import Entities.Crop;
-import Entities.Plot;
+
 import Entities.Product;
 import Use_Case_Interactors.InventoryManager;
 
-import java.io.IOException;
 
 public class FarmerController {
     /**

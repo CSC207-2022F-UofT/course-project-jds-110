@@ -2,7 +2,6 @@ package Use_Case_Interactors;
 import Entities.*;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import static Use_Case_Interactors.InventoryManager.convertStringtoProduct;
 
@@ -34,7 +33,7 @@ public class PlotManager {
      * The user starts growing a crop or an animal
      * @param product Product that starts growing
      */
-    public static void startGrowing(Product product){product.daysToYield();
+    public static void startGrowing(Product product){product.getDaysToYield();
     }
 
     /**
@@ -80,7 +79,9 @@ public class PlotManager {
         return true;
     }
 
-
-
+    public static void remove(int plotId) {
+        Plot plot = myPlots.get(plotId);
+        plot.remove();
+    }
 
 }

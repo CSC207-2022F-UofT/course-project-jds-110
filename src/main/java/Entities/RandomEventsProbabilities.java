@@ -8,7 +8,7 @@ public class RandomEventsProbabilities {
     // hungry college student
     // thief
     // bugs
-    private HashMap<String, Double> probabilities = new HashMap<>();
+    private final HashMap<String, Double> probabilities = new HashMap<>();
 
     public RandomEventsProbabilities(){
         // setup

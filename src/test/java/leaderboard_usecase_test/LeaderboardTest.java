@@ -13,7 +13,6 @@ class LeaderboardTest {
 
     @BeforeEach
     public void setup() {
-        Leaderboard l = new Leaderboard();
         Leaderboard.resetLeaderboard();
         Inventory currInventory = new Inventory();
         // from initializer, inventory currently has $500

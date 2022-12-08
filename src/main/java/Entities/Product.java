@@ -3,10 +3,10 @@ package Entities;
 import java.io.Serializable;
 
 public abstract class Product implements Serializable {
-    private String name;
-    private String yield;
-    private int value;
-    private int daysToYield;
+    private final String name;
+    private final String yield;
+    private final int value;
+    private final int daysToYield;
 
     public Product(String name, String yield, int value, int daysToYield){
         this.name = name;
@@ -28,6 +28,4 @@ public abstract class Product implements Serializable {
         return value;
     }
 
-    public void daysToYield() {
-    }
 }

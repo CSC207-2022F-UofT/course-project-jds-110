@@ -5,9 +5,9 @@ import java.awt.*;
 
 /**
  *This is the MainScreen that everyone will be using to build their screens
- *
+ * <p>
  * specifically the other screens will be using the JFrame window, Container con, and titleFont, normalFont
- *
+ * <p>
  * so that the other screens don't need to initialize the window, container and fonts each time
  */
 public class A0_MainScreen {
@@ -18,10 +18,10 @@ public class A0_MainScreen {
      * 3. titleFont for use for the other Screens
      * 4. normalFont for use for the other Screens
      */
-    JFrame window;
-    Container con;
-    Font titleFont = new Font("Times New Roman", Font.PLAIN, 96);
-    Font normalFont = new Font("Times New Roman", Font.PLAIN, 25);
+    final JFrame window;
+    final Container con;
+    final Font titleFont = new Font("Times New Roman", Font.PLAIN, 96);
+    final Font normalFont = new Font("Times New Roman", Font.PLAIN, 25);
 
     /**
      * Settings the parameters for the window

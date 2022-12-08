@@ -13,7 +13,7 @@ public class Leaderboard {
      * Example standings: [a, b] where a and b are classes of LeaderBoardPlace
      * and a has money of 200 and name of 'MyFarm' and b has money of 100 and name of 'YourFarm'
      */
-    public static ArrayList<LeaderboardPlace> standings = new ArrayList<LeaderboardPlace>();
+    public static ArrayList<LeaderboardPlace> standings = new ArrayList<>();
 
     /**
      * @return This returns the current standings
@@ -74,6 +74,6 @@ public class Leaderboard {
     }
 
     public static void resetLeaderboard() {
-        standings = new ArrayList<LeaderboardPlace>();
+        standings = new ArrayList<>();
     }
 }

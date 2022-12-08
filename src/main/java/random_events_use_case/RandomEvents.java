@@ -29,14 +29,19 @@ public class RandomEvents {
                 break;
             }
 
-        if (event.equals("bugs")){
-            event_bugs();
-        } else if (event.equals("meteor")){
-            event_meteor();
-        } else if (event.equals("thief")){
-            event_thief();
-        } else if (event.equals("higher-rent")){
-            event_higher_rent();
+        switch (event) {
+            case "bugs":
+                event_bugs();
+                break;
+            case "meteor":
+                event_meteor();
+                break;
+            case "thief":
+                event_thief();
+                break;
+            case "higher-rent":
+                event_higher_rent();
+                break;
         }
 
     }
@@ -56,7 +61,7 @@ public class RandomEvents {
     }
 
     private void event_bugs() {
-
+        PlotManager.remove(0);
     }
 
     public String getEvent() {

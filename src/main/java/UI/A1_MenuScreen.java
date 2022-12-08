@@ -24,89 +24,89 @@ public class A1_MenuScreen extends A0_MainScreen{
      * initializes mainScreen Components
      */
 
-    JPanel mainScreenPanel;
-    JLabel mainScreenLabel;
+    final JPanel mainScreenPanel;
+    final JLabel mainScreenLabel;
 
     /**
      * initializes checkProgress Components
      */
-    JPanel CheckProgressButtonPanel;
-    JButton CheckProgressButton;
+    final JPanel CheckProgressButtonPanel;
+    final JButton CheckProgressButton;
 
     /**
      * initializes nextDay Components
      */
-    JPanel NextDayPanel;
-    JButton NextDayButton;
+    final JPanel NextDayPanel;
+    final JButton NextDayButton;
 
     /**
      * initializes Save Components
      */
-    JPanel SavePanel;
-    JButton SaveButton;
+    final JPanel SavePanel;
+    final JButton SaveButton;
 
     /**
      * initializes Leaderboard Components
      */
-    JPanel LeaderboardButtonPanel;
-    JButton LeaderboardButton;
+    final JPanel LeaderboardButtonPanel;
+    final JButton LeaderboardButton;
 
     /**
      * initializes Share Components
      */
-    JPanel ShareButtonPanel;
-    JButton ShareButton;
+    final JPanel ShareButtonPanel;
+    final JButton ShareButton;
 
     /**
      * initializes Shop Components
      */
-    JPanel ShopButtonPanel;
-    JButton ShopButton;
+    final JPanel ShopButtonPanel;
+    final JButton ShopButton;
 
     /**
      * initializes Farm Components
      */
-    JPanel FarmPanel;
-    JButton FarmButton;
+    final JPanel FarmPanel;
+    final JButton FarmButton;
 
     /**
      * ActionListeners which transitions the Menu to Check Progress Screen
      */
-    menuToProgress menuToCheckProgressHandler = new menuToProgress();
+    final menuToProgress menuToCheckProgressHandler = new menuToProgress();
 
     /**
      * ActionListener which transitions the Menu to Shop Screen
      */
-    menuToShop menuToShopHandler = new menuToShop();
+    final menuToShop menuToShopHandler = new menuToShop();
 
     /**
      * ActionListener which moves the game into next day
      */
-    menuToNextDay menuToNextDayHandler = new menuToNextDay();
+    final menuToNextDay menuToNextDayHandler = new menuToNextDay();
 
     /**
      * ActionListener which transitions the Menu to Leaderboard Screen
      */
-    menuToLeaderboard menuToLeaderboardHandler = new menuToLeaderboard();
+    final menuToLeaderboard menuToLeaderboardHandler = new menuToLeaderboard();
 
     /**
      * ActionListener which transitions the Menu to Share Screen
      */
-    menuToShare menuToShareHandler = new menuToShare();
+    final menuToShare menuToShareHandler = new menuToShare();
 
     /**
      * ActionListener which transitions the Menu to Save Screen
      */
-    menuToSave menuToSaveHandler = new menuToSave();
+    final menuToSave menuToSaveHandler = new menuToSave();
 
     /**
      * ActionListener which transitions the Menu to Farm Screen
      */
-    menuToFarm menuToFarmHandler = new menuToFarm();
+    final menuToFarm menuToFarmHandler = new menuToFarm();
 
     /**
      * Setting the parameters for all the other buttons/panels/labels
-     *
+     * <p>
      * adding all the panels to the container con, which was initialized in A0_MainScreen
      */
     public A1_MenuScreen(){
@@ -291,18 +291,7 @@ public class A1_MenuScreen extends A0_MainScreen{
      * initializes the main menu screen to be called by main
      */
     public static void createAndShowMenuScreen() {
-        A1_MenuScreen a = new A1_MenuScreen();
-    }
-
-    /**
-     * when this screen is called, the screen is displayed
-     */
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowMenuScreen();
-            }
-        });
+        new A1_MenuScreen();
     }
 
 }

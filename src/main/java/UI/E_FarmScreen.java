@@ -1,4 +1,5 @@
 package UI;
+import Entities.Plot;
 import Entities.Product;
 import Use_Case_Interactors.PlotManager;
 import raising_crops_and_animals_use_case.FarmerController;
@@ -13,14 +14,24 @@ import static Use_Case_Interactors.InventoryManager.convertStringtoProduct;
 public class E_FarmScreen extends A0_MainScreen{
 
     //     JFrame mainFrame;
-    JPanel mainPanel;
-    JLabel FARM, PLACE, HARVEST, EXTRACT, enterItemA, enterAmountA, enterAmountB, enterAmountC;
+    final JPanel mainPanel;
+    final JLabel FARM;
+    JLabel PLACE;
+    JLabel HARVEST;
+    JLabel EXTRACT;
+    JLabel enterItemA;
+    JLabel enterAmountA;
+    JLabel enterAmountB;
+    JLabel enterAmountC;
     JTextField placeItemEntry, placeAmountEntry, harvestAmountEntry, extractAmountEntry;
-    JButton place, harvest, extract, done;
+    JButton place;
+    JButton harvest;
+    JButton extract;
+    final JButton done;
 
 
     //transitions from Menu to Farm Screen
-    farmToMenu farmToMenuHandler = new farmToMenu();
+    final farmToMenu farmToMenuHandler = new farmToMenu();
     public E_FarmScreen(){
         mainPanel = new JPanel();
         mainPanel.setBounds(0,0,800,600);
@@ -55,17 +66,12 @@ public class E_FarmScreen extends A0_MainScreen{
 
         place = new JButton("place");
         place.setBounds(100, 400, 100, 25);
-        place.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                String a = placeItemEntry.getText();
-                Product pro = convertStringtoProduct(a);
-                Integer b = Integer.parseInt(placeAmountEntry.getText());
-
-
-                String info = FarmerController.InputPlace(pro, b);
-                JOptionPane.showMessageDialog(mainFrame, info);
-            }
+        place.addActionListener(e -> {
+            String a = placeItemEntry.getText();
+            Product pro = convertStringtoProduct(a);
+            int b = Integer.parseInt(placeAmountEntry.getText());
+            String info = FarmerController.InputPlace(pro, b);
+            JOptionPane.showMessageDialog(mainFrame, info);
         });
 
         PLACE = new JLabel("PLACE");
@@ -102,15 +108,12 @@ public class E_FarmScreen extends A0_MainScreen{
 
         harvest = new JButton("harvest");
         harvest.setBounds(100, 400, 100, 25);
-        harvest.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Integer b = Integer.parseInt(harvestAmountEntry.getText());
+        harvest.addActionListener(e -> {
+            int b = Integer.parseInt(harvestAmountEntry.getText());
 
-                String info = PlotManager.harvest(b);
+            String info = PlotManager.harvest(b);
 
-                JOptionPane.showMessageDialog(mainFrame, info);
-            }
+            JOptionPane.showMessageDialog(mainFrame, info);
         });
 
         HARVEST = new JLabel("HARVEST");
@@ -137,15 +140,12 @@ public class E_FarmScreen extends A0_MainScreen{
 
         extract = new JButton("extract");
         extract.setBounds(50, 400, 150, 25);
-        extract.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Integer b = Integer.parseInt(extractAmountEntry.getText());
+        extract.addActionListener(e -> {
+            int b = Integer.parseInt(extractAmountEntry.getText());
 
-                String info = PlotManager.extract(b);
+            String info = PlotManager.extract(b);
 
-                JOptionPane.showMessageDialog(mainFrame, info);
-            }
+            JOptionPane.showMessageDialog(mainFrame, info);
         });
 
         EXTRACT = new JLabel("EXTRACT");
@@ -167,14 +167,15 @@ public class E_FarmScreen extends A0_MainScreen{
     }
 
     public static void createAndShowFarmScreen() {
-        E_FarmScreen a = new E_FarmScreen();
+        //Create and set up the content pane.
+        new E_FarmScreen();
+
+        //newContentPane.setOpaque(true);
     }
     public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowFarmScreen();
-            }
-        });
+        //Schedule a job for the event-dispatching thread:
+        //creating and showing this application's GUI.
+        javax.swing.SwingUtilities.invokeLater(E_FarmScreen::createAndShowFarmScreen);
     }
 
     //ActionListener farm to menu screen

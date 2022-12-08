@@ -3,7 +3,6 @@ package raising_crops_and_animals_use_case_test;
 import Entities.*;
 import Use_Case_Interactors.InventoryManager;
 import Use_Case_Interactors.PlotManager;
-import Entities.Product;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

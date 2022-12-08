@@ -7,9 +7,9 @@ public class Plot implements Serializable {
     private int daysLeftToHarvest;
     private Product productOnPlot;
 
-    private int plotId;
+    private final int plotId;
 
-    private static int value = 100;
+    private static final int value = 100;
 
     public Plot(int plotID){plotId = plotID;
     }
@@ -62,6 +62,9 @@ public class Plot implements Serializable {
     public void place(Product product){
         daysLeftToHarvest = product.getDaysToYield();
         productOnPlot = product;
+    }
+    public void remove(){
+        productOnPlot = null;
     }
 
     public static int getValue() {

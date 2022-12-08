@@ -13,31 +13,31 @@ public class C_NewOrLoadScreen extends A_TitleScreen {
     /**
      * initializes Title Components
      */
-    JPanel newLoadTextPanel;
-    JLabel newLoadTextLabel;
+    final JPanel newLoadTextPanel;
+    final JLabel newLoadTextLabel;
 
 
     /**
      * initializes new game button Components
      */
-    JPanel newButtonPanel;
-    JButton newGameButton;
+    final JPanel newButtonPanel;
+    final JButton newGameButton;
 
     /**
      * initializes load game button Components
      */
-    JPanel loadButtonPanel;
-    JButton loadGameButton;
+    final JPanel loadButtonPanel;
+    final JButton loadGameButton;
 
     /**
      * ActionListeners which transitions the new/load screen to new game or load game screen
      */
-    newToNewGame nHandler = new newToNewGame();
-    loadToLoadGame lHandler = new loadToLoadGame();
+    final newToNewGame nHandler = new newToNewGame();
+    final loadToLoadGame lHandler = new loadToLoadGame();
 
     /**
      * Setting the parameters for the title, and new game button and load game button
-     *
+     * <p>
      * adding all the panels to the container con, which was initialized in A0_MainScreen
      */
     public C_NewOrLoadScreen() {
@@ -107,17 +107,7 @@ public class C_NewOrLoadScreen extends A_TitleScreen {
      */
     public static void createAndShowNewOrLoadScreen() {
         //Create and set up the content pane.
-        C_NewOrLoadScreen newContentPane = new C_NewOrLoadScreen();
+        new C_NewOrLoadScreen();
     }
 
-    /**
-     * when this screen is called, the screen is displayed
-     */
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowNewOrLoadScreen();
-            }
-        });
-    }
 }

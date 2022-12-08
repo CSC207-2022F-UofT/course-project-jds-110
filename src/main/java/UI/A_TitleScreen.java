@@ -7,29 +7,29 @@ import java.awt.event.ActionListener;
 
 /**
  * This is the TitleScreen, which you start in when you first start the game
- *
+ * <p>
  * In this screen the title of the game is displayed, along with a start button, which takes you to the new/load screen
  */
 public class A_TitleScreen extends A0_MainScreen {
     /**
      * initializes title Components
      */
-    JPanel titlePanel;
-    JLabel titleLabel;
+    final JPanel titlePanel;
+    final JLabel titleLabel;
     /**
      * initializes start button Components
      */
-    JPanel startButtonPanel;
-    JButton startButton;
+    final JPanel startButtonPanel;
+    final JButton startButton;
 
     /**
      * ActionListener which transitions the Title Screen to new/load screen
      */
-    titleToNewLoad tsHandler = new titleToNewLoad();
+    final titleToNewLoad tsHandler = new titleToNewLoad();
 
     /**
      * Setting the parameters for the title, and start button
-     *
+     * <p>
      * adding all the panels to the container con, which was initialized in A0_MainScreen
      */
     public A_TitleScreen(){
@@ -74,17 +74,7 @@ public class A_TitleScreen extends A0_MainScreen {
      * initializes the title screen to be called by main
      */
     public static void createAndShowTitleScreen() {
-        A_TitleScreen a = new A_TitleScreen();
+        new A_TitleScreen();
     }
 
-    /**
-     * when this screen is called, the screen is displayed
-     */
-    public static void main(String[] args) {
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                createAndShowTitleScreen();
-            }
-        });
-    }
 }

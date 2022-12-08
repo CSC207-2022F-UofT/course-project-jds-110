@@ -6,7 +6,7 @@ public class Inventory implements Serializable {
     private int myMoney = 500;
     private int rent;
     private String name;
-    private HashMap<String, Integer> myItems = new HashMap<>();
+    private final HashMap<String, Integer> myItems = new HashMap<>();
 
     public int getMyMoney() {
         return myMoney;
