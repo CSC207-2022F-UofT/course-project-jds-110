@@ -10,9 +10,19 @@ import java.awt.event.ActionListener;
 
 import static use_case_interactors.InventoryManager.convertStringtoProduct;
 
+/**
+ * the shop screen has three portions:
+ * 1) The Place portion which lets the player enter what item to place and what plot to place your item on
+ * 2) The harvest portion which harvest the crop on the Plot ID that the player gives, only if that crop is ready
+ * to be harvested
+ * 3) The extract portion which extracts the crop from the plot id given
+ * There is also a done button which takes the player back to the menu
+ */
 public class E_FarmScreen extends A0_MainScreen{
 
-    //     JFrame mainFrame;
+    /**
+     * initializes the back button, place, harvest, and extract components
+     */
     final JPanel mainPanel;
     final JLabel FARM;
     JLabel PLACE;
@@ -29,8 +39,15 @@ public class E_FarmScreen extends A0_MainScreen{
     final JButton done;
 
 
-    //transitions from Menu to Farm Screen
+    /**
+     * ActionListeners which transitions the farm screen to menu
+     */
     final farmToMenu farmToMenuHandler = new farmToMenu();
+
+    /**
+     * Setting the parameters for the back button, place, harvest, and extract components
+     * adding all the panels to the container con, which was initialized in A0_MainScreen
+     */
     public E_FarmScreen(){
         mainPanel = new JPanel();
         mainPanel.setBounds(0,0,800,600);
@@ -59,6 +76,10 @@ public class E_FarmScreen extends A0_MainScreen{
         con.add(mainPanel);
 
     }
+
+    /**
+     * Setting the parameters for the Place components
+     */
     public void createPlacePanel(JPanel mainFrame){
         JPanel myPlacePanel = new JPanel();
         myPlacePanel.setLayout(null);
@@ -101,6 +122,10 @@ public class E_FarmScreen extends A0_MainScreen{
 
     }
 
+    /**
+     * Setting the parameters for the Harvest components
+     */
+
     public void createHarvestPanel(JPanel mainFrame){
         JPanel myHarvestPanel = new JPanel();
         myHarvestPanel.setLayout(null);
@@ -132,6 +157,10 @@ public class E_FarmScreen extends A0_MainScreen{
         myHarvestPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
         mainFrame.add(myHarvestPanel);
     }
+
+    /**
+     * Setting the parameters for the Extract components
+     */
 
     public void createExtractPanel(JPanel mainFrame){
         JPanel myExtractPanel = new JPanel();
@@ -165,18 +194,25 @@ public class E_FarmScreen extends A0_MainScreen{
         mainFrame.add(myExtractPanel);
     }
 
+    /**
+     * initializes the harvest screen to be called by main
+     */
+
     public static void createAndShowFarmScreen() {
-        //Create and set up the content pane.
         new E_FarmScreen();
 
     }
+
+    /**
+     * when this screen is called, the screen is displayed
+     */
     public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
         javax.swing.SwingUtilities.invokeLater(E_FarmScreen::createAndShowFarmScreen);
     }
 
-    //ActionListener farm to menu screen
+    /**
+     * ActionListeners which transitions the farm screen to menu
+     */
     public class farmToMenu implements ActionListener {
         public void actionPerformed(ActionEvent event){
             A1_MenuScreen.createAndShowMenuScreen();
