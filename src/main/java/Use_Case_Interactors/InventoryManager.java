@@ -84,7 +84,7 @@ public class InventoryManager {
             if (myInventory.getMyItems().get(item.getName()) > 1){
                 myInventory.removeSome(item.getName(), amount);
             } else {
-                myInventory.removeItem(item);
+                myInventory.removeItem(item.getName());
             }
             return true;
         } else {
@@ -119,7 +119,7 @@ public class InventoryManager {
     }
 
     public static void setupProductStringDictionary(){
-        // add BakedPotato, Chicken, Corn, CornCob, COw, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
+        // add BakedPotato, Chicken, Corn, CornCob, Cow, Egg, Milk, Potato, RipeTomato, Sheep, Tomato, Wool
         productStringDictionary.put("bakedpotato",new BakedPotato());
         productStringDictionary.put("chicken",new Chicken());
         productStringDictionary.put("corn",new Corn());

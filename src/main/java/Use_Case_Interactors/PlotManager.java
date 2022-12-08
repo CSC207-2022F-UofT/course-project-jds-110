@@ -1,10 +1,10 @@
 package Use_Case_Interactors;
-import Entities.Animal;
-import Entities.Crop;
-import Entities.Plot;
-import Entities.Product;
+import Entities.*;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import static Use_Case_Interactors.InventoryManager.convertStringtoProduct;
 
 public class PlotManager {
     private static ArrayList<Plot> myPlots;
@@ -25,7 +25,7 @@ public class PlotManager {
      * Create a new plot for a user. It creates a new plot instance and add it to myPlots.
      */
     public static void createNewPlot(){
-        int newPlotId = myPlots.size() + 1;
+        int newPlotId = myPlots.size();
         myPlots.add(new Plot(newPlotId));
         InventoryManager.increaseRent();
     }
@@ -40,12 +40,12 @@ public class PlotManager {
     /**
      * Harvest the products on the plot. It adds the harvested products to the inventory.
      * Then it empties the plot since there are nothing left on the plot.
-     * @param plot the plot that the user wants to harvest crops on
+     * @param num the plot id that the user wants to harvest crops on
      */
-    public static String harvest(Plot plot) {
+    public static String harvest(int num) {
+        Plot plot = myPlots.get(num);
         if (plot.getProduct() instanceof Crop){
-            Crop crop = (Crop) plot.getProduct();
-            InventoryManager.addItem(crop, 1);
+            InventoryManager.addItem(convertStringtoProduct(plot.getProduct().getYield()), 1);
             plot.emptyPlot();
             return ("You have harvested crops on the plot!");
         }
@@ -55,12 +55,12 @@ public class PlotManager {
     /**
      * Extract products and yield products. For example, cows yield milk and chickens yield eggs.
      * Unlike the harvest method, it doesn't have to be emptied because animals are still there
-     * @param plot the plot that the user wants to yield products on
+     * @param num the plot id that the user wants to yield products on
      */
-    public static String extract(Plot plot){
+    public static String extract(int num){
+        Plot plot = myPlots.get(num);
         if (plot.getProduct() instanceof Animal){
-            Animal animal = (Animal) plot.getProduct();
-            InventoryManager.addItem(animal, 1);
+            InventoryManager.addItem(convertStringtoProduct(plot.getProduct().getYield()), 1);
             return ("You have extracted yields from your animals on the plot!");
         }
         return ("You have nothing to extract from your plot :/");
@@ -75,7 +75,11 @@ public class PlotManager {
     public static boolean place(Product product, int plotId){
         Plot plot = myPlots.get(plotId);
         plot.place(product);
+        InventoryManager.removeItem(product, 1);
         return true;
     }
+
+
+
 
 }

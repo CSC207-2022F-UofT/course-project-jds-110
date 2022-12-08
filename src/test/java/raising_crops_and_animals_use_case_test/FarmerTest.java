@@ -43,7 +43,7 @@ public class FarmerTest {
     public void testHarvest(){
         PlotManager p = new PlotManager();
         Plot plot = new Plot(11);
-        p.harvest(plot);
+        p.harvest(11);
         Assertions.assertTrue(plot.isEmpty());
     }
 
@@ -51,7 +51,7 @@ public class FarmerTest {
     public void testExtract(){
         PlotManager p = new PlotManager();
         Plot plot = new Plot(10);
-        p.extract(plot);
+        p.extract(10);
         Assertions.assertTrue(plot.isEmpty());
     }
 
