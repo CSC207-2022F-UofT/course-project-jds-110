@@ -3,7 +3,7 @@ package endgame_test;
 import entities.yieldable.*;
 import entities.nonyieldable.*;
 import use_case_interactors.InventoryManager;
-import endgame_conditions_use_case.EndgameConditions;
+import use_cases.endgame_conditions_use_case.EndgameConditions;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

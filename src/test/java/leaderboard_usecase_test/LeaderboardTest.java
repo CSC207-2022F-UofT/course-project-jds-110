@@ -2,8 +2,8 @@ package leaderboard_usecase_test;
 
 import entities.Inventory;
 import use_case_interactors.InventoryManager;
-import leaderboard_use_case.Leaderboard;
-import leaderboard_use_case.LeaderboardPlace;
+import use_cases.leaderboard_use_case.Leaderboard;
+import use_cases.leaderboard_use_case.LeaderboardPlace;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

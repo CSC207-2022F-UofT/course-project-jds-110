@@ -6,7 +6,7 @@ import use_case_interactors.PlotManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import save_state_use_case.State;
+import use_cases.save_state_use_case.State;
 
 import java.io.File;
 import java.io.IOException;

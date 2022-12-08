@@ -5,7 +5,7 @@ import entities.nonyieldable.*;
 import entities.yieldable.*;
 import use_case_interactors.InventoryManager;
 import use_case_interactors.PlotManager;
-import nextday_use_case.NextDayController;
+import use_cases.nextday_use_case.NextDayController;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

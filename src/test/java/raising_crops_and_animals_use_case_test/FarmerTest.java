@@ -12,7 +12,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import raising_crops_and_animals_use_case.Farmer;
+import use_cases.raising_crops_and_animals_use_case.Farmer;
 
 import java.util.ArrayList;
 

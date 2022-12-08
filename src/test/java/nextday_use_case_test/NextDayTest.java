@@ -5,7 +5,7 @@ import entities.nonyieldable.Chicken;
 import entities.nonyieldable.Corn;
 import use_case_interactors.InventoryManager;
 import use_case_interactors.PlotManager;
-import nextday_use_case.NextDay;
+import use_cases.nextday_use_case.NextDay;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;

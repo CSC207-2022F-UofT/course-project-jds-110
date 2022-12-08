@@ -3,7 +3,7 @@ package shop_test;
 import entities.*;
 import entities.nonyieldable.Corn;
 import entities.yieldable.Egg;
-import interact_with_market_use_case.ShopperController;
+import use_cases.interact_with_market_use_case.ShopperController;
 import use_case_interactors.InventoryManager;
 import use_case_interactors.PlotManager;
 import org.junit.jupiter.api.Assertions;
