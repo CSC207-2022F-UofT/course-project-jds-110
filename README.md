@@ -18,7 +18,20 @@ If you have an existing account, click "Load Game" and input your farm name and 
   <img src="https://user-images.githubusercontent.com/109601140/206334891-f30320a7-858e-4135-a351-0c0aa94f2400.png" width="350" height="300" />
 </p>
 
-The main screen is where you can carry out your responsibilities as a farmer and do the things you need to do for the day. You can save your game by pressing "Save Game" so you can come back to it another day. You can share you farm by pressing "Share" and check the leaderboard of farms by pressing "Check Leaderboard". You can check the progress of your farm by pressing "Check Progress". You can go to the market by pressing "Go to Shop" to buy and sell goods or buy more plots. You can manage the plots of your farm by pressing "Go to farm". 
+The main screen is where you can carry out your responsibilities as a farmer and do the things you need to do for the day. You can save your game by pressing "Save Game" so you can come back to it another day. You can share you farm by pressing "Share" and check the leaderboard of farms by pressing "Check Leaderboard". You can check the progress of your farm by pressing "Check Progress". You can go to the market by pressing "Go to Shop" to buy and sell goods or buy more plots. You can manage the plots of your farm by pressing "Go to farm", where you can harvest your crops, and extract yields from your animals. 
+
+When you go to your farm, you can place a product in one of your empty plots to start growing that product. You can do this by typing the desired product you want to place in the "Enter Product:" textbox. Then, type the plot id (of the plot you want to place it in) in the "Enter Plot Id:" textbox. After entering the product and plot id, press "place" and it will the place the desired product in the desired plot. If one of your plots is ready to be yielded, you would use harvest on a plot that has a crop-type product, and extract on a plot that has an animal-type product. To harvest/extract a plot that is ready to be yielded, enter the plot id of the particular plot that is ready in the corresponding "Enter Plot ID:" textbox and press "harvest" or "extract" depending on the product type. Once you're done managing your farm, click "DONE" to go back to the main menu.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/109601140/206355618-30789bcf-ba1a-4918-ad23-6db62b3ed239.png">
+</p>
+
+When to go to the shop, you can buy products or plots, or sell yieldable products. To view what you can buy and to see the prices of the things you can buy, press "Display Price". With this information, enter the exact name of the product you want to sell/buy and the amount (keep in mind, only yieldable products can be sold, which are products that can be harvested/extracted like milk or eggs, not cows or chickens). Before buying, make sure you have enough money to purchase the things you want. Before selling, make sure you have enough of the product that you want to sell. After completing your shopping, press "DONE" to go back to main menu.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/109601140/206356379-866a5763-1a09-4a01-a39a-31aafc3d0a68.png">
+</p>
+
 
 
 Once you've finished your chores for the day, you can progress to the next day by pressing "Next Day".
@@ -38,7 +51,7 @@ The program is divided into 9 use cases:
 Most of the use cases have their own UI screens to separate their functionalities. Each UI screen calls upon their corresponding controller to execute their functionality. 
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/109601140/206353961-03d16f38-31b8-4a82-9fc3-8c281433a730.png" width="350" height="300" />
+  <img src="https://user-images.githubusercontent.com/109601140/206353961-03d16f38-31b8-4a82-9fc3-8c281433a730.png">
 </p>
 
 Each use case has a controller in the Interface Adapters layer and a use case interactor in the Use Case layer. For the controllers, the "winning/losing condition" use case and "random events" use case are called under the "go to next day" use case, which is why they don't need controllers for those use cases. Each controller interprets the user input collected from the UI and calls upon their corresponding use case interactor to carry out the functions of the use case using various methods. There are 'global use case interactors' that are in the "use_case_interactors" package called PlotManager and InventoryManager that each of the use case interactors use to fetch information from the Entities layer to use in their functions. 
