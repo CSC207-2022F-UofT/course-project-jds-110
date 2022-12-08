@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 /**
  * the shop screen has three portions
  *
- * The buy potion, which lets the player enter what item to buy, amount to buy, and a display price button which
+ * The buy portion, which lets the player enter what item to buy, amount to buy, and a display price button which
  * shows the player the names of the valid things to buy as well as their prices
  *
  * The sell portion, which lets the player enter what item to sell, amount to sell
