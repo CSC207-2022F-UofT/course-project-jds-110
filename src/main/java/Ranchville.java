@@ -1,4 +1,4 @@
-import UI.A_TitleScreen;
+import ui.A_TitleScreen;
 
 public class Ranchville {
 

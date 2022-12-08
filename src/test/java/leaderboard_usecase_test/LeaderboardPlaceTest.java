@@ -1,6 +1,6 @@
 package leaderboard_usecase_test;
 
-import LeaderboardUseCase.LeaderboardPlace;
+import leaderboard_use_case.LeaderboardPlace;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

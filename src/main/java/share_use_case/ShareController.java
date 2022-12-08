@@ -1,5 +1,7 @@
 package share_use_case;
 
+import use_cases.share_use_case.Sharer;
+
 import java.util.ArrayList;
 
 public class ShareController {

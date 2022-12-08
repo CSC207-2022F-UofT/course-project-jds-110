@@ -1,13 +1,17 @@
 package raising_crops_and_animals_use_case_test;
 
-import Entities.*;
-import Use_Case_Interactors.InventoryManager;
-import Use_Case_Interactors.PlotManager;
+import entities.*;
+import entities.nonyieldable.Chicken;
+import entities.nonyieldable.Cow;
+import entities.nonyieldable.Sheep;
+import entities.yieldable.BakedPotato;
+import use_case_interactors.InventoryManager;
+import use_case_interactors.PlotManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import raising_crops_and_animals_use_case.FarmerController;
+import use_cases.raising_crops_and_animals_use_case.FarmerController;
 
 import java.util.ArrayList;
 

@@ -1,6 +1,6 @@
-package UI;
+package ui;
 
-import CheckProgressUseCase.CheckProgressController;
+import use_cases.check_progress_use_case.CheckProgressController;
 
 
 import javax.swing.*;

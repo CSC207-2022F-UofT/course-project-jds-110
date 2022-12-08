@@ -1,10 +1,13 @@
 package check_progress_test;
 
-import CheckProgressUseCase.CheckProgress;
-import CheckProgressUseCase.CheckProgressController;
-import Entities.*;
-import Use_Case_Interactors.InventoryManager;
-import Use_Case_Interactors.PlotManager;
+import entities.Inventory;
+import entities.Plot;
+import entities.Product;
+import entities.yieldable.Egg;
+import use_case_interactors.InventoryManager;
+import use_case_interactors.PlotManager;
+import use_cases.check_progress_use_case.CheckProgress;
+import use_cases.check_progress_use_case.CheckProgressController;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

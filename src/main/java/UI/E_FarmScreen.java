@@ -1,15 +1,14 @@
-package UI;
-import Entities.Plot;
-import Entities.Product;
-import Use_Case_Interactors.PlotManager;
-import raising_crops_and_animals_use_case.FarmerController;
+package ui;
+import entities.Product;
+import use_case_interactors.PlotManager;
+import use_cases.raising_crops_and_animals_use_case.FarmerController;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static Use_Case_Interactors.InventoryManager.convertStringtoProduct;
+import static use_case_interactors.InventoryManager.convertStringtoProduct;
 
 public class E_FarmScreen extends A0_MainScreen{
 

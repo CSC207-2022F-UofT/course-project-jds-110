@@ -1,5 +1,8 @@
-package Use_Case_Interactors;
-import Entities.*;
+package use_case_interactors;
+import entities.*;
+import entities.nonyieldable.*;
+import entities.yieldable.*;
+
 
 import java.util.HashMap;
 
@@ -75,18 +78,14 @@ public class InventoryManager {
      * Remove a certain amount of items from the inventory
      * @param item items that the user wants to remove from their inventory
      * @param amount number of items that the user wants to remove from in their inventory
-     * @return remove amount of item
      */
-    public static Boolean removeItem(Product item, int amount) {
-        if (myInventory.getMyItems().containsKey(item.getName())){
-            if (myInventory.getMyItems().get(item.getName()) > 1){
+    public static void removeItem(Product item, int amount) {
+        if (myInventory.getMyItems().containsKey(item.getName())) {
+            if (myInventory.getMyItems().get(item.getName()) > 1) {
                 myInventory.removeSome(item.getName(), amount);
             } else {
                 myInventory.removeItem(item.getName());
             }
-            return true;
-        } else {
-            return false;
         }
     }
 

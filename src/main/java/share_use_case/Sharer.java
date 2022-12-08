@@ -1,7 +1,7 @@
 package share_use_case;
 
-import Entities.Plot;
-import Use_Case_Interactors.PlotManager;
+import entities.Plot;
+import use_case_interactors.PlotManager;
 
 import java.util.ArrayList;
 

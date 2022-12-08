@@ -1,6 +1,6 @@
-package UI;
+package ui;
 
-import LeaderboardUseCase.LeaderboardController;
+import leaderboard_use_case.LeaderboardController;
 
 import javax.swing.*;
 import java.awt.*;

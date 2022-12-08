@@ -1,4 +1,4 @@
-package UI;
+package ui;
 
 import nextday_use_case.NextDayController;
 import save_state_use_case.StateController;

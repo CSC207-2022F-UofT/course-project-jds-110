@@ -1,8 +1,9 @@
 package raising_crops_and_animals_use_case;
 
 
-import Entities.Product;
-import Use_Case_Interactors.InventoryManager;
+import entities.Product;
+import use_case_interactors.InventoryManager;
+import use_cases.raising_crops_and_animals_use_case.Farmer;
 
 
 public class FarmerController {
@@ -21,12 +22,4 @@ public class FarmerController {
 
         }
 
-//    /**
-//     * Farmer Controller that places a crop to a plot
-//     * @param crop a crop
-//     * @param num  plot id
-//     */
-//    public static void InputPlace_crops(Crop crop, int num)  {
-//        Farmer.place_crops(crop, num);
-//    }
 }

@@ -1,6 +1,6 @@
-package UI;
+package ui;
 
-import share_use_case.ShareController;
+import use_cases.share_use_case.ShareController;
 
 import javax.swing.*;
 import java.awt.*;

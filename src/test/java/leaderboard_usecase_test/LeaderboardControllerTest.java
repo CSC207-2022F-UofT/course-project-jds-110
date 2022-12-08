@@ -1,11 +1,11 @@
 package leaderboard_usecase_test;
 
-import Entities.Inventory;
-import Entities.Plot;
-import LeaderboardUseCase.Leaderboard;
-import LeaderboardUseCase.LeaderboardController;
-import Use_Case_Interactors.InventoryManager;
-import Use_Case_Interactors.PlotManager;
+import entities.Inventory;
+import entities.Plot;
+import leaderboard_use_case.Leaderboard;
+import leaderboard_use_case.LeaderboardController;
+import use_case_interactors.InventoryManager;
+import use_case_interactors.PlotManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

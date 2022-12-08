@@ -1,9 +1,9 @@
 package random_events_use_case;
 
-import Entities.Inventory;
-import Entities.RandomEventsProbabilities;
-import Use_Case_Interactors.InventoryManager;
-import Use_Case_Interactors.PlotManager;
+import entities.Inventory;
+import entities.RandomEventsProbabilities;
+import use_case_interactors.InventoryManager;
+import use_case_interactors.PlotManager;
 
 import java.util.ArrayList;
 import java.util.HashMap;

@@ -1,5 +1,5 @@
-package UI;
-import InterctWithMarketUseCase.ShopperController;
+package ui;
+import interact_with_market_use_case.ShopperController;
 
 import javax.swing.*;
 import java.awt.*;

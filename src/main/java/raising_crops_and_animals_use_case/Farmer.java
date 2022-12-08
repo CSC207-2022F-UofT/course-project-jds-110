@@ -1,8 +1,8 @@
 package raising_crops_and_animals_use_case;
 
-import Entities.*;
-import Use_Case_Interactors.InventoryManager;
-import Use_Case_Interactors.PlotManager;
+import entities.*;
+import use_case_interactors.InventoryManager;
+import use_case_interactors.PlotManager;
 
 public class Farmer {
     /**

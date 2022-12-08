@@ -1,9 +1,10 @@
-package Use_Case_Interactors;
-import Entities.*;
+package use_case_interactors;
+import entities.*;
+import entities.nonyieldable.Animal;
 
 import java.util.ArrayList;
 
-import static Use_Case_Interactors.InventoryManager.convertStringtoProduct;
+import static use_case_interactors.InventoryManager.convertStringtoProduct;
 
 public class PlotManager {
     private static ArrayList<Plot> myPlots;
@@ -30,13 +31,6 @@ public class PlotManager {
     }
 
     /**
-     * The user starts growing a crop or an animal
-     * @param product Product that starts growing
-     */
-    public static void startGrowing(Product product){product.getDaysToYield();
-    }
-
-    /**
      * Harvest the products on the plot. It adds the harvested products to the inventory.
      * Then it empties the plot since there are nothing left on the plot.
      * @param num the plot id that the user wants to harvest crops on
@@ -53,7 +47,7 @@ public class PlotManager {
 
     /**
      * Extract products and yield products. For example, cows yield milk and chickens yield eggs.
-     * Unlike the harvest method, it doesn't have to be emptied because animals are still there
+     * Unlike the harvest method, it doesn't have to be emptied because nonyieldable are still there
      * @param num the plot id that the user wants to yield products on
      */
     public static String extract(int num){
@@ -61,7 +55,7 @@ public class PlotManager {
         if (plot.getProduct() instanceof Animal){
             InventoryManager.addItem(convertStringtoProduct(plot.getProduct().getYield()), 1);
             plot.setDaysLeftToHarvest(plot.getProduct().getDaysToYield());
-            return ("You have extracted yields from your animals on the plot!");
+            return ("You have extracted yields from your nonyieldable on the plot!");
         }
         return ("You have nothing to extract from your plot :/");
     }
@@ -70,13 +64,11 @@ public class PlotManager {
      * Place the product on the plot with the given plotId
      * @param product Product that the user wants to place on the plot
      * @param plotId ID of the plot that the user wants place the product
-     * @return True if the plot has an empty space, and false if not.
      */
-    public static boolean place(Product product, int plotId){
+    public static void place(Product product, int plotId){
         Plot plot = myPlots.get(plotId);
         plot.place(product);
         InventoryManager.removeItem(product, 1);
-        return true;
     }
 
     public static void remove(int plotId) {

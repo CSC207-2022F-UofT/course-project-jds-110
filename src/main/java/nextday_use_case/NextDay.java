@@ -1,12 +1,12 @@
 package nextday_use_case;
 
-import EndGameConditions_UseCase.EndgameConditions;
-import Entities.Animal;
-import Entities.Crop;
-import Entities.Plot;
-import Entities.Product;
-import Use_Case_Interactors.InventoryManager;
-import Use_Case_Interactors.PlotManager;
+import use_cases.endgame_conditions_use_case.EndgameConditions;
+import entities.nonyieldable.Animal;
+import entities.Crop;
+import entities.Plot;
+import entities.Product;
+import use_case_interactors.InventoryManager;
+import use_case_interactors.PlotManager;
 import random_events_use_case.RandomEvents;
 
 public class NextDay {
