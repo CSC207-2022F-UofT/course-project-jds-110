@@ -132,6 +132,12 @@ public class InventoryManager {
         productStringDictionary.put("ripetomato",new RipeTomato());
         productStringDictionary.put("wool",new Wool());
     }
+
+    public static String createPriceList(){
+        return "bakedpotato = $10 \n chicken = $10 \n corn = $5 \n corncob = $10 \n cow = $30 \n" +
+                " egg = $1 \n milk = $3 \n potato = $7 \n ripetomato = $1 \n sheep = $100 \n tomato = $3 \n wool = $12";
+    }
+
     public static HashMap<String, Product> getProductStringDictionary() {
         return productStringDictionary;
 

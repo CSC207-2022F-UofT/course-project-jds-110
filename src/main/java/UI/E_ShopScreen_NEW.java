@@ -1,22 +1,30 @@
 package UI;
+import CheckProgressUseCase.CheckProgressController;
+import Entities.Egg;
+import Entities.Inventory;
+import Entities.Plot;
+import Entities.Product;
 import InterctWithMarketUseCase.ShopperController;
+import Use_Case_Interactors.InventoryManager;
+import Use_Case_Interactors.PlotManager;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 public class E_ShopScreen_NEW extends A0_MainScreen{
 
-//     JFrame mainFrame;
+     //     JFrame mainFrame;
      JPanel mainPanel, shopperPanel, buyPanel, sellPanel, plotPanel;
      JLabel SHOP, BUY, SELL, PLOT, enterItemA, enterItemB, enterAmountA, enterAmountB;
      JTextField buyItemEntry, sellItemEntry, buyAmountEntry, sellAmountEntry;
      JButton buy, sell, buyPlot, done;
 
 
-    //transitions from Menu to Shop Screen
-    shopToMenu shopToMenuHandler = new shopToMenu();
+     //transitions from Menu to Shop Screen
+     shopToMenu shopToMenuHandler = new shopToMenu();
      public E_ShopScreen_NEW(){
           mainPanel = new JPanel();
           mainPanel.setBounds(0,0,800,600);
@@ -32,7 +40,7 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
           done.setBounds(360, 500, 100, 25);
           done.addActionListener(shopToMenuHandler);
 
-         // extra panels
+          // extra panels
           createBuyPanel(mainPanel);
           createSellPanel(mainPanel);
           createPlotPanel(mainPanel);
@@ -67,6 +75,20 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
                     JOptionPane.showMessageDialog(mainFrame, info);
                }
           });
+
+          //Display progress
+          JButton btn_display_price = new JButton("Display Price");
+          btn_display_price.setBounds(72, 450, 150, 25);
+          //.setBOunds(300,360,200,50);
+          btn_display_price.addActionListener(new ActionListener() {
+               @Override
+               public void actionPerformed(ActionEvent e) {
+                    JOptionPane.showMessageDialog(window, ShopperController.returnPrices());
+
+                    //from here call SHoper_controller which calls shopper which calls invenetory manager which returns the string
+               }
+          });
+          myBuyPanel.add(btn_display_price);
 
           BUY = new JLabel("BUY");
           BUY.setBounds(125, 100, 50, 50);
@@ -108,8 +130,8 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
           sell.addActionListener(new ActionListener() {
                @Override
                public void actionPerformed(ActionEvent e) {
-                    String a = enterItemB.getText();
-                    Integer b = Integer.parseInt(enterAmountB.getText());
+                    String a = sellItemEntry.getText();
+                    Integer b = Integer.parseInt(sellAmountEntry.getText());
                     String info = ShopperController.inputBuyFromMarket(a, b);
                     JOptionPane.showMessageDialog(mainFrame, info);
                }
@@ -187,13 +209,13 @@ public class E_ShopScreen_NEW extends A0_MainScreen{
           });
      }
 
-    //ActionListener shop to menu screen
-    public class shopToMenu implements ActionListener {
-        public void actionPerformed(ActionEvent event){
-            A1_MenuScreen.createAndShowMenuScreen();
-            window.setVisible(false);
-            quit();
-        }
-    }
+     //ActionListener shop to menu screen
+     public class shopToMenu implements ActionListener {
+          public void actionPerformed(ActionEvent event){
+               A1_MenuScreen.createAndShowMenuScreen();
+               window.setVisible(false);
+               quit();
+          }
+     }
 
 }

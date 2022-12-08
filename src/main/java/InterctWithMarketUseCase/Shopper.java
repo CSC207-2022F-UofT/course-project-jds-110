@@ -90,4 +90,14 @@ public class Shopper {
     private static boolean check_valid_sale(Product item, Integer quantity){
         return ((item instanceof Yieldable) & InventoryManager.checkIfAvailable(item, quantity));
     }
+
+    /**
+     * Helper method for returning the price list
+     * @return returns the string which is the shows the string value corresponding to the price
+     */
+    public static String showPriceList(){
+        return InventoryManager.createPriceList();
+    }
+
+
 }
