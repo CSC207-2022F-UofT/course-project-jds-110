@@ -23,18 +23,36 @@ The main screen is where you can carry out your responsibilities as a farmer and
 When you go to your farm, you can place a product in one of your empty plots to start growing that product. You can do this by typing the desired product you want to place in the "Enter Product:" textbox. Then, type the plot id (of the plot you want to place it in) in the "Enter Plot Id:" textbox. After entering the product and plot id, press "place" and it will the place the desired product in the desired plot. If one of your plots is ready to be yielded, you would use harvest on a plot that has a crop-type product, and extract on a plot that has an animal-type product. To harvest/extract a plot that is ready to be yielded, enter the plot id of the particular plot that is ready in the corresponding "Enter Plot ID:" textbox and press "harvest" or "extract" depending on the product type. Once you're done managing your farm, click "DONE" to go back to the main menu.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/109601140/206355618-30789bcf-ba1a-4918-ad23-6db62b3ed239.png">
+  <img src="https://user-images.githubusercontent.com/109601140/206355618-30789bcf-ba1a-4918-ad23-6db62b3ed239.png" width="350" height="300" />
 </p>
 
 When to go to the shop, you can buy products or plots, or sell yieldable products. To view what you can buy and to see the prices of the things you can buy, press "Display Price". With this information, enter the exact name of the product you want to sell/buy and the amount (keep in mind, only yieldable products can be sold, which are products that can be harvested/extracted like milk or eggs, not cows or chickens). Before buying, make sure you have enough money to purchase the things you want. Before selling, make sure you have enough of the product that you want to sell. After completing your shopping, press "DONE" to go back to main menu.
 
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/109601140/206356379-866a5763-1a09-4a01-a39a-31aafc3d0a68.png">
+  <img src="https://user-images.githubusercontent.com/109601140/206356379-866a5763-1a09-4a01-a39a-31aafc3d0a68.png" width="350" height="300" />
 </p>
 
+To check your progress, press "Display Progress". A messagebox will pop up and show you the contents of your inventory, information about your plots and your money. Once you are finished with checking your progress, press "Go to Main Menu" to go back to the main menu.
 
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/109601140/206357730-f62ee059-81e7-47d0-b381-8ffb6fc55c90.png" width="350" height="300" />
+  <img src="https://user-images.githubusercontent.com/109601140/206357793-87de393f-06b7-4634-b61b-f7d0f53340cd.png">
+</p>
 
-Once you've finished your chores for the day, you can progress to the next day by pressing "Next Day".
+To check the leaderboard, press "Display Leaderboard". A messagebox will pop up and show your ranking with other players (on your local computer) in terms of money. Once you are done checking the leaderboard, press "Back" to go back to the main menu.
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/109601140/206358394-ce2e7ddf-bc1f-4b95-8a91-0d4402877d11.png" width="350" height="300" />
+  <img src="https://user-images.githubusercontent.com/109601140/206358431-333caffd-3249-4108-85e8-1722eb72a6ee.png">
+</p>
+
+To share you farm, the share screen will display pictures for all the products in your plots. Using this display, screenshot the screen and save the image to show your friends later!
+
+<p align="center">
+  <img src="https://user-images.githubusercontent.com/109601140/206359352-e38101e5-8793-41b9-b0e4-901404086929.png" width="350" height="300" />
+</p>
+
+Once you've finished your chores for the day, you can progress to the next day by pressing "Next Day". When you go to the next day, there will be a chance that a random event will occur!
 
 ## About the Design
 The program is divided into 9 use cases:
@@ -67,6 +85,10 @@ The user's information like their plots and inventory are in the Entities layer,
 <p align="center">
   <img src="https://user-images.githubusercontent.com/109601140/206354083-569d860c-3c55-4dde-8bf6-4c7b19cd39e0.png">
 </p>
+
+
+
+
 
 ## About the Scope
 
