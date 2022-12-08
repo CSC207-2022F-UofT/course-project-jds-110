@@ -169,7 +169,6 @@ public class E_FarmScreen extends A0_MainScreen{
         //Create and set up the content pane.
         new E_FarmScreen();
 
-        //newContentPane.setOpaque(true);
     }
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
