@@ -1,5 +1,6 @@
 package use_cases.leaderboard_use_case;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LeaderboardController {
@@ -12,7 +13,7 @@ public class LeaderboardController {
      *          2. Number2 with $1100
      *          3. Player with $500
      */
-    public static StringBuilder getRanking(){
+    public static StringBuilder getRanking() throws IOException {
         ArrayList<LeaderboardPlace> currStandings = Leaderboard.getLeaderboard();
 
         StringBuilder returnString = new StringBuilder();

@@ -10,14 +10,19 @@ import use_cases.save_state_use_case.State;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StateTest {
     File temp;
     String path;
+    Boolean gameSaved = false;
 
     /* Before each test, create a new game with name 'player'.
     A template file is created to store the file created
@@ -34,8 +39,16 @@ public class StateTest {
     so that it will not affect the whole program.
      */
     @AfterEach
-    public void teardown() {
-        temp.deleteOnExit();
+    public void teardown() throws IOException {
+        if (gameSaved) {
+            temp.deleteOnExit();
+            String path1 = System.getProperty("user.dir") + "/src/main/farms/Farms.txt";
+            Path of = Path.of(path1);
+            List<String> fileContent = new ArrayList<>(Files.readAllLines(of, StandardCharsets.UTF_8));
+            fileContent.remove(fileContent.size() - 1);
+            fileContent.remove(fileContent.size() - 1);
+            Files.write(of, fileContent, StandardCharsets.UTF_8);
+        }
     }
 
     /* Test that new inventory is created and assigned to InventoryManager,
@@ -65,13 +78,14 @@ public class StateTest {
     @Test
     public void testInitializeGameRent() {
         InventoryManager.removeRent();
-        assertEquals(InventoryManager.getMyInventoryMoney(), 300);
+        assertEquals(InventoryManager.getMyInventoryMoney(), 460);
     }
 
     /* Test that IOException is thrown in saveGame method. */
     @Test
     public void testSaveGameThrowsException() {
         try{ State.saveGame();
+            gameSaved = true;
         } catch (IOException e) {
             fail("IOException not thrown when trying to save game.");
         }
@@ -81,6 +95,7 @@ public class StateTest {
     @Test
     public void testSaveGameFile() throws IOException {
         State.saveGame();
+        gameSaved = true;
         assertTrue(temp.exists());
         assertTrue(temp.length() > 0);
     }
@@ -90,6 +105,7 @@ public class StateTest {
     public void testLoadGameThrowsException() {
         try {
             State.saveGame();
+            gameSaved = true;
             State.loadGame("player");
         } catch (IOException e) {
             fail("IOException not thrown when trying to load game.");
@@ -102,6 +118,7 @@ public class StateTest {
     @Test
     public void testLoadGame() throws IOException, ClassNotFoundException {
         State.saveGame();
+        gameSaved = true;
         State.initializeGame("user");
         InventoryManager.removeRent();
         State.loadGame("player");
