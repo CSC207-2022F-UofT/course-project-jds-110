@@ -26,7 +26,7 @@ public class NextDayTest {
     @Test
     public void testNextDayInventory() {
         NextDay.nextDayInventory();
-        Assertions.assertEquals(InventoryManager.getMyInventoryMoney(), 400);
+        Assertions.assertEquals(InventoryManager.getMyInventoryMoney(), 480);
     }
 
     /** Test that nextDayPlot method does not increase progress on empty plots */

@@ -78,7 +78,7 @@ public class StateTest {
     @Test
     public void testInitializeGameRent() {
         InventoryManager.removeRent();
-        assertEquals(InventoryManager.getMyInventoryMoney(), 300);
+        assertEquals(InventoryManager.getMyInventoryMoney(), 460);
     }
 
     /* Test that IOException is thrown in saveGame method. */
