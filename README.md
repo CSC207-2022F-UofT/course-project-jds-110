@@ -44,6 +44,7 @@ In terms of tests, our tests cover a wide variety of cases for each use case int
 The reason why that our program is static-heavy in the Entities layer is because each use case interactor needs to use the global use case interactors, since the global use case interactors are the gateways to the Entities layer. For example, the "Check Progress" use case needs PlotManager and InventoryManager to be static so it can call its methods that fetch the uer's inventory and plot information.
 
 ## How to Start The Game
+
 Run the Ranchville.java file which is inside java, inside main.
 
 ## How to Play/Functionality

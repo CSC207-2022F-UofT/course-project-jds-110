@@ -1,14 +1,17 @@
 package raising_crops_and_animals_use_case_test;
 
-import Entities.*;
-import Use_Case_Interactors.InventoryManager;
-import Use_Case_Interactors.PlotManager;
-import Entities.Product;
+import entities.*;
+import entities.nonyieldable.Chicken;
+import entities.nonyieldable.Cow;
+import entities.nonyieldable.Sheep;
+import entities.yieldable.BakedPotato;
+import use_case_interactors.InventoryManager;
+import use_case_interactors.PlotManager;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import raising_crops_and_animals_use_case.Farmer;
+import use_cases.raising_crops_and_animals_use_case.Farmer;
 
 import java.util.ArrayList;
 
@@ -23,6 +26,7 @@ public class FarmerTest {
         InventoryManager.setName("Manager");
         InventoryManager.addItem(new Chicken(), 10);
         InventoryManager.addItem(new BakedPotato(), 2);
+        InventoryManager.setupProductStringDictionary();
         ArrayList<Plot> p = new ArrayList<>();
         PlotManager.setMyPlots(p);
         PlotManager.createNewPlot();
@@ -35,7 +39,6 @@ public class FarmerTest {
     @Test
     public void testStartGrowing(){
         PlotManager.createNewPlot();
-        PlotManager.startGrowing(new Cow());
         Product c = new Cow();
         Assertions.assertEquals(1, c.getDaysToYield());
     }
@@ -53,9 +56,10 @@ public class FarmerTest {
 
     @Test
     public void testInputPlace_animals(){
-        PlotManager.startGrowing(new Sheep());
-        Farmer.place(new Sheep(), 0);
-        Assertions.assertTrue(PlotManager.place(new Sheep(), 0));
+        Farmer.place("sheep", 0);
+        PlotManager.place(new Sheep(), 0);
+        String actual = PlotManager.getMyPlots().get(0).getProductName();
+        Assertions.assertEquals("sheep", actual);
     }
 
     @Test
@@ -63,9 +67,9 @@ public class FarmerTest {
         ArrayList<Plot> p = new ArrayList<>();
         PlotManager.setMyPlots(p);
         PlotManager.createNewPlot();
-        Farmer.place(new Tomato(), 0);
-        PlotManager.startGrowing(new Tomato());
-        Assertions.assertTrue(PlotManager.place(new Tomato(), 0));
+        Farmer.place("tomato", 0);
+        String actual = PlotManager.getMyPlots().get(0).getProductName();
+        Assertions.assertEquals("tomato", actual);
     }
 
     @Test
@@ -87,7 +91,8 @@ public class FarmerTest {
         Plot newPlot = new Plot(0);
         newPlot.incrementProgress();
         newPlot.place(new Sheep());
-        Assertions.assertTrue(PlotManager.place(new Sheep(), 0));
+        PlotManager.place(new Sheep(), 0);
+        String actual = PlotManager.getMyPlots().get(0).getProductName();
+        Assertions.assertEquals("sheep", actual);
     }
 }
-

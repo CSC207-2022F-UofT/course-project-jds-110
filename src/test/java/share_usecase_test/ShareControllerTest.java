@@ -1,12 +1,13 @@
 package share_usecase_test;
 
-import Entities.*;
-import Use_Case_Interactors.InventoryManager;
-import Use_Case_Interactors.PlotManager;
+import entities.*;
+import entities.nonyieldable.*;
+import use_case_interactors.InventoryManager;
+import use_case_interactors.PlotManager;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import share_use_case.ShareController;
+import use_cases.share_use_case.ShareController;
 
 import java.util.ArrayList;
 

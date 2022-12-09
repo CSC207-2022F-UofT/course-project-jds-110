@@ -1,9 +1,9 @@
 package leaderboard_usecase_test;
 
-import Entities.Inventory;
-import Use_Case_Interactors.InventoryManager;
-import LeaderboardUseCase.Leaderboard;
-import LeaderboardUseCase.LeaderboardPlace;
+import entities.Inventory;
+import use_case_interactors.InventoryManager;
+import use_cases.leaderboard_use_case.Leaderboard;
+import use_cases.leaderboard_use_case.LeaderboardPlace;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -13,7 +13,6 @@ class LeaderboardTest {
 
     @BeforeEach
     public void setup() {
-        Leaderboard l = new Leaderboard();
         Leaderboard.resetLeaderboard();
         Inventory currInventory = new Inventory();
         // from initializer, inventory currently has $500

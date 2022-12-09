@@ -1,6 +1,6 @@
 package leaderboard_usecase_test;
 
-import LeaderboardUseCase.LeaderboardPlace;
+import use_cases.leaderboard_use_case.LeaderboardPlace;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,7 +33,7 @@ class LeaderboardPlaceTest {
      */
     @Test
     void getFarmNamesOne() {
-        ArrayList<String> expected = new ArrayList<String>();
+        ArrayList<String> expected = new ArrayList<>();
         expected.add("Wow");
         Assertions.assertEquals(expected, lpone.getFarmNames());
     }
@@ -54,7 +54,7 @@ class LeaderboardPlaceTest {
     void updateFarmNames() {
         LeaderboardPlace lp = new LeaderboardPlace(100, "lol");
         lp.updateFarmNames("lol2");
-        ArrayList<String> expected2 = new ArrayList<String>();
+        ArrayList<String> expected2 = new ArrayList<>();
         expected2.add("lol");
         expected2.add("lol2");
         Assertions.assertEquals(expected2, lp.getFarmNames());
