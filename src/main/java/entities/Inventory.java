@@ -78,7 +78,7 @@ public class Inventory implements Serializable {
     /**
      * Increase Rent by $100
      */
-    public void increaseRent() { rent += 10; }
+    public void increaseRent() { rent += 20; }
 
     /**
      * The user pays the rent
