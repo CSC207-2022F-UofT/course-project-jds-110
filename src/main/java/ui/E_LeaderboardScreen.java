@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 /**
  * This is the leaderboard screen, which will have two buttons
@@ -88,7 +89,12 @@ public class E_LeaderboardScreen extends A0_MainScreen {
         // Make display leaderboard button
         JButton btn_show_leaderboard = new JButton("Display Leaderboard");
         btn_show_leaderboard.addActionListener(e -> {
-            String info = String.valueOf(LeaderboardController.getRanking());
+            String info;
+            try {
+                info = String.valueOf(LeaderboardController.getRanking());
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
             JOptionPane.showMessageDialog(con, info, "Current Leaderboard", JOptionPane.INFORMATION_MESSAGE, icon2); // make it work
         });
 

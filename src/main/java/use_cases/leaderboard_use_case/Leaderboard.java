@@ -2,7 +2,12 @@ package use_cases.leaderboard_use_case;
 
 import use_case_interactors.InventoryManager;
 
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class is the actual leaderboard.
@@ -20,10 +25,31 @@ public class Leaderboard {
      * Note that this call also calls updateLeaderboard so the player's money, and FarmName in the leaderboard
      * will be the same as it is in the game when they're calling it.
      */
-    public static ArrayList<LeaderboardPlace> getLeaderboard(){
+    public static ArrayList<LeaderboardPlace> getLeaderboard() throws IOException {
         int currMoney = InventoryManager.getMyInventoryMoney();
         String name = InventoryManager.getName();
         Leaderboard.updateLeaderboard(currMoney, name);
+
+        String path = System.getProperty("user.dir") + "/src/main/farms/Farms.txt";
+        Path of = Path.of(path);
+        List<String> fileContent = new ArrayList<>(Files.readAllLines(of, StandardCharsets.UTF_8));
+
+        ArrayList<Integer> money = new ArrayList<>();
+        ArrayList<String> farmNames = new ArrayList<>();
+
+        for (int i = 0; i < fileContent.size(); i++) {
+            if (i % 2 == 0) {
+                farmNames.add(fileContent.get(i));
+            } else {
+                money.add(Integer.valueOf(fileContent.get(i)));
+            }
+        }
+
+        for (int i = 0; i < money.size(); i++) {
+            updateLeaderboard(money.get(i), farmNames.get(i));
+        }
+
+
         return standings;
     }
 

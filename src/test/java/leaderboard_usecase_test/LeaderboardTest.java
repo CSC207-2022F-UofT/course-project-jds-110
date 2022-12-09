@@ -9,6 +9,8 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.IOException;
+
 class LeaderboardTest {
 
     @BeforeEach
@@ -30,7 +32,7 @@ class LeaderboardTest {
      * in the Leaderboard
      */
     @Test
-    public void testGetLeaderboard() {
+    public void testGetLeaderboard() throws IOException {
         Assertions.assertEquals(1, Leaderboard.getLeaderboard().size());
 
         LeaderboardPlace currFarmsPlace = Leaderboard.getLeaderboard().get(0);
@@ -42,7 +44,7 @@ class LeaderboardTest {
      * Test if Leaderboard isn't mutated when GetLeaderboard is called multiple times
      */
     @Test
-    public void testGetLeaderboardMultipleTimes() {
+    public void testGetLeaderboardMultipleTimes() throws IOException {
         Leaderboard.getLeaderboard();
         Leaderboard.getLeaderboard();
 
@@ -58,7 +60,7 @@ class LeaderboardTest {
      * multiple leaderboard places with different amounts of money.
      */
     @Test
-    public void testUpdateLeaderboardDiffAmount() {
+    public void testUpdateLeaderboardDiffAmount() throws IOException {
         Leaderboard.getLeaderboard();
 
         Leaderboard.updateLeaderboard(100, "Wow");
@@ -79,7 +81,7 @@ class LeaderboardTest {
      *  multiple players with the same amount of money.
      */
     @Test
-    public void testUpdateLeaderboardSameAmount() {
+    public void testUpdateLeaderboardSameAmount() throws IOException {
         Leaderboard.getLeaderboard();
 
         Leaderboard.updateLeaderboard(100, "Wow");

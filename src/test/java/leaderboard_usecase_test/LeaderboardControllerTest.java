@@ -11,11 +11,12 @@ import org.junit.jupiter.api.Test;
 import use_cases.leaderboard_use_case.Leaderboard;
 import use_cases.leaderboard_use_case.LeaderboardController;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 public class LeaderboardControllerTest {
     @BeforeEach
-    public void setup() {
+    public void setup() throws IOException {
         Inventory i = new Inventory();
         InventoryManager.setMyInventory(i);
         InventoryManager.setName("Player");
@@ -37,7 +38,7 @@ public class LeaderboardControllerTest {
      * current's players information will always be added to the Leaderboard
      */
     @Test
-    public void testGetRankingEmpty() {
+    public void testGetRankingEmpty() throws IOException {
         String expectedString = "1. Player with $500";
         Assertions.assertEquals(expectedString, LeaderboardController.getRanking().toString());
     }
@@ -46,7 +47,7 @@ public class LeaderboardControllerTest {
      * Test if the LeaderboardController works with an incomplete Leaderboard
      */
     @Test
-    public void testGetRankingPartial() {
+    public void testGetRankingPartial() throws IOException {
         Leaderboard.updateLeaderboard(1111, "Number1");
 
         String expectedString = "1. Number1 with $1111\n" +
@@ -59,7 +60,7 @@ public class LeaderboardControllerTest {
      * Test if the LeaderboardController works with a complete Leaderboard/ a leaderboard with 3 entries
      */
     @Test
-    public void testGetRankingFull() {
+    public void testGetRankingFull() throws IOException {
         String expectedString = "1. Number1 with $1111\n" +
                 " 2. Number2 with $1100" +
                 "\n 3. Player with $500";
@@ -73,7 +74,7 @@ public class LeaderboardControllerTest {
      * Test if the LeaderboardController works with multiple farms having the same amount of money.
      */
     @Test
-    public void testGetRankingMultipleFarmsWithSameMoney() {
+    public void testGetRankingMultipleFarmsWithSameMoney() throws IOException {
         Leaderboard.updateLeaderboard(500, "Other");
         String expectedString = "1. Other, and Player with $500";
         Leaderboard.getLeaderboard();
@@ -86,7 +87,7 @@ public class LeaderboardControllerTest {
      */
     //
     @Test
-    public void testGetRankingExtraPlayers() {
+    public void testGetRankingExtraPlayers() throws IOException {
         String expectedString = "1. Number1 with $1111\n" +
                 " 2. Number2 with $1100" +
                 "\n 3. Player with $500";
